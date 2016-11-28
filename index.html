@@ -345,18 +345,14 @@
       
         
           
-          SSH-key
+          配置SSH-key
 步骤一  检查SSH key是否存在
-
-12ls  -al  ~/.ssh
+1ls  -al  ~/.ssh
 
 步骤二  生成SSH key
+1ssh-keygen  -t  rsa  -C  &quot;your_email@example.com&quot;
 
-12ssh-keygen  -t  rsa  -C  &quot;your_email@example.com&quot;
-
-步骤三  添加SSH key到Github
-
-登
+步骤三  添加SSH key到Github登陆Git
           ...
           <!--noindex-->
           <div class="post-more-link text-center">
@@ -718,7 +714,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

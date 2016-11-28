@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Server,blog," />
+  <meta name="keywords" content="Server,Blog,Study," />
 
 
 
@@ -84,49 +84,37 @@
 
 
 
-<meta name="description" content="SSH-key
+<meta name="description" content="配置SSH-key
 步骤一  检查SSH key是否存在
-
-12ls  -al  ~/.ssh
+1ls  -al  ~/.ssh
 
 步骤二  生成SSH key
+1ssh-keygen  -t  rsa  -C  &amp;quot;your_email@example.com&amp;quot;
 
-12ssh-keygen  -t  rsa  -C  &amp;quot;your_email@example.com&amp;quot;
-
-步骤三  添加SSH key到Github
-
-登陆Github，寻找顺序：Github -&amp;gt; Settings -&amp;gt; SSH and G">
+步骤三  添加SSH key到Github登陆Github，寻找顺序：Github -&amp;gt; Settings -&amp;gt; SSH and GPS k">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于Mac的hexo+github page搭建">
 <meta property="og:url" content="http://yoursite.com/2016/11/28/hexo-github/index.html">
 <meta property="og:site_name" content="AllenKe Blog">
-<meta property="og:description" content="SSH-key
+<meta property="og:description" content="配置SSH-key
 步骤一  检查SSH key是否存在
-
-12ls  -al  ~/.ssh
+1ls  -al  ~/.ssh
 
 步骤二  生成SSH key
+1ssh-keygen  -t  rsa  -C  &amp;quot;your_email@example.com&amp;quot;
 
-12ssh-keygen  -t  rsa  -C  &amp;quot;your_email@example.com&amp;quot;
-
-步骤三  添加SSH key到Github
-
-登陆Github，寻找顺序：Github -&amp;gt; Settings -&amp;gt; SSH and G">
-<meta property="og:updated_time" content="2016-11-28T08:53:41.000Z">
+步骤三  添加SSH key到Github登陆Github，寻找顺序：Github -&amp;gt; Settings -&amp;gt; SSH and GPS k">
+<meta property="og:updated_time" content="2016-11-28T16:39:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Mac的hexo+github page搭建">
-<meta name="twitter:description" content="SSH-key
+<meta name="twitter:description" content="配置SSH-key
 步骤一  检查SSH key是否存在
-
-12ls  -al  ~/.ssh
+1ls  -al  ~/.ssh
 
 步骤二  生成SSH key
+1ssh-keygen  -t  rsa  -C  &amp;quot;your_email@example.com&amp;quot;
 
-12ssh-keygen  -t  rsa  -C  &amp;quot;your_email@example.com&amp;quot;
-
-步骤三  添加SSH key到Github
-
-登陆Github，寻找顺序：Github -&amp;gt; Settings -&amp;gt; SSH and G">
+步骤三  添加SSH key到Github登陆Github，寻找顺序：Github -&amp;gt; Settings -&amp;gt; SSH and GPS k">
 
 
 
@@ -372,74 +360,55 @@
       
 
       
-        <h3 id="SSH-key"><a href="#SSH-key" class="headerlink" title="SSH-key"></a>SSH-key</h3><ul>
-<li>步骤一  检查SSH key是否存在</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ls  -al  ~/.ssh</div></pre></td></tr></table></figure>
-<ul>
-<li>步骤二  生成SSH key</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ssh-keygen  -t  rsa  -C  &quot;your_email@example.com&quot;</div></pre></td></tr></table></figure>
-<ul>
-<li>步骤三  添加SSH key到Github</li>
-</ul>
-<p>登陆Github，寻找顺序：Github -&gt; Settings -&gt; SSH and GPS keys</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#在Mac上执行命令，查看密钥信息</div><div class="line"></div><div class="line">cat  ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
-<p>将相应的密钥添加到SSH and GPS keys上</p>
-<ul>
-<li>步骤四  测试Mac与Github是否连通</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ssh git@github.com</div><div class="line"></div><div class="line"></div><div class="line">#PTY allocation request failed on channel 0</div><div class="line"></div><div class="line">#Hi allenouyangke! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</div><div class="line"></div><div class="line">#Connection to github.com closed.</div></pre></td></tr></table></figure>
-<h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><blockquote>
-<p>Node.js是一个Javascript运行环境(runtime)。</p>
-</blockquote>
-<p>在这里用于生成静态页面。</p>
-<ul>
-<li>在Mac中，</li>
-</ul>
-<ul>
-<li>步骤一  下载安装</li>
-</ul>
-<p>登陆<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js官网</a>  下载稳定版本安装即可。</p>
-<ul>
-<li>步骤二  验证安装和版本</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">node  --version</div><div class="line"></div><div class="line">#v6.9.1</div></pre></td></tr></table></figure>
-<h3 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h3><blockquote>
-<p>Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。</p>
-</blockquote>
-<p>在这里用来将本地Hexo内容提交到Github上。</p>
-<ul>
-<li><p>步骤一  Mac中，Xcode自带Git，在apple store下载安装即可使用。</p>
+        <h3 id="配置SSH-key"><a href="#配置SSH-key" class="headerlink" title="配置SSH-key"></a>配置SSH-key</h3><ul>
+<li><p>步骤一  检查SSH key是否存在</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls  -al  ~/.ssh</div></pre></td></tr></table></figure>
 </li>
-<li><p>步骤二  验证安装和版本</p>
+<li><p>步骤二  生成SSH key</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen  -t  rsa  -C  &quot;your_email@example.com&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>步骤三  添加SSH key到Github<br>登陆Github，寻找顺序：Github -&gt; Settings -&gt; SSH and GPS keys</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#在Mac上执行命令，查看密钥信息</div><div class="line">cat  ~/.ssh/id_rsa.pub</div><div class="line"></div><div class="line">#将相应的密钥添加到SSH and GPS keys上</div></pre></td></tr></table></figure>
+</li>
+<li><p>步骤四  测试Mac与Github是否连通</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ssh git@github.com</div><div class="line"></div><div class="line">#PTY allocation request failed on channel 0</div><div class="line">#Hi allenouyangke! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</div><div class="line">#Connection to github.com closed.</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">git --version</div><div class="line"></div><div class="line">#git version 2.9.3 (Apple Git-75)</div></pre></td></tr></table></figure>
-<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><blockquote>
+<h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><blockquote>
+<p>Node.js是一个Javascript运行环境(runtime)。<br>在这里用于生成静态页面。</p>
+</blockquote>
+<ul>
+<li>步骤一  下载安装<br>登陆<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js官网</a>  下载稳定版本安装即可。</li>
+<li>步骤二  验证安装和版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">node  --version</div><div class="line"></div><div class="line">#v6.9.1</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><blockquote>
+<p>Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。<br>在这里用来将本地Hexo内容提交到Github上。</p>
+</blockquote>
+<ul>
+<li>步骤一  Mac中，Xcode自带Git，在apple store下载安装即可使用。</li>
+<li>步骤二  验证安装和版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git --version</div><div class="line"></div><div class="line">#git version 2.9.3 (Apple Git-75)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><blockquote>
 <p>完成以上步骤后，就可以开始安装hexo了。</p>
 </blockquote>
 <ul>
-<li>步骤一  终端下执行安装命令</li>
+<li><p>步骤一  终端下执行安装命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo  npm  install  -g  hexo-cli</div></pre></td></tr></table></figure>
+</li>
+<li><p>步骤二  初始化<br>进入到hexo的安装目录，进行初始化。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo  init  &quot;your_dir_name&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p>步骤三  开启hexo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hexo s</div><div class="line"></div><div class="line">#在浏览器中输入：http://localhost:4000或http://127.0.0.1:4000，能显示出hexo主页即安装完成</div><div class="line">#已经实现了本地的访问</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">sudo  npm  install  -g  hexo-cli</div></pre></td></tr></table></figure>
-<ul>
-<li>步骤二  初始化</li>
+<h3 id="配置Github"><a href="#配置Github" class="headerlink" title="配置Github"></a>配置Github</h3><ul>
+<li>步骤一  创建hexo的项目<br>Github -&gt; New repository -&gt; “rep_name:需要跟github账号的名称一致”</li>
+<li>步骤二  同步hexo到github<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#进入到hexo的目录下</div><div class="line"></div><div class="line">#清理缓存文件（db.json）和已经生成的静态文件（publice）</div><div class="line">hexo  clean</div><div class="line"></div><div class="line">#生成缓存和静态文件</div><div class="line">hexo  g</div><div class="line"></div><div class="line">#重新部署到服务器（github）</div><div class="line">hexo  d</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>进入到hexo的安装目录，进行初始化。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">hexo  init  &quot;your_dir_name&quot;</div></pre></td></tr></table></figure>
-<ul>
-<li>步骤三  开启hexo</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">hexo s</div><div class="line"></div><div class="line">#在浏览器中输入：http://localhost:4000或http://127.0.0.1:4000，能显示出hexo主页即安装完成</div><div class="line"></div><div class="line">#已经实现了本地的访问</div></pre></td></tr></table></figure>
-<h3 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h3><ul>
-<li>步骤一  创建hexo的项目</li>
-</ul>
-<p>Github -&gt; New repository -&gt; “rep_name:需要跟github账号的名称一致”</p>
-<ul>
-<li>步骤二  同步hexo到github</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">#进入到hexo的目录下</div><div class="line"></div><div class="line">#清理缓存文件（db.json）和已经生成的静态文件（publice）</div><div class="line"></div><div class="line">hexo  clean</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">#生成缓存和静态文件</div><div class="line"></div><div class="line">hexo  g</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">#重新部署到服务器（github）</div><div class="line"></div><div class="line">hexo  d</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -463,7 +432,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Server-blog/" rel="tag"># Server,blog</a>
+            <a href="/tags/Server/" rel="tag"># Server</a>
+          
+            <a href="/tags/Blog/" rel="tag"># Blog</a>
+          
+            <a href="/tags/Study/" rel="tag"># Study</a>
           
         </div>
       
@@ -565,7 +538,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -600,7 +573,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#SSH-key"><span class="nav-number">1.</span> <span class="nav-text">SSH-key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Node-js"><span class="nav-number">2.</span> <span class="nav-text">Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git"><span class="nav-number">3.</span> <span class="nav-text">Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexo"><span class="nav-number">4.</span> <span class="nav-text">Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Github"><span class="nav-number">5.</span> <span class="nav-text">Github</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置SSH-key"><span class="nav-number">1.</span> <span class="nav-text">配置SSH-key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Node-js"><span class="nav-number">2.</span> <span class="nav-text">安装Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Git"><span class="nav-number">3.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo"><span class="nav-number">4.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Github"><span class="nav-number">5.</span> <span class="nav-text">配置Github</span></a></li></ol></div>
             
 
           </div>
