@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+    
+    <entry>
+      <title><![CDATA[hexo-config]]></title>
+      <url>%2F2016%2F11%2F29%2Fhexo-config%2F</url>
+      <content type="text"></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[CentOS初始化]]></title>
+      <url>%2F2016%2F11%2F29%2Finit-sys%2F</url>
+      <content type="text"><![CDATA[实践环境 CentOS 6.7 minimal VMware workstation 12 初始化内容针对虚拟机的网卡设置（新系统不需要） 由于完全克隆的虚拟机物理网卡会有变更，刚克隆完成后需要重新设置HWADDR，可以执行以下脚本自动完成； 12345678910111213141516171819202122232425#Author: AllenKe.#Description: 用于设置完全克隆后的虚拟机物理网卡.#ifcfg-eth0和70-persistent-net.rules两个文件的路径netcard=/etc/sysconfig/network-scriptsnetrule=/etc/udev/rules.d#提取两个文件中mac地址信息macadd=`cat $netrule/70-persistent-net.rules | awk -F &quot;;&quot; &apos;&#123;print $4&#125;&apos; | awk -F &quot;\&quot;&quot; &apos;&#123;print $2&#125;&apos;`netadd=`cat /etc/sysconfig/network-scripts/ifcfg-eth0 | grep HWADDR | awk -F &quot;=&quot; &apos;&#123;print $2&#125;&apos;`#将ifcfg-eth0文件中的HWADDR额无力地址替换成70-persistent-net.rules文件中eth1的mac地址sed -i &quot;s/$netadd/$macadd/g&quot; /etc/sysconfig/network-scripts/ifcfg-eth0#判断新的mac地址是否应已经替换成功if [ $? -eq 0 ];then echo &quot;Change successful!&quot; rm -rf $netrule/70-persistent-net.ruleselse echo &quot;Not change the macaddress!&quot;fi#输入任意键进行重启pauseshutdown -r now 修改主机名 永久修改 12345678910#进入/etc/sysconfig/network，修改HOSTNAME参数cat /etc/sysconfig/network NETWORKING=yes HOSTNAME=allenke.allenke#执行hostname命令hostname allenke#重启／注销服务器shutdown -r now 临时修改 1234#直接执行hostnamehostname allenke#ctrl+d注销／重启 关闭selinux1234567891011#进入selinux配置文件vi /etc/selinux/config#将SELINUX=enforcing修改如下，然后保存退出SELINUX=disabled#设置SELinux状态setenforce 0#获取selinux状态getenforce 安装基础服务1yum install gcc gcc-c++ vim ntpdate wget -y 设置时间定时同步 在基础服务中已经安装了ntpdate123456#找到公网／内网ntp服务器域名／IP，执行ntpdate/usr/sbin/ntpdate 0.cn.pool.ntp.org#设置每天凌晨00:00自动同步crontab -l0 */1 * * * /usr/sbin/ntpdate 0.cn.pool.ntp.org &gt;&gt; /var/log/ntpdate.log 设置别名 永久修改 123456789101112131415#在当前用户下操作cat ~/.bashrc # .bashrc # User specific aliases and functions alias rm=&apos;rm -i&apos; alias cp=&apos;cp -i&apos; alias mv=&apos;mv -i&apos; alias vi=&apos;vim&apos; # Source global definitions if [ -f /etc/bashrc ]; then . /etc/bashrc fi 临时修改 123456#直接执行命令aliasalias vi=&apos;vim&apos;#个人习惯，调整vim的字体颜色tail -1 /etc/vimrc highlight Comment ctermfg=green guifg=green history记录设置 处于安全考虑，个人习惯有输出操作的时间等信息 1234567891011#进入到/etc/bashrc，将4条语句添加到最后一行vi /etc/bashrc#保存命令的记录总数HISTFILESIZE=4000#输出记录的总数HISTSIZE=4000#时间显示的格式HISTTIMEFORMAT=&apos;%F %T &apos;#做为history的时间变量将值传递给history命令export HISTTIMEFORMAT 默认语言设置1234#设置中文或英文cat /etc/sysconfig/i18n #LANG=&quot;zh_CN.UTF-8&quot; LANG=&quot;en_US.UTF-8&quot;]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[基于Mac的hexo+github page搭建]]></title>
+      <url>%2F2016%2F11%2F28%2Fhexo-github%2F</url>
+      <content type="text"><![CDATA[配置SSH-key 步骤一 检查SSH key是否存在 1ls -al ~/.ssh 步骤二 生成SSH key 1ssh-keygen -t rsa -C &quot;your_email@example.com&quot; 步骤三 添加SSH key到Github登陆Github，寻找顺序：Github -&gt; Settings -&gt; SSH and GPS keys 1234#在Mac上执行命令，查看密钥信息cat ~/.ssh/id_rsa.pub#将相应的密钥添加到SSH and GPS keys上 步骤四 测试Mac与Github是否连通 12345ssh git@github.com#PTY allocation request failed on channel 0#Hi allenouyangke! You&apos;ve successfully authenticated, but GitHub does not provide shell access.#Connection to github.com closed. 安装Node.js Node.js是一个Javascript运行环境(runtime)。在这里用于生成静态页面。 步骤一 下载安装登陆Node.js官网 下载稳定版本安装即可。 步骤二 验证安装和版本123node --version#v6.9.1 安装Git Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。在这里用来将本地Hexo内容提交到Github上。 步骤一 Mac中，Xcode自带Git，在apple store下载安装即可使用。 步骤二 验证安装和版本123git --version#git version 2.9.3 (Apple Git-75) 安装Hexo 完成以上步骤后，就可以开始安装hexo了。 步骤一 终端下执行安装命令 1sudo npm install -g hexo-cli 步骤二 初始化进入到hexo的安装目录，进行初始化。 1hexo init &quot;your_dir_name&quot; 步骤三 开启hexo 1234hexo s#在浏览器中输入：http://localhost:4000或http://127.0.0.1:4000，能显示出hexo主页即安装完成#已经实现了本地的访问 配置Github 步骤一 创建hexo的项目Github -&gt; New repository -&gt; “rep_name:需要跟github账号的名称一致” 步骤二 同步hexo到github12345678910#进入到hexo的目录下#清理缓存文件（db.json）和已经生成的静态文件（publice）hexo clean#生成缓存和静态文件hexo g#重新部署到服务器（github）hexo d]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[linux study]]></title>
+      <url>%2F2016%2F11%2F25%2Flinux-study%2F</url>
+      <content type="text"><![CDATA[Linux Study Directionlinux系统基础 参考书籍，看鸟哥linux基础篇，至少要掌握这书60%内容，没必须全部掌握，但基本命令总得会。 网络服务 基础的服务肯定要掌握，如FTP, DNS,SAMBA, 邮件, 这几个大概学一下就行，LAMP和LNMP是必须要熟练，不光光会搭建，要很熟悉里面的相当配置，因为公司最关键的绝对是WEB服务器，所以nginx和apache要熟悉，特别是nginx一定要很熟悉才行，至少有些公司还会用tomcat，这个也最好学一下。其实网络服务方面不用太担心，一般公司的环境都已经搭建好，就算有新服务器或让你整改，公司会有相应的文档让你参照来弄，至少相关的配置一定要学熟，肯定是编译安装多，那些模块要熟悉一下他的作用，特别是PHP那些模块。 shell脚本和另一个脚本语言 shell是运维人员必须具备的，不懂这个连入职都不行，至少也要写出一些系统管理脚本，最简单也得写个监控CPU，内存比率的脚，这是最最最基本了，其中写系统脚本才是最有意义。另一个脚本语言是可选的，一般是3P，即python, perl和php，php就不需要考虑了，除非你要做开发，我个人建议学python会比较好，难实现自动化运维，perl是文本处理很强大，反正这两个学一个就行了。 sed和awk工具 必须要掌握，在掌握这两个工具同时，还要掌握正则表达式，这个就痛苦了，正则是最难学的表达式，但结合到sed和awk中会很强大，在处理文本内容和过滤WEB内容时十分有用，不过在学shell的同时一般会经常结合用到的。 文本处理命令 sort , tr , cut, paste, uniq, tee等，必学。 数据库 首选mysql，linux用得最多是mysql，增删改查必学，特别要学熟查，其它方面可能不太需要，因为运维人员使用最多还是查。 防火墙 防火墙也是个难点，最重要弄懂规则，如果学过CCNA的朋友可能会比较好学，因为iptables也有NAT表，原理是一样的，而FILTER表用得最多，反正不学就肯定不合格。 监控工具 十分十分重要，最好学这3个，cacti，nagios，zibbix，企业用得最多应该是nagios和 zibbix，反正都学吧，但nagios会有点难，因为会涉及到用脚本写自动监控，那个地方很难。 集群和热备 很重要，肯定要懂.但到了公司就不会让你去弄，因为新手基本不让你碰，集群工具有很多，最好学是LVS，这是必学，最好也学学nginx集群，反向代理，还有热备，这个就更多工具能实现了，mysql热备也要学，就是主从复制，其实不容易的，要学懂整个流程一点也不容易，只照着做根本没意思。 数据备份 不学不行，工具有很多，但至少要把RAID的原理弄懂，特别是企业最常用的1+0或0+1，自己做实验也要弄出来，备份工具有很多，如tar, dump, rsync等。 寄语运维，是一个很枯燥的行业，所以要耐得住寂寞。把平凡的工作，做得不平凡。才能体现你的价值。]]></content>
+    </entry>
+
+    
+  
+  
+</search>
