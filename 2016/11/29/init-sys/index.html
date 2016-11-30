@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Linux," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -104,7 +104,7 @@ VMware workstation 12
 由于完全克隆的虚拟机物理网卡会有变更，刚克隆完成后需要重新设置HWADDR，可以执行以下脚本自动完成；
 
 12345678910111213141516171819202122232425#Author: AllenKe.#Description: 用于设置">
-<meta property="og:updated_time" content="2016-11-29T06:46:21.000Z">
+<meta property="og:updated_time" content="2016-11-30T03:51:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS初始化">
 <meta name="twitter:description" content="实践环境
@@ -227,16 +227,6 @@ VMware workstation 12
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
           </a>
         </li>
       
@@ -414,8 +404,9 @@ VMware workstation 12
 <h3 id="关闭selinux"><a href="#关闭selinux" class="headerlink" title="关闭selinux"></a>关闭selinux</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#进入selinux配置文件</div><div class="line">vi    /etc/selinux/config</div><div class="line"></div><div class="line">#将SELINUX=enforcing修改如下，然后保存退出</div><div class="line">SELINUX=disabled</div><div class="line"></div><div class="line">#设置SELinux状态</div><div class="line">setenforce    0</div><div class="line"></div><div class="line">#获取selinux状态</div><div class="line">getenforce</div></pre></td></tr></table></figure>
 <h3 id="安装基础服务"><a href="#安装基础服务" class="headerlink" title="安装基础服务"></a>安装基础服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum    install    gcc  gcc-c++  vim  ntpdate  wget    -y</div></pre></td></tr></table></figure>
 <h3 id="设置时间定时同步"><a href="#设置时间定时同步" class="headerlink" title="设置时间定时同步"></a>设置时间定时同步</h3><blockquote>
-<p>在基础服务中已经安装了ntpdate<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#找到公网／内网ntp服务器域名／IP，执行ntpdate</div><div class="line">/usr/sbin/ntpdate  0.cn.pool.ntp.org</div><div class="line"></div><div class="line">#设置每天凌晨00:00自动同步</div><div class="line">crontab -l</div><div class="line">0 */1 * * * /usr/sbin/ntpdate 0.cn.pool.ntp.org &gt;&gt; /var/log/ntpdate.log</div></pre></td></tr></table></figure></p>
+<p>在基础服务中已经安装了ntpdate</p>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#找到公网／内网ntp服务器域名／IP，执行ntpdate</div><div class="line">/usr/sbin/ntpdate  0.cn.pool.ntp.org</div><div class="line"></div><div class="line">#设置每天凌晨00:00自动同步</div><div class="line">crontab -l</div><div class="line">0 */1 * * * /usr/sbin/ntpdate 0.cn.pool.ntp.org &gt;&gt; /var/log/ntpdate.log</div></pre></td></tr></table></figure>
 <h3 id="设置别名"><a href="#设置别名" class="headerlink" title="设置别名"></a>设置别名</h3><ul>
 <li><p>永久修改</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#在当前用户下操作</div><div class="line">cat ~/.bashrc</div><div class="line">    # .bashrc</div><div class="line"></div><div class="line">    # User specific aliases and functions</div><div class="line"></div><div class="line">    alias rm=&apos;rm -i&apos;</div><div class="line">    alias cp=&apos;cp -i&apos;</div><div class="line">    alias mv=&apos;mv -i&apos;</div><div class="line">    alias vi=&apos;vim&apos;</div><div class="line"></div><div class="line">    # Source global definitions</div><div class="line">    if [ -f /etc/bashrc ]; then</div><div class="line">            . /etc/bashrc</div><div class="line">    fi</div></pre></td></tr></table></figure>
@@ -450,12 +441,6 @@ VMware workstation 12
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
@@ -471,8 +456,8 @@ VMware workstation 12
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/29/hexo-config/" rel="prev" title="hexo-config">
-                hexo-config <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/29/hexo-config/" rel="prev" title="Hexo主配置文件详解">
+                Hexo主配置文件详解 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -568,7 +553,7 @@ VMware workstation 12
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -576,19 +561,12 @@ VMware workstation 12
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
           
 
-          
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
           
 
         </nav>
@@ -596,6 +574,17 @@ VMware workstation 12
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/allenouyangke/" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
           
         </div>
 
