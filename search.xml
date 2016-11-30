@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Hexo图床:七牛+Chrome+极简图床插件]]></title>
+      <url>%2F2016%2F11%2F30%2Fqn-jjtc%2F</url>
+      <content type="text"><![CDATA[概述&emsp;&emsp;在hexo blog中使用markdown编写文档，插入的图片的方式为：1![picture_title](picture_url) &emsp;&emsp;所以需要找一个网络存储存放相关的图片，并生成一个有效的链接进行调用。这里选择七牛的对象存储，存放和调用图片（一定范围内是免费的）。 七牛云存储&emsp;&emsp;在七牛先注册一个账号，登陆后建立对象存储。&emsp;&emsp;“测试域名”在极简图床插件中需要使用到。 极简图床插件&emsp;&emsp;打开Chrome浏览器，在插件商店添加“极简图床”，打开后点击右上角的“设置”，将你的七牛对象存储配置到上面。说明： 空间名称：可以自定义，没有特殊要求。 AK和SK：在图3中，七牛账号里寻找，路径：“个人面板-&gt;个人中心-&gt;密钥管理”。 域名：如果没有个人域名就填写图1中的“测试域名”，有个人域名建议使用个人域名。 使用步骤 将本地需要配置到文章中的图片，拖入Chrome的极简图床窗口； 按照提示：“粘贴、拖动或点此选择图片上传”即可将图片上传到你的七牛对象存储中，并生成相应的图片链接； 在“我的上传”中，找到需要插入的图片资源，复制的相应的url，根据Markdown的语法调用即可； 总结&emsp;&emsp;整个的操作很简单，可能Chrome的极简图床插件需要连接下VPN。个人比较喜欢使用“Hexo+七牛+Chrome+极简图床插件”，因为这全都是免费的。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Hexo基础]]></title>
       <url>%2F2016%2F11%2F29%2Fhexo-bases%2F</url>
       <content type="text"><![CDATA[Hexo安装12345678# 安装npm install hexo -g # 升级npm update hexo -g# 初始化,可以指定初始化的目录hexo init &quot;dir_name&quot; 基础配置添加标签页面12345678910111213141516# 建立标签页面cd hexo-sitehexo new page tags# 设置页面类型title: 标签date: 2016-11-29 12:12:12type: &quot;tags&quot;---# 修改菜单,并设置该页禁用标签功能menu: home: / archives: /archives tags: /tags comments: false 添加分类页面12345678910111213141516# 建立分类页面cd hexo-sitehexo new page categories# 设置页面类型title: 分类date: 2016-11-29 12:12:12type: &quot;categories&quot;---# 修改菜单，并设置该页面禁用标签功能menu: home: / archives: /archives categories: /categories comments: false 基础操作命令新建文章12345#新建文章hexo n &quot;article_name&quot; == hexo new &quot;article_name&quot;#草稿hexo p &quot;article_name&quot; == hexo publish &quot;article_name&quot; 部署文章123456789101112131415#清理缓存hexo clean#生成静态页面到public目录hexo g == hexo generate#启动服务预览，可以在后面添加“--debug”参数hexo s == hexo server#部署到githubhexo d == hexo deploy#可以将部署简写hexo generate --deployhexo deploy --generate 服务器命令1234567891011#Hexo监视文件变动并自动更新，无须重启hexo server#静态模式hexo server -s#更改端口hexo server -p 5000#自定义iphexo server -i 192.168.1.1]]></content>
