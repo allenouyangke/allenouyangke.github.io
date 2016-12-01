@@ -84,22 +84,16 @@
 
 
 
-<meta name="description" content="Hexo安装12345678# 安装npm install hexo -g # 升级npm update hexo -g# 初始化,可以指定初始化的目录hexo init &amp;quot;dir_name&amp;quot;
-
-基础配置添加标签页面12345678910111213141516# 建立标签页面cd hexo-sitehexo new page tags# 设置页面类型title: 标签date">
+<meta name="description" content="&amp;emsp;&amp;emsp;在mac上安装了hexo后的一些学习心得和总结，主要是对主配置文件（_config.yml)和hexo操作命令的一些总结，以便以后能快速回顾。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo基础">
 <meta property="og:url" content="http://yoursite.com/2016/11/29/hexo-bases/index.html">
 <meta property="og:site_name" content="AllenKe Blog">
-<meta property="og:description" content="Hexo安装12345678# 安装npm install hexo -g # 升级npm update hexo -g# 初始化,可以指定初始化的目录hexo init &amp;quot;dir_name&amp;quot;
-
-基础配置添加标签页面12345678910111213141516# 建立标签页面cd hexo-sitehexo new page tags# 设置页面类型title: 标签date">
-<meta property="og:updated_time" content="2016-11-30T03:51:20.000Z">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;在mac上安装了hexo后的一些学习心得和总结，主要是对主配置文件（_config.yml)和hexo操作命令的一些总结，以便以后能快速回顾。">
+<meta property="og:updated_time" content="2016-12-01T06:55:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo基础">
-<meta name="twitter:description" content="Hexo安装12345678# 安装npm install hexo -g # 升级npm update hexo -g# 初始化,可以指定初始化的目录hexo init &amp;quot;dir_name&amp;quot;
-
-基础配置添加标签页面12345678910111213141516# 建立标签页面cd hexo-sitehexo new page tags# 设置页面类型title: 标签date">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;在mac上安装了hexo后的一些学习心得和总结，主要是对主配置文件（_config.yml)和hexo操作命令的一些总结，以便以后能快速回顾。">
 
 
 
@@ -380,7 +374,8 @@
       
 
       
-        <h3 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 安装</div><div class="line">npm install hexo -g </div><div class="line"></div><div class="line"># 升级</div><div class="line">npm update hexo -g</div><div class="line"></div><div class="line"># 初始化,可以指定初始化的目录</div><div class="line">hexo init &quot;dir_name&quot;</div></pre></td></tr></table></figure>
+        <p>&emsp;&emsp;在mac上安装了hexo后的一些学习心得和总结，主要是对主配置文件（_config.yml)和hexo操作命令的一些总结，以便以后能快速回顾。<br><a id="more"></a></p>
+<h3 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 安装</div><div class="line">npm install hexo -g</div><div class="line"></div><div class="line"># 升级</div><div class="line">npm update hexo -g</div><div class="line"></div><div class="line"># 初始化,可以指定初始化的目录</div><div class="line">hexo init &quot;dir_name&quot;</div></pre></td></tr></table></figure>
 <hr>
 <h3 id="基础配置"><a href="#基础配置" class="headerlink" title="基础配置"></a>基础配置</h3><h4 id="添加标签页面"><a href="#添加标签页面" class="headerlink" title="添加标签页面"></a>添加标签页面</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># 建立标签页面</div><div class="line">cd hexo-site</div><div class="line">hexo new page tags</div><div class="line"></div><div class="line"># 设置页面类型</div><div class="line">title: 标签</div><div class="line">date: 2016-11-29 12:12:12</div><div class="line">type: &quot;tags&quot;</div><div class="line">---</div><div class="line"></div><div class="line"># 修改菜单,并设置该页禁用标签功能</div><div class="line">menu:</div><div class="line">  home: /</div><div class="line">  archives: /archives</div><div class="line">  tags: /tags</div><div class="line">  comments: false</div></pre></td></tr></table></figure>
 <h4 id="添加分类页面"><a href="#添加分类页面" class="headerlink" title="添加分类页面"></a>添加分类页面</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># 建立分类页面</div><div class="line">cd hexo-site</div><div class="line">hexo new page categories</div><div class="line"></div><div class="line"># 设置页面类型</div><div class="line">title: 分类</div><div class="line">date: 2016-11-29 12:12:12</div><div class="line">type: &quot;categories&quot;</div><div class="line">---</div><div class="line"></div><div class="line"># 修改菜单，并设置该页面禁用标签功能</div><div class="line">menu:</div><div class="line">  home: /</div><div class="line">  archives: /archives</div><div class="line">  categories: /categories</div><div class="line">  comments: false</div></pre></td></tr></table></figure>
