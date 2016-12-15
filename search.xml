@@ -3,9 +3,9 @@
   
     
     <entry>
-      <title><![CDATA[tomcat����ssl֤��ʵ��https����]]></title>
+      <title><![CDATA[tomcat配置ssl证书实现https访问]]></title>
       <url>%2F2016%2F12%2F09%2Ftomcat-https%2F</url>
-      <content type="text"><![CDATA[����tomcat��ssl֤�� tomcat��װ·����Ŀ¼�ṹ �����ļ�·�� 1vim /usr/local/tomcat/conf/server.xml �����ļ�·�� 1234567891011&lt;!--��tomcat�����ļ����ҵ�&lt;Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol" SSLEnabled="true" maxThreads="150" scheme="https" secure="true" clientAuth="false" sslProtocol="TLS" /&gt;--&gt;#��ע��ȥ��������tomcat����������֤�������룬���Ӻ���������&lt;Connector port="443" protocol="org.apache.coyote.http11.Http11Protocol" SSLEnabled="true" maxThreads="150" scheme="https" secure="true" clientAuth="false" keystoreFile="/usr/local/tomcat/conf/example.com.jks" keystorePass="example_passwd" sslProtocol="TLS" /&gt; ֤������·�������Զ��壬������keystoreFileʱһ����Ҫʹ�þ���·�������Լ��ٺܶ಻��Ҫ�Ĵ����� ��֤���� ��tomcat�������� 1234567#ת��../tomcat/bin/��#�ر�./shutdown.sh#����./startup.#!/bin/sh ����hosts 12345#Linux&amp;Mac:/etc/hosts#Windows:C:\Windows\System32\drivers\etc58.229.*.* test.example.com ����������֤ע����Ϊ֤�������������ģ�����һ�����������Ż���Ч1https://test.example.com:8443/]]></content>
+      <content type="text"><![CDATA[配置tomcat的ssl证书 tomcat安装路径及目录结构 配置文件路径 1vim /usr/local/tomcat/conf/server.xml 配置文件路径 1234567891011&lt;!--在tomcat配置文件中找到&lt;Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol" SSLEnabled="true" maxThreads="150" scheme="https" secure="true" clientAuth="false" sslProtocol="TLS" /&gt;--&gt;#将注释去掉，添加tomcat的相关域名证书和密码，添加后设置如下&lt;Connector port="443" protocol="org.apache.coyote.http11.Http11Protocol" SSLEnabled="true" maxThreads="150" scheme="https" secure="true" clientAuth="false" keystoreFile="/usr/local/tomcat/conf/example.com.jks" keystorePass="example_passwd" sslProtocol="TLS" /&gt; 证书存放路径可以自定义，在配置keystoreFile时一定需要使用绝对路径，可以减少很多不必要的错误。 验证配置 对tomcat进行重启 1234567#转到../tomcat/bin/下#关闭./shutdown.sh#开启./startup.#!/bin/sh 绑定hosts 12345#Linux&amp;Mac:/etc/hosts#Windows:C:\Windows\System32\drivers\etc58.229.*.* test.example.com 访问链接验证注：因为证书是针对域名的，所以一般访问域名才会生效1https://test.example.com:8443/]]></content>
     </entry>
 
     
