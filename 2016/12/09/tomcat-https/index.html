@@ -84,18 +84,21 @@
 
 
 
-<meta name="description" content="个人归纳&amp;emsp;&amp;emsp;由于工作需要，需要在某语音服务器上配置ssl证书。该服务器上使用的是tomcat运行着语音服的程序，由于自己也不怎么熟悉，刚开始在测试环境中进行了测试，琢磨了一个上午，查了一些资料，总结起来就是将申请下来的证书和密钥添加到配置文件。111&amp;emsp;&amp;emsp;自己学艺不精，还是遇上比较多的问题：&amp;emsp;&amp;emsp;1.配置https后，域名能访问8443端口，">
+<meta name="description" content="个人归纳&amp;emsp;&amp;emsp;由于工作需要，需要在某语音服务器上配置ssl证书。该服务器上使用的是tomcat运行着语音服的程序，由于自己也不怎么熟悉，刚开始在测试环境中进行了测试，琢磨了一个上午，查了一些资料，总结起来就是将申请下来的证书和密钥添加到配置文件。
+&amp;emsp;&amp;emsp;自己学艺不精，还是遇上比较多的问题：&amp;emsp;&amp;emsp;1.配置https后，域名能访问8443端口，但是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tomcat配置ssl证书实现https访问">
 <meta property="og:url" content="http://yoursite.com/2016/12/09/tomcat-https/index.html">
 <meta property="og:site_name" content="AllenKe Blog">
-<meta property="og:description" content="个人归纳&amp;emsp;&amp;emsp;由于工作需要，需要在某语音服务器上配置ssl证书。该服务器上使用的是tomcat运行着语音服的程序，由于自己也不怎么熟悉，刚开始在测试环境中进行了测试，琢磨了一个上午，查了一些资料，总结起来就是将申请下来的证书和密钥添加到配置文件。111&amp;emsp;&amp;emsp;自己学艺不精，还是遇上比较多的问题：&amp;emsp;&amp;emsp;1.配置https后，域名能访问8443端口，">
+<meta property="og:description" content="个人归纳&amp;emsp;&amp;emsp;由于工作需要，需要在某语音服务器上配置ssl证书。该服务器上使用的是tomcat运行着语音服的程序，由于自己也不怎么熟悉，刚开始在测试环境中进行了测试，琢磨了一个上午，查了一些资料，总结起来就是将申请下来的证书和密钥添加到配置文件。
+&amp;emsp;&amp;emsp;自己学艺不精，还是遇上比较多的问题：&amp;emsp;&amp;emsp;1.配置https后，域名能访问8443端口，但是">
 <meta property="og:image" content="http://ogpr96vps.bkt.clouddn.com/16-12-13/78883592-file_1481613756775_7dd8.png">
 <meta property="og:image" content="http://ogpr96vps.bkt.clouddn.com/16-12-15/43445861-file_1481794492533_1227f.png">
-<meta property="og:updated_time" content="2016-12-15T10:25:04.000Z">
+<meta property="og:updated_time" content="2016-12-15T10:25:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tomcat配置ssl证书实现https访问">
-<meta name="twitter:description" content="个人归纳&amp;emsp;&amp;emsp;由于工作需要，需要在某语音服务器上配置ssl证书。该服务器上使用的是tomcat运行着语音服的程序，由于自己也不怎么熟悉，刚开始在测试环境中进行了测试，琢磨了一个上午，查了一些资料，总结起来就是将申请下来的证书和密钥添加到配置文件。111&amp;emsp;&amp;emsp;自己学艺不精，还是遇上比较多的问题：&amp;emsp;&amp;emsp;1.配置https后，域名能访问8443端口，">
+<meta name="twitter:description" content="个人归纳&amp;emsp;&amp;emsp;由于工作需要，需要在某语音服务器上配置ssl证书。该服务器上使用的是tomcat运行着语音服的程序，由于自己也不怎么熟悉，刚开始在测试环境中进行了测试，琢磨了一个上午，查了一些资料，总结起来就是将申请下来的证书和密钥添加到配置文件。
+&amp;emsp;&amp;emsp;自己学艺不精，还是遇上比较多的问题：&amp;emsp;&amp;emsp;1.配置https后，域名能访问8443端口，但是">
 <meta name="twitter:image" content="http://ogpr96vps.bkt.clouddn.com/16-12-13/78883592-file_1481613756775_7dd8.png">
 
 
@@ -377,7 +380,8 @@
       
 
       
-        <h3 id="个人归纳"><a href="#个人归纳" class="headerlink" title="个人归纳"></a>个人归纳</h3><p>&emsp;&emsp;由于工作需要，需要在某语音服务器上配置ssl证书。该服务器上使用的是tomcat运行着语音服的程序，由于自己也不怎么熟悉，刚开始在测试环境中进行了测试，琢磨了一个上午，查了一些资料，总结起来就是将申请下来的证书和密钥添加到配置文件。<br><br>111<br>&emsp;&emsp;<strong>自己学艺不精，还是遇上比较多的问题：</strong><br>&emsp;&emsp;1.配置https后，域名能访问8443端口，但是ip访问不了8080端口；<br>&emsp;&emsp;2.对于tomcat的ssl证书的理解不深入，导致配置中一直出现问题；<br><a id="more"></a></p>
+        <h3 id="个人归纳"><a href="#个人归纳" class="headerlink" title="个人归纳"></a>个人归纳</h3><p>&emsp;&emsp;由于工作需要，需要在某语音服务器上配置ssl证书。该服务器上使用的是tomcat运行着语音服的程序，由于自己也不怎么熟悉，刚开始在测试环境中进行了测试，琢磨了一个上午，查了一些资料，总结起来就是将申请下来的证书和密钥添加到配置文件。</p>
+<p>&emsp;&emsp;<strong>自己学艺不精，还是遇上比较多的问题：</strong><br>&emsp;&emsp;1.配置https后，域名能访问8443端口，但是ip访问不了8080端口；<br>&emsp;&emsp;2.对于tomcat的ssl证书的理解不深入，导致配置中一直出现问题；<br><a id="more"></a></p>
 <h3 id="配置tomcat的ssl证书"><a href="#配置tomcat的ssl证书" class="headerlink" title="配置tomcat的ssl证书"></a>配置tomcat的ssl证书</h3><ul>
 <li><p>tomcat安装路径及目录结构<br><img src="http://ogpr96vps.bkt.clouddn.com/16-12-13/78883592-file_1481613756775_7dd8.png" alt="tomcat安装路径及目录结构"></p>
 </li>
