@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[vim键盘提示图]]></title>
+      <url>%2F2016%2F12%2F17%2Fvim%2F</url>
+      <content type="text"><![CDATA[基础部分 拓展部分]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Apache配置ssl证书实现https访问]]></title>
       <url>%2F2016%2F12%2F16%2Fapache-https%2F</url>
       <content type="text"><![CDATA[Apache的ssl证书 Apche的ssl证书一共有三个1_root_bundle.crt2domainname.com.crt3 domainname.com.key注：domainname.com是您的域名；2 domainname.com.crt为公钥；3 domainname.com.key为私钥。(文件后缀名crt和cer的性质是一样的) 安装ssl证书 安装openssl和apache的ssl模块 1yum install openssl mod_ssl -y 修改apache下的httpd.conf配置文件 1234567#默认配置路径vi /etc/httpd/conf/httpd.conf#在配置文件中找到一下行，并去掉注释#如果没有则自行添加到配置文件中LoadModule ssl_module modules/mod_ssl.soInclude conf/extra/httpd-ssl.conf 修改apache 12345678910111213141516171819202122#默认配置文件路径vi /etc/httpd/conf.d/ssl.conf#找到以下行，并去掉注释#如没有请自行添加SSLProtocol all -SSLv2 -SSLv3SSLCipherSuite AESGCM:ALL:!DH:!EXPORT:!RC4:+HIGH:!MEDIUM:!LOW:!aNULL:!eNULL#添加证书的路径#注：不管是添加还是修改都需要先做备份#将服务器证书公钥(2_domainname.com.crt)配置到该路径下，同时替换localhost.crtSSLCertificateFile /etc/pki/tls/certs/localhost.crt#将服务器证书私钥(3_domainname.com.key)配置到该路径下，同时替换localhost.keySSLCertificateKeyFile /etc/pki/tls/private/localhost.key#删除行首的“#”号注释符，并将中级CA证书(1_root_bundle.crt)配置到该路径下，同时替换成server-chain.crtSSLCertificateChainFile /etc/pki/tls/certs/server-chain.crt#保存退出#重启apacheservice httpd restart 验证测试 绑定hosts 12345#Linux&amp;Mac:/etc/hosts#Windows:C:\Windows\System32\drivers\etc58.229.*.* test.example.com 访问成功视例]]></content>
