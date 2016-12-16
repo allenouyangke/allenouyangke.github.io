@@ -84,16 +84,21 @@
 
 
 
-<meta name="description" content="&amp;emsp;&amp;emsp;在MacBook上搭建自己的Hoxe+Github page，将Hexo作为未来学习总结的一个平台，并将相关的学习内容保存和分享。">
+<meta name="description" content="Apache的ssl证书
+Apche的ssl证书一共有三个1_root_bundle.crt2domainname.com.crt3 domainname.com.key注：domainname.com是您的域名；2 domainname.com.crt为公钥；3 domainname.com.key为私钥。(文件后缀名crt和cer的性质是一样的)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于Mac的hexo+github page搭建">
-<meta property="og:url" content="http://yoursite.com/2016/11/28/hexo-github/index.html">
+<meta property="og:title" content="Apache配置ssl证书实现https访问">
+<meta property="og:url" content="http://yoursite.com/2016/12/16/apache-https/index.html">
 <meta property="og:site_name" content="AllenKe Blog">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;在MacBook上搭建自己的Hoxe+Github page，将Hexo作为未来学习总结的一个平台，并将相关的学习内容保存和分享。">
-<meta property="og:updated_time" content="2016-12-01T06:49:34.000Z">
+<meta property="og:description" content="Apache的ssl证书
+Apche的ssl证书一共有三个1_root_bundle.crt2domainname.com.crt3 domainname.com.key注：domainname.com是您的域名；2 domainname.com.crt为公钥；3 domainname.com.key为私钥。(文件后缀名crt和cer的性质是一样的)">
+<meta property="og:image" content="http://ogpr96vps.bkt.clouddn.com/16-12-16/42860933-file_1481869823117_b6d4.png">
+<meta property="og:updated_time" content="2016-12-16T06:34:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于Mac的hexo+github page搭建">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;在MacBook上搭建自己的Hoxe+Github page，将Hexo作为未来学习总结的一个平台，并将相关的学习内容保存和分享。">
+<meta name="twitter:title" content="Apache配置ssl证书实现https访问">
+<meta name="twitter:description" content="Apache的ssl证书
+Apche的ssl证书一共有三个1_root_bundle.crt2domainname.com.crt3 domainname.com.key注：domainname.com是您的域名；2 domainname.com.crt为公钥；3 domainname.com.key为私钥。(文件后缀名crt和cer的性质是一样的)">
+<meta name="twitter:image" content="http://ogpr96vps.bkt.clouddn.com/16-12-16/42860933-file_1481869823117_b6d4.png">
 
 
 
@@ -121,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/28/hexo-github/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/12/16/apache-https/"/>
 
 
 
 
 
-  <title> 基于Mac的hexo+github page搭建 | AllenKe Blog </title>
+  <title> Apache配置ssl证书实现https访问 | AllenKe Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -271,7 +276,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/28/hexo-github/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/16/apache-https/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="AllenKe">
@@ -295,7 +300,7 @@
             
             
               
-                基于Mac的hexo+github page搭建
+                Apache配置ssl证书实现https访问
               
             
           </h1>
@@ -308,8 +313,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-28T16:50:58+08:00">
-                2016-11-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-16T13:58:06+08:00">
+                2016-12-16
               </time>
             
 
@@ -327,8 +332,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -342,8 +347,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/11/28/hexo-github/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/28/hexo-github/" itemprop="commentCount"></span>
+                <a href="/2016/12/16/apache-https/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/16/apache-https/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -374,54 +379,26 @@
       
 
       
-        <p>&emsp;&emsp;在MacBook上搭建自己的Hoxe+Github page，将Hexo作为未来学习总结的一个平台，并将相关的学习内容保存和分享。<br><a id="more"></a></p>
-<h3 id="配置SSH-key"><a href="#配置SSH-key" class="headerlink" title="配置SSH-key"></a>配置SSH-key</h3><ul>
-<li><p>步骤一  检查SSH key是否存在</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls  -al  ~/.ssh</div></pre></td></tr></table></figure>
-</li>
-<li><p>步骤二  生成SSH key</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen  -t  rsa  -C  &quot;your_email@example.com&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>步骤三  添加SSH key到Github<br>登陆Github，寻找顺序：Github -&gt; Settings -&gt; SSH and GPS keys</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#在Mac上执行命令，查看密钥信息</div><div class="line">cat  ~/.ssh/id_rsa.pub</div><div class="line"></div><div class="line">#将相应的密钥添加到SSH and GPS keys上</div></pre></td></tr></table></figure>
-</li>
-<li><p>步骤四  测试Mac与Github是否连通</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ssh git@github.com</div><div class="line"></div><div class="line">#PTY allocation request failed on channel 0</div><div class="line">#Hi allenouyangke! You&apos;ve successfully authenticated, but GitHub does not provide shell access.</div><div class="line">#Connection to github.com closed.</div></pre></td></tr></table></figure>
+        <h3 id="Apache的ssl证书"><a href="#Apache的ssl证书" class="headerlink" title="Apache的ssl证书"></a>Apache的ssl证书</h3><ul>
+<li>Apche的ssl证书一共有三个<br>1_root_bundle.crt<br>2<em>domainname.com.crt<br>3</em> domainname.com.key<br>注：domainname.com是您的域名；2<em> domainname.com.crt为公钥；3</em> domainname.com.key为私钥。(文件后缀名crt和cer的性质是一样的)<a id="more"></a>
 </li>
 </ul>
-<h3 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h3><blockquote>
-<p>Node.js是一个Javascript运行环境(runtime)。<br>在这里用于生成静态页面。</p>
-</blockquote>
-<ul>
-<li>步骤一  下载安装<br>登陆<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js官网</a>  下载稳定版本安装即可。</li>
-<li>步骤二  验证安装和版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">node  --version</div><div class="line"></div><div class="line">#v6.9.1</div></pre></td></tr></table></figure>
+<h3 id="安装ssl证书"><a href="#安装ssl证书" class="headerlink" title="安装ssl证书"></a>安装ssl证书</h3><ul>
+<li><p>安装openssl和apache的ssl模块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install openssl mod_ssl -y</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改apache下的httpd.conf配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#默认配置路径</div><div class="line">vi /etc/httpd/conf/httpd.conf</div><div class="line"></div><div class="line">#在配置文件中找到一下行，并去掉注释</div><div class="line">#如果没有则自行添加到配置文件中</div><div class="line">LoadModule ssl_module modules/mod_ssl.so</div><div class="line">Include conf/extra/httpd-ssl.conf</div></pre></td></tr></table></figure>
+</li>
+<li><p>修改apache</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">#默认配置文件路径</div><div class="line">vi /etc/httpd/conf.d/ssl.conf</div><div class="line"></div><div class="line">#找到以下行，并去掉注释</div><div class="line">#如没有请自行添加</div><div class="line">SSLProtocol  all -SSLv2 -SSLv3</div><div class="line">SSLCipherSuite AESGCM:ALL:!DH:!EXPORT:!RC4:+HIGH:!MEDIUM:!LOW:!aNULL:!eNULL</div><div class="line"></div><div class="line">#添加证书的路径</div><div class="line">#注：不管是添加还是修改都需要先做备份</div><div class="line">#将服务器证书公钥(2_domainname.com.crt)配置到该路径下，同时替换localhost.crt</div><div class="line">SSLCertificateFile /etc/pki/tls/certs/localhost.crt</div><div class="line"></div><div class="line">#将服务器证书私钥(3_domainname.com.key)配置到该路径下，同时替换localhost.key</div><div class="line">SSLCertificateKeyFile /etc/pki/tls/private/localhost.key</div><div class="line"></div><div class="line">#删除行首的“#”号注释符，并将中级CA证书(1_root_bundle.crt)配置到该路径下，同时替换成server-chain.crt</div><div class="line">SSLCertificateChainFile /etc/pki/tls/certs/server-chain.crt</div><div class="line"></div><div class="line">#保存退出</div><div class="line">#重启apache</div><div class="line">service httpd restart</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3><blockquote>
-<p>Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。<br>在这里用来将本地Hexo内容提交到Github上。</p>
-</blockquote>
-<ul>
-<li>步骤一  Mac中，Xcode自带Git，在apple store下载安装即可使用。</li>
-<li>步骤二  验证安装和版本<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git --version</div><div class="line"></div><div class="line">#git version 2.9.3 (Apple Git-75)</div></pre></td></tr></table></figure>
+<h3 id="验证测试"><a href="#验证测试" class="headerlink" title="验证测试"></a>验证测试</h3><ul>
+<li><p>绑定hosts</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#Linux&amp;Mac:/etc/hosts</div><div class="line"></div><div class="line">#Windows:C:\Windows\System32\drivers\etc</div><div class="line"></div><div class="line">58.229.*.*     test.example.com</div></pre></td></tr></table></figure>
 </li>
-</ul>
-<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><blockquote>
-<p>完成以上步骤后，就可以开始安装hexo了。</p>
-</blockquote>
-<ul>
-<li><p>步骤一  终端下执行安装命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo  npm  install  -g  hexo-cli</div></pre></td></tr></table></figure>
-</li>
-<li><p>步骤二  初始化<br>进入到hexo的安装目录，进行初始化。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo  init  &quot;your_dir_name&quot;</div></pre></td></tr></table></figure>
-</li>
-<li><p>步骤三  开启hexo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hexo s</div><div class="line"></div><div class="line">#在浏览器中输入：http://localhost:4000或http://127.0.0.1:4000，能显示出hexo主页即安装完成</div><div class="line">#已经实现了本地的访问</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="配置Github"><a href="#配置Github" class="headerlink" title="配置Github"></a>配置Github</h3><ul>
-<li>步骤一  创建hexo的项目<br>Github -&gt; New repository -&gt; “rep_name:需要跟github账号的名称一致”</li>
-<li>步骤二  同步hexo到github<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#进入到hexo的目录下</div><div class="line"></div><div class="line">#清理缓存文件（db.json）和已经生成的静态文件（publice）</div><div class="line">hexo  clean</div><div class="line"></div><div class="line">#生成缓存和静态文件</div><div class="line">hexo  g</div><div class="line"></div><div class="line">#重新部署到服务器（github）</div><div class="line">hexo  d</div></pre></td></tr></table></figure>
+<li><p>访问成功视例<br><img src="http://ogpr96vps.bkt.clouddn.com/16-12-16/42860933-file_1481869823117_b6d4.png" alt="apache-https访问验证成功"></p>
 </li>
 </ul>
 
@@ -450,8 +427,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/25/linux-study/" rel="next" title="linux study">
-                <i class="fa fa-chevron-left"></i> linux study
+              <a href="/2016/12/09/tomcat-https/" rel="next" title="tomcat配置ssl证书实现https访问">
+                <i class="fa fa-chevron-left"></i> tomcat配置ssl证书实现https访问
               </a>
             
           </div>
@@ -459,10 +436,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/29/init-sys/" rel="prev" title="CentOS初始化">
-                CentOS初始化 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -511,8 +484,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/28/hexo-github/"
-           data-title="基于Mac的hexo+github page搭建" data-url="http://yoursite.com/2016/11/28/hexo-github/">
+      <div class="ds-thread" data-thread-key="2016/12/16/apache-https/"
+           data-title="Apache配置ssl证书实现https访问" data-url="http://yoursite.com/2016/12/16/apache-https/">
       </div>
     
   </div>
@@ -613,7 +586,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置SSH-key"><span class="nav-number">1.</span> <span class="nav-text">配置SSH-key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Node-js"><span class="nav-number">2.</span> <span class="nav-text">安装Node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Git"><span class="nav-number">3.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Hexo"><span class="nav-number">4.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置Github"><span class="nav-number">5.</span> <span class="nav-text">配置Github</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Apache的ssl证书"><span class="nav-number">1.</span> <span class="nav-text">Apache的ssl证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装ssl证书"><span class="nav-number">2.</span> <span class="nav-text">安装ssl证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证测试"><span class="nav-number">3.</span> <span class="nav-text">验证测试</span></a></li></ol></div>
             
 
           </div>

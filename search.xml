@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Apache配置ssl证书实现https访问]]></title>
+      <url>%2F2016%2F12%2F16%2Fapache-https%2F</url>
+      <content type="text"><![CDATA[Apache的ssl证书 Apche的ssl证书一共有三个1_root_bundle.crt2domainname.com.crt3 domainname.com.key注：domainname.com是您的域名；2 domainname.com.crt为公钥；3 domainname.com.key为私钥。(文件后缀名crt和cer的性质是一样的) 安装ssl证书 安装openssl和apache的ssl模块 1yum install openssl mod_ssl -y 修改apache下的httpd.conf配置文件 1234567#默认配置路径vi /etc/httpd/conf/httpd.conf#在配置文件中找到一下行，并去掉注释#如果没有则自行添加到配置文件中LoadModule ssl_module modules/mod_ssl.soInclude conf/extra/httpd-ssl.conf 修改apache 12345678910111213141516171819202122#默认配置文件路径vi /etc/httpd/conf.d/ssl.conf#找到以下行，并去掉注释#如没有请自行添加SSLProtocol all -SSLv2 -SSLv3SSLCipherSuite AESGCM:ALL:!DH:!EXPORT:!RC4:+HIGH:!MEDIUM:!LOW:!aNULL:!eNULL#添加证书的路径#注：不管是添加还是修改都需要先做备份#将服务器证书公钥(2_domainname.com.crt)配置到该路径下，同时替换localhost.crtSSLCertificateFile /etc/pki/tls/certs/localhost.crt#将服务器证书私钥(3_domainname.com.key)配置到该路径下，同时替换localhost.keySSLCertificateKeyFile /etc/pki/tls/private/localhost.key#删除行首的“#”号注释符，并将中级CA证书(1_root_bundle.crt)配置到该路径下，同时替换成server-chain.crtSSLCertificateChainFile /etc/pki/tls/certs/server-chain.crt#保存退出#重启apacheservice httpd restart 验证测试 绑定hosts 12345#Linux&amp;Mac:/etc/hosts#Windows:C:\Windows\System32\drivers\etc58.229.*.* test.example.com 访问成功视例]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[tomcat配置ssl证书实现https访问]]></title>
       <url>%2F2016%2F12%2F09%2Ftomcat-https%2F</url>
       <content type="text"><![CDATA[个人归纳&emsp;&emsp;由于工作需要，需要在某语音服务器上配置ssl证书。该服务器上使用的是tomcat运行着语音服的程序，由于自己也不怎么熟悉，刚开始在测试环境中进行了测试，琢磨了一个上午，查了一些资料，总结起来就是将申请下来的证书和密钥添加到配置文件。 &emsp;&emsp;自己学艺不精，还是遇上比较多的问题：&emsp;&emsp;1.配置https后，域名能访问8443端口，但是ip访问不了8080端口；&emsp;&emsp;2.对于tomcat的ssl证书的理解不深入，导致配置中一直出现问题； 配置tomcat的ssl证书 tomcat安装路径及目录结构 配置文件路径 1vim /usr/local/tomcat/conf/server.xml 配置文件路径 1234567891011&lt;!--在tomcat配置文件中找到&lt;Connector port="8443" protocol="org.apache.coyote.http11.Http11Protocol" SSLEnabled="true" maxThreads="150" scheme="https" secure="true" clientAuth="false" sslProtocol="TLS" /&gt;--&gt;#将注释去掉，添加tomcat的相关域名证书和密码，添加后设置如下&lt;Connector port="443" protocol="org.apache.coyote.http11.Http11Protocol" SSLEnabled="true" maxThreads="150" scheme="https" secure="true" clientAuth="false" keystoreFile="/usr/local/tomcat/conf/example.com.jks" keystorePass="example_passwd" sslProtocol="TLS" /&gt; 证书存放路径可以自定义，在配置keystoreFile时一定需要使用绝对路径，可以减少很多不必要的错误。 验证配置 对tomcat进行重启 1234567#转到../tomcat/bin/下#关闭./shutdown.sh#开启./startup.#!/bin/sh 绑定hosts 12345#Linux&amp;Mac:/etc/hosts#Windows:C:\Windows\System32\drivers\etc58.229.*.* test.example.com 访问链接验证注：因为证书是针对域名的，所以一般访问域名才会生效 1https://test.example.com:8443/ 访问成功示例]]></content>
