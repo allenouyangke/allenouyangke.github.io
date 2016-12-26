@@ -3,7 +3,14 @@
   
     
     <entry>
-      <title><![CDATA[Vsftpd本地用户登录]]></title>
+      <title><![CDATA[终端操作快捷键]]></title>
+      <url>%2F2016%2F12%2F26%2Fterminal-control%2F</url>
+      <content type="text"><![CDATA[本篇概括&emsp;&emsp;对于经常使用命令行，掌握一些常用的快捷键是非常有必要的。它能帮助你提升工作的效率，逐渐从鼠标的操作转变成键盘操作。渐渐的，你就会感受到命令行的美妙之处！ 常用操作 Ctrl + L用于清理终端的内容，就是清屏的作用。其实clear命令也有同样效果，但是你不觉得Ctrl + L 的按键是比输入clear这五个字母更快速吗？ Ctrl + D给终端传递EOF （End Of File，文件结束符），在运行程序时很有用，有些程序我们需要在接收到EOF输入时结束，那么这个快捷键就可以派上用场了。如果你在命令行提示符后什么也不输入的情况下直接按下这组快捷键，那么就会关闭当前的终端。 Shift + PgUp用于向上滚屏，与鼠标的滚轮向上滚屏是一个效果，但岂不是很方便吗？ Shift + PgDn用于向下滚屏，与鼠标的滚轮向下滚屏是一个效果。 长命令操作 Ctrl + A光标跳到一行命令的开头。一般来说，Home键有相同的效果。 Ctrl + E光标跳到一行命令的结尾。一般来说，End键有相同的效果。 Ctrl + U删除所有在光标左侧的命令字符。 Ctrl + K删除所有在光标右侧的命令字符。 Ctrl + W删除光标左侧的一个“单词”，这里的“单词”指的是用空格隔开的一个字符串。例如 -a 就是一个“单词”。 Ctrl + Y粘贴用Ctrl + U， Ctrl + K或Ctrl + W“删除”的字符串，有点像“剪切-粘贴”。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[vsftpd本地用户登录]]></title>
       <url>%2F2016%2F12%2F23%2Fvsftpd-reallogin%2F</url>
       <content type="text"><![CDATA[主要文件： 主配置文件/etc/vsftpd/vsftpd.conf 下载/上传日志文件/var/log/xferlog chroot禁用列表/etc/vsftpd/chroot_list 用户限制文件/etc/vsftpd/user_list 验证文件/etc/pam.d/vsftpd 用户配置目录/etc/vsftpd/vsftpd_user_conf 主配置文件——vsftpd.conf1234567891011121314151617181920212223242526272829303132333435363738394041424344454647#如果为NO一般就是选择用xinet启动ftp服务listen=YES#禁止匿名登录anonymous_enable=NO#启动本地用户登录local_enable=YESwrite_enable=YESlocal_umask=022#欢迎信息ftpd_banner=Welcome to this FTP server!#下载／上传信息配置xferlog_enable=YESxferlog_file=/var/log/xferlogxferlog_std_format=YES#启用默认端口connect_from_port_20=YES#最大连接的客户端数量max_clients=10#是否隐藏文件的所有者和组信息,YES:当用户使用&quot;ls -al&quot;之类的指令时,#在目录列表中所有文件的拥有者和组信息都显示为ftp.默认为NOhide_ids=YES#限制用户在自己家之内chroot_local_user=YES#启用不被chroot的使用者账号chroot_list_enable=YES#不被chroot的使用者账号的列表文件chroot_list_file=/etc/vsftpd/chroot_list#针对不同的用户做不同的配置，该目录下都是以用户名作为文件名user_config_dir=/etc/vsftpd/vsftpd_user_conf#限制某些用户的访问userlist_enable=YESuserlist_deny=YESuserlist_file=/etc/vsftpd/user_list#用户验证配置pam_service_name=vsftpdpam_service_name=/etc/pam.d/vsftpd 上传/下载日志——xferlog 概括：该日志记录记录FTP的上传/下载的记录。 日志格式12345678910111213141516Mon Dec 26 15:59:35 2016 1 172.16.60.100 736 /index.php b _ i r apple ftp 0 * c#a.日期和时间 #b.下载文件所花费的秒数 #c.远程系统 #d.名称 #e.文件大小 #f.本地路径名 #g.传输类型（a：ASCII，b：二进制） #h.与压缩相关的标志或tar，或&quot;_&quot;（如果没有压缩的话） #i.传输方向（相对于服务 器而言：i代表进，o代表出） #j.访问模式（a：匿名，g：输入口令，r：真实用户） #k.用户名 #l.服务名（通常是ftp） #m.认证方法（l：RFC931，或 0） #n.认证用户的ID或&quot;*&quot;]]></content>
     </entry>
