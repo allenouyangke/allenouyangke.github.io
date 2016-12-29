@@ -84,15 +84,19 @@
 
 
 
-<meta name="description" content="不忘初心，方能终始">
-<meta property="og:type" content="website">
-<meta property="og:title" content="AllenKe Blog">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta name="description" content="本篇概括&amp;emsp;&amp;emsp;tomcat实习入职的时候搭建过，当时一窍不通，只能照着部署文档的内容进行部署；后来业务又需求了，再重新回来看，发现很多东西就明了。&amp;emsp;&amp;emsp;这里主要记录java的的基础的安装，没有用源码，直接yum安装就好；另外，apache-tomcat直接从网上下载后就能使用了，只是多个tomcat需要修改下相关的端口，没有想象中的那么难；另外优化部分需要在后面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tomcat多实例安装和配置">
+<meta property="og:url" content="http://yoursite.com/2016/12/29/apache-tomcat/index.html">
 <meta property="og:site_name" content="AllenKe Blog">
-<meta property="og:description" content="不忘初心，方能终始">
+<meta property="og:description" content="本篇概括&amp;emsp;&amp;emsp;tomcat实习入职的时候搭建过，当时一窍不通，只能照着部署文档的内容进行部署；后来业务又需求了，再重新回来看，发现很多东西就明了。&amp;emsp;&amp;emsp;这里主要记录java的的基础的安装，没有用源码，直接yum安装就好；另外，apache-tomcat直接从网上下载后就能使用了，只是多个tomcat需要修改下相关的端口，没有想象中的那么难；另外优化部分需要在后面">
+<meta property="og:image" content="http://ogpr96vps.bkt.clouddn.com/16-12-29/28386183-file_1482980262390_17c02.png">
+<meta property="og:image" content="http://ogpr96vps.bkt.clouddn.com/16-12-29/8221409-file_1482982538647_14350.png">
+<meta property="og:updated_time" content="2016-12-29T03:42:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AllenKe Blog">
-<meta name="twitter:description" content="不忘初心，方能终始">
+<meta name="twitter:title" content="tomcat多实例安装和配置">
+<meta name="twitter:description" content="本篇概括&amp;emsp;&amp;emsp;tomcat实习入职的时候搭建过，当时一窍不通，只能照着部署文档的内容进行部署；后来业务又需求了，再重新回来看，发现很多东西就明了。&amp;emsp;&amp;emsp;这里主要记录java的的基础的安装，没有用源码，直接yum安装就好；另外，apache-tomcat直接从网上下载后就能使用了，只是多个tomcat需要修改下相关的端口，没有想象中的那么难；另外优化部分需要在后面">
+<meta name="twitter:image" content="http://ogpr96vps.bkt.clouddn.com/16-12-29/28386183-file_1482980262390_17c02.png">
 
 
 
@@ -120,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/2/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/12/29/apache-tomcat/"/>
 
 
 
 
 
-  <title> AllenKe Blog </title>
+  <title> tomcat多实例安装和配置 | AllenKe Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -147,9 +151,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -271,9 +273,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -282,7 +284,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/29/init-sys/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/29/apache-tomcat/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="AllenKe">
@@ -306,10 +308,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/11/29/init-sys/" itemprop="url">
-                  CentOS初始化
-                </a>
+                tomcat多实例安装和配置
               
             
           </h1>
@@ -322,8 +321,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-29T14:38:17+08:00">
-                2016-11-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-29T10:18:10+08:00">
+                2016-12-29
               </time>
             
 
@@ -356,8 +355,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/11/29/init-sys/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/29/init-sys/" itemprop="commentCount"></span>
+                <a href="/2016/12/29/apache-tomcat/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/29/apache-tomcat/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -369,159 +368,13 @@
           
 
           
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          &emsp;&emsp;由于比较常使用虚拟机，就做了CentOS6.7 minimal的模版，为了方便以后自己的使用需求，对minimal安装的系统进行了一些简单的配置，克隆以后就可以直接使用了。&lt;–!more–&gt;
-实践环境
-CentOS 6.7 minimal
-VMware works
-          ...
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/29/init-sys/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/28/hexo-github/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="AllenKe">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="AllenKe Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="AllenKe Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/28/hexo-github/" itemprop="url">
-                  基于Mac的hexo+github page搭建
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-28T16:50:58+08:00">
-                2016-11-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
             </span>
           
 
           
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2016/11/28/hexo-github/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/28/hexo-github/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
 
         </div>
       </header>
@@ -534,24 +387,54 @@ VMware works
       
 
       
-        
-          <p>&emsp;&emsp;在MacBook上搭建自己的Hoxe+Github page，将Hexo作为未来学习总结的一个平台，并将相关的学习内容保存和分享。<br>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/28/hexo-github/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p><strong>本篇概括</strong><br>&emsp;&emsp;tomcat实习入职的时候搭建过，当时一窍不通，只能照着部署文档的内容进行部署；后来业务又需求了，再重新回来看，发现很多东西就明了。<br>&emsp;&emsp;这里主要记录java的的基础的安装，没有用源码，直接yum安装就好；另外，apache-tomcat直接从网上下载后就能使用了，只是多个tomcat需要修改下相关的端口，没有想象中的那么难；另外优化部分需要在后面自己再慢慢琢磨下。<br><a id="more"></a></p>
+<h3 id="安装jdk-java"><a href="#安装jdk-java" class="headerlink" title="安装jdk/java"></a>安装jdk/java</h3><ul>
+<li><p>查看是否已安装jdk/java</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">yum list installed | grep java</div><div class="line"></div><div class="line">rpm -aq | grep java</div><div class="line"></div><div class="line">#查看yum库中的安装包</div><div class="line">yum -y list java*</div></pre></td></tr></table></figure>
+</li>
+<li><p>卸载已经安装的jdk/java</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#根据实际情况进行卸载</div><div class="line">yum remove -y java*</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装jdk/java</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">yum -y install java-1.7.0-openjdk*</div><div class="line"></div><div class="line">#查看安装的jdk/java版本</div><div class="line">java -version</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="安装apache-tomcat"><a href="#安装apache-tomcat" class="headerlink" title="安装apache-tomcat"></a>安装apache-tomcat</h3><ul>
+<li>下载安装包<br><a href="http://tomcat.apache.org/download-70.cgi" target="_blank" rel="external">apache-tomcat下载</a></li>
+<li><p>安装apache-tomcat</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#上传安装包</div><div class="line">cd /usr/local/src/</div><div class="line">rz</div><div class="line"></div><div class="line">#解压</div><div class="line">tar -zxvf apache-tomcat-7.0.67.tar.gz -C /usr/local/</div><div class="line"></div><div class="line">cd /usr/local/</div><div class="line"></div><div class="line">cp -r apache-tomcat-7.0.67 tomcat_01</div><div class="line"></div><div class="line">#tomcat_02为下一步开多个tomcat实例做准备</div><div class="line">cp -r apache-tomcat-7.0.67 tomcat_02</div></pre></td></tr></table></figure>
+</li>
+<li><p>启动tomcat_01</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd /usr/local/tomcat_01/bin/</div><div class="line"></div><div class="line">./startup.sh</div></pre></td></tr></table></figure>
+</li>
+<li><p>测试验证<br><img src="http://ogpr96vps.bkt.clouddn.com/16-12-29/28386183-file_1482980262390_17c02.png" alt="apache-tomcat测试"></p>
+</li>
+</ul>
+<h3 id="配置多个tomcat"><a href="#配置多个tomcat" class="headerlink" title="配置多个tomcat"></a>配置多个tomcat</h3><ul>
+<li><p>修改tomcat_02配置文件<br>配置文件位置：/usr/local/tomcat_02/conf/server.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--tomcat_02配置文件--&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!--用于停止tomcat的端口，默认8005--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">Server</span> <span class="attr">port</span>=<span class="string">"8005"</span> <span class="attr">shutdown</span>=<span class="string">"SHUTDOWN"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.startup.VersionLoggerListener"</span> /&gt;</span></div><div class="line"><span class="comment">&lt;!--修改为9005--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">Server</span> <span class="attr">port</span>=<span class="string">"9005"</span> <span class="attr">shutdown</span>=<span class="string">"SHUTDOWN"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">Listener</span> <span class="attr">className</span>=<span class="string">"org.apache.catalina.startup.VersionLoggerListener"</span> /&gt;</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">&lt;!--tomcat监听端口和返回值的端口，默认8080--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></div><div class="line">            <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></div><div class="line">            <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</div><div class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">executor</span>=<span class="string">"tomcatThreadPool"</span></span></div><div class="line">            <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></div><div class="line">            <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></div><div class="line">            <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</div><div class="line"><span class="comment">&lt;!--修改为9080--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"9080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></div><div class="line">            <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></div><div class="line">            <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</div><div class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">executor</span>=<span class="string">"tomcatThreadPool"</span></span></div><div class="line">            <span class="attr">port</span>=<span class="string">"9080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></div><div class="line">            <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></div><div class="line">            <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">&lt;!--apache监听端口，默认8009--&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8009"</span> <span class="attr">protocol</span>=<span class="string">"AJP/1.3"</span> <span class="attr">redirectPort</span>=<span class="string">"8443"</span> /&gt;</span></div><div class="line"><span class="comment">&lt;!--修改为9009--&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"9009"</span> <span class="attr">protocol</span>=<span class="string">"AJP/1.3"</span> <span class="attr">redirectPort</span>=<span class="string">"9443"</span> /&gt;</span></div><div class="line"></div><div class="line"></div><div class="line"> <span class="comment">&lt;!--SSl连接端口，默认8443--&gt;</span></div><div class="line"> <span class="comment">&lt;!--如果没启动https可以忽略，个人修改为9443--&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>启动tomcat_02</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd /usr/local/tomcat_02/bin/</div><div class="line"></div><div class="line">./startup.sh</div></pre></td></tr></table></figure>
+</li>
+<li><p>测试验证<br><img src="http://ogpr96vps.bkt.clouddn.com/16-12-29/8221409-file_1482982538647_14350.png" alt="apache-tomcats测试验证"></p>
+</li>
+</ul>
+
       
     </div>
 
     <div>
       
+        
+
+      
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
@@ -560,169 +443,57 @@ VMware works
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/25/linux-study/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="AllenKe">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="AllenKe Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="AllenKe Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/12/26/terminal-control/" rel="next" title="终端操作快捷键">
+                <i class="fa fa-chevron-left"></i> 终端操作快捷键
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/11/25/linux-study/" itemprop="url">
-                  linux study
-                </a>
-              
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-25T21:28:47+08:00">
-                2016-11-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2016/11/25/linux-study/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/25/linux-study/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p><strong>linux运维发展路线常见的就是下面两条路线:</strong><br>&emsp;&emsp;第一条：运维应用–&gt;系统架构–&gt;运维开发–&gt;系统开发<br>&emsp;&emsp;第二条：运维应用–&gt;应用dba–&gt;架构dba–&gt;开发DBA<br>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/25/linux-study/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
 
+      
+    </div>
+  </div>
 
 
           </div>
@@ -730,6 +501,14 @@ VMware works
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/12/29/apache-tomcat/"
+           data-title="tomcat多实例安装和配置" data-url="http://yoursite.com/2016/12/29/apache-tomcat/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -749,8 +528,17 @@ VMware works
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -807,6 +595,22 @@ VMware works
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装jdk-java"><span class="nav-number">1.</span> <span class="nav-text">安装jdk/java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装apache-tomcat"><span class="nav-number">2.</span> <span class="nav-text">安装apache-tomcat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置多个tomcat"><span class="nav-number">3.</span> <span class="nav-text">配置多个tomcat</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
@@ -928,6 +732,10 @@ VMware works
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
