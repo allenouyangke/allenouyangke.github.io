@@ -3,6 +3,48 @@
   
     
     <entry>
+      <title><![CDATA[常用英语词语]]></title>
+      <url>%2F2017%2F02%2F24%2Fenglish-works%2F</url>
+      <content type="text"><![CDATA[本篇概括&emsp;&emsp;英语比较差，记点常用的，方便自己看！ 月份 全称 简称 中文 January Jan 一月 February Feb 二月 March Mar 三月 April Apr 四月 May May 五月 June Jun 六月 July Jul 七月 August Aug 八月 September Sep or Sept 九月 October Oct 十月 November Nov 十一月 December Dec 十二月 星期 全称 简称 中文 Monday Mon 星期一 Tuesday Tues 星期二 Wednesday Wed 星期三 Thursday Thur 星期四 Friday Fri 星期五 Saturday Sat 星期六 Sunday Sun 星期天 时间 全称 简称 中文 minute 分钟 hour 小时 day 天 week 星期 month 月 year 年 tomorrow 明天]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Shell中的特殊变量]]></title>
+      <url>%2F2017%2F02%2F24%2Fpath-count%2F</url>
+      <content type="text"><![CDATA[本篇概括&emsp;&emsp;CentOS下常用的一些环境变量总结，方便以后的操作和shell编程。 $$Shell本身的PID（ProcessID） $!Shell最后运行的后台Process的PID $?最后运行的命令的结束代码（返回值） $-使用Set命令设定的Flag一览 $*所有参数列表。如”$*”用「”」括起来的情况、以”$1 $2 … $n”的形式输出所有参数。 $@所有参数列表。如”$@”用「”」括起来的情况、以”$1” “$2” … “$n” 的形式输出所有参数。 $#添加到Shell的参数个数 $0Shell本身的文件名 \$1～$n添加到Shell的各参数值。$1是第1参数、$2是第2参数…。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Top]]></title>
+      <url>%2F2017%2F02%2F24%2Ftop-command%2F</url>
+      <content type="text"><![CDATA[本篇概括&emsp;&emsp;对CentOS6.5下top工具使用的一些常用操作的总结。 q：退出top h：显示帮助文档，也就是哪些按键可以使用。按下任意键返回。 B：大写的B，加粗某些信息。 f：在进程列表中添加或删除某些列。 F：改变进程列表排序所参照的列。默认情况下，是按照%CPU那一列来排序。 u：依照用户来过滤显示。可以输入用户名，按回车。 k：结束某个进程。会让你输入要结束的进程的PID。 s：改变刷新页面的时间。默认地，页面每隔3秒刷新一次。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[less命令]]></title>
+      <url>%2F2017%2F02%2F24%2Fless-command%2F</url>
+      <content type="text"><![CDATA[本篇概括&emsp;&emsp;less命令常用按键和参数的总结。 空格键：文件内容读取下一个终端屏幕的行数，相当于前进一个屏幕（页）。很常用的快捷键。与键盘上的PageDown（下一页）效果一样。 回车键：文件内容读取下一行，也就是前进一行。与键盘上的向下键效果是一样的。 d键：前进半页（半个屏幕）。 b键：后退一页。与键盘上的PageUp（上一页）效果一样。 y键：后退一行。与键盘上的向上键效果是一样的。 u键：后退半页（半个屏幕）。 q键：停止读取文件，中止less命令。 =号：显示你在文件中的什么位置（会显示当前页面的内容是文件中第几行到第几行，整个文件所含行数，所含字符数，整个文件所含字符）。 h键：显示帮助文档。按q键退出帮助文档。 /（斜杠）：进入搜索模式，只要在斜杠后面输入你要搜索的文字，按下回车键，就会把所有符合的结果都标识出来。要在搜索所得结果中跳转，可以按n键（跳到下一个符合项目），N键（shift键+n。跳到上一个符合项目）。当然了，正则表达式（Regular Expression）也是可以用在搜索内容中的。这里我们就不细说什么是正则表达式了，有兴趣可以百度看看。 n键：跳到下一个符合的搜索结果。 N键：跳到上一个符合的搜索结果]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Screen Command]]></title>
+      <url>%2F2017%2F02%2F24%2Fscreen-command%2F</url>
+      <content type="text"><![CDATA[本篇概括&emsp;&emsp;一些常用的屏幕操作指令。 Ctrl + a，松开，再按c：创建一个新的虚拟终端。 Ctrl + a，松开，再按w：显示当前虚拟终端的列表。 此处的 0$ bash 1-$ bash 2*$ bash 表示此时打开了3个虚拟终端，都叫作bash，编号是0，1，2。 有*（星号）的那个虚拟终端就是我们目前所在的虚拟终端，也就是第3个，编号是2。 Ctrl + a，松开，再按A：重命名当前虚拟终端。修改后的名字，你之后再用Ctrl + a，松开，再按w时就会看trl + a，松开，再按n：跳转到下一个虚拟终端。 Ctrl + a，松开，再按p：跳转到上一个虚拟终端。 Ctrl + a，松开，再按Ctrl + a：跳转到最近刚使用的那个虚拟终端。 Ctrl + a，松开，再按0~9数字键：跳转到第0~9号虚拟终端。 Ctrl + a，松开，再按 “（双引号）：会让你选择跳转到哪个虚拟终端。 Ctrl + a，松开，再按k：关闭当前终端。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Mac下Python模版安装]]></title>
+      <url>%2F2017%2F01%2F04%2FPython%2FPython-easygui%2F</url>
+      <content type="text"><![CDATA[本篇概括&emsp;&emsp;根据我的学习需求在自己的macbook上安装各种python的模版进行学习、开发，后续会不断进行更新……. 使用easy_install在线安装&emsp;&emsp;mac下默认的python环境集成了这个工具可以非常方便的安装各种python包。&emsp;&emsp;easy_install是由PEAK(Python Enterprise Application Kit)开发的setuptools包里带的一个命令，所以使用easy_install实际上是在调用setuptools来完成安装模块的工作。通过模块名称来安装。setuptools会自动搜索PyPI 以查找最新版本的模块。12#格式easy_install parameter 安装Python-easygui123456789#在线下载easygui，并会自动解压sudo easy_install easygui#下载好后进入到解压的目录python setup.pyinstalleasy_install.]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[tomcat多实例安装和配置]]></title>
       <url>%2F2016%2F12%2F29%2Fapache-tomcat%2F</url>
       <content type="text"><![CDATA[本篇概括&emsp;&emsp;tomcat实习入职的时候搭建过，当时一窍不通，只能照着部署文档的内容进行部署；后来业务又需求了，再重新回来看，发现很多东西就明了。&emsp;&emsp;这里主要记录java的的基础的安装，没有用源码，直接yum安装就好；另外，apache-tomcat直接从网上下载后就能使用了，只是多个tomcat需要修改下相关的端口，没有想象中的那么难；另外优化部分需要在后面自己再慢慢琢磨下。 安装jdk/java 查看是否已安装jdk/java 123456yum list installed | grep javarpm -aq | grep java#查看yum库中的安装包yum -y list java* 卸载已经安装的jdk/java 12#根据实际情况进行卸载yum remove -y java* 安装jdk/java 1234yum -y install java-1.7.0-openjdk*#查看安装的jdk/java版本java -version 安装apache-tomcat 下载安装包apache-tomcat下载 安装apache-tomcat 12345678910111213#上传安装包cd /usr/local/src/rz#解压tar -zxvf apache-tomcat-7.0.67.tar.gz -C /usr/local/cd /usr/local/cp -r apache-tomcat-7.0.67 tomcat_01#tomcat_02为下一步开多个tomcat实例做准备cp -r apache-tomcat-7.0.67 tomcat_02 启动tomcat_01 123cd /usr/local/tomcat_01/bin/./startup.sh 测试验证 配置多个tomcat 修改tomcat_02配置文件配置文件位置：/usr/local/tomcat_02/conf/server.xml 123456789101112131415161718192021222324252627282930313233343536&lt;!--tomcat_02配置文件--&gt;&lt;!--用于停止tomcat的端口，默认8005--&gt;&lt;Server port="8005" shutdown="SHUTDOWN"&gt; &lt;Listener className="org.apache.catalina.startup.VersionLoggerListener" /&gt;&lt;!--修改为9005--&gt;&lt;Server port="9005" shutdown="SHUTDOWN"&gt; &lt;Listener className="org.apache.catalina.startup.VersionLoggerListener" /&gt;&lt;!--tomcat监听端口和返回值的端口，默认8080--&gt;&lt;Connector port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" /&gt;&lt;Connector executor="tomcatThreadPool" port="8080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" /&gt;&lt;!--修改为9080--&gt;&lt;Connector port="9080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" /&gt;&lt;Connector executor="tomcatThreadPool" port="9080" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8443" /&gt;&lt;!--apache监听端口，默认8009--&gt; &lt;Connector port="8009" protocol="AJP/1.3" redirectPort="8443" /&gt;&lt;!--修改为9009--&gt; &lt;Connector port="9009" protocol="AJP/1.3" redirectPort="9443" /&gt; &lt;!--SSl连接端口，默认8443--&gt; &lt;!--如果没启动https可以忽略，个人修改为9443--&gt; 启动tomcat_02 123cd /usr/local/tomcat_02/bin/./startup.sh 测试验证]]></content>
@@ -19,7 +61,7 @@
     <entry>
       <title><![CDATA[vsftpd本地用户登录]]></title>
       <url>%2F2016%2F12%2F23%2Fvsftpd-reallogin%2F</url>
-      <content type="text"><![CDATA[主要文件： 主配置文件/etc/vsftpd/vsftpd.conf 下载/上传日志文件/var/log/xferlog chroot禁用列表/etc/vsftpd/chroot_list 用户限制文件/etc/vsftpd/user_list 验证文件/etc/pam.d/vsftpd 用户配置目录/etc/vsftpd/vsftpd_user_conf 主配置文件——vsftpd.conf1234567891011121314151617181920212223242526272829303132333435363738394041424344454647#如果为NO一般就是选择用xinet启动ftp服务listen=YES#禁止匿名登录anonymous_enable=NO#启动本地用户登录local_enable=YESwrite_enable=YESlocal_umask=022#欢迎信息ftpd_banner=Welcome to this FTP server!#下载／上传信息配置xferlog_enable=YESxferlog_file=/var/log/xferlogxferlog_std_format=YES#启用默认端口connect_from_port_20=YES#最大连接的客户端数量max_clients=10#是否隐藏文件的所有者和组信息,YES:当用户使用&quot;ls -al&quot;之类的指令时,#在目录列表中所有文件的拥有者和组信息都显示为ftp.默认为NOhide_ids=YES#限制用户在自己家之内chroot_local_user=YES#启用不被chroot的使用者账号chroot_list_enable=YES#不被chroot的使用者账号的列表文件chroot_list_file=/etc/vsftpd/chroot_list#针对不同的用户做不同的配置，该目录下都是以用户名作为文件名user_config_dir=/etc/vsftpd/vsftpd_user_conf#限制某些用户的访问userlist_enable=YESuserlist_deny=YESuserlist_file=/etc/vsftpd/user_list#用户验证配置pam_service_name=vsftpdpam_service_name=/etc/pam.d/vsftpd 上传/下载日志——xferlog 概括：该日志记录记录FTP的上传/下载的记录。 日志格式12345678910111213141516Mon Dec 26 15:59:35 2016 1 172.16.60.100 736 /index.php b _ i r apple ftp 0 * c#a.日期和时间 #b.下载文件所花费的秒数 #c.远程系统 #d.名称 #e.文件大小 #f.本地路径名 #g.传输类型（a：ASCII，b：二进制） #h.与压缩相关的标志或tar，或&quot;_&quot;（如果没有压缩的话） #i.传输方向（相对于服务 器而言：i代表进，o代表出） #j.访问模式（a：匿名，g：输入口令，r：真实用户） #k.用户名 #l.服务名（通常是ftp） #m.认证方法（l：RFC931，或 0） #n.认证用户的ID或&quot;*&quot;]]></content>
+      <content type="text"><![CDATA[本篇概括&emsp;&emsp;vsftp的三种访问方式：匿名、本地用户和虚拟目录。&emsp;&emsp;感觉比较难去配置、理解，将常用的一些配置和操作记录下来，方便自己以后进行搭建和调优等。主要文件： 主配置文件/etc/vsftpd/vsftpd.conf 下载/上传日志文件/var/log/xferlog chroot禁用列表/etc/vsftpd/chroot_list 用户限制文件/etc/vsftpd/user_list 验证文件/etc/pam.d/vsftpd 用户配置目录/etc/vsftpd/vsftpd_user_conf 主配置文件——vsftpd.conf1234567891011121314151617181920212223242526272829303132333435363738394041424344454647#如果为NO一般就是选择用xinet启动ftp服务listen=YES#禁止匿名登录anonymous_enable=NO#启动本地用户登录local_enable=YESwrite_enable=YESlocal_umask=022#欢迎信息ftpd_banner=Welcome to this FTP server!#下载／上传信息配置xferlog_enable=YESxferlog_file=/var/log/xferlogxferlog_std_format=YES#启用默认端口connect_from_port_20=YES#最大连接的客户端数量max_clients=10#是否隐藏文件的所有者和组信息,YES:当用户使用&quot;ls -al&quot;之类的指令时,#在目录列表中所有文件的拥有者和组信息都显示为ftp.默认为NOhide_ids=YES#限制用户在自己家之内chroot_local_user=YES#启用不被chroot的使用者账号chroot_list_enable=YES#不被chroot的使用者账号的列表文件chroot_list_file=/etc/vsftpd/chroot_list#针对不同的用户做不同的配置，该目录下都是以用户名作为文件名user_config_dir=/etc/vsftpd/vsftpd_user_conf#限制某些用户的访问userlist_enable=YESuserlist_deny=YESuserlist_file=/etc/vsftpd/user_list#用户验证配置pam_service_name=vsftpdpam_service_name=/etc/pam.d/vsftpd 上传/下载日志——xferlog 概括：该日志记录记录FTP的上传/下载的记录。 日志格式12345678910111213141516Mon Dec 26 15:59:35 2016 1 172.16.60.100 736 /index.php b _ i r apple ftp 0 * c#a.日期和时间 #b.下载文件所花费的秒数 #c.远程系统 #d.名称 #e.文件大小 #f.本地路径名 #g.传输类型（a：ASCII，b：二进制） #h.与压缩相关的标志或tar，或&quot;_&quot;（如果没有压缩的话） #i.传输方向（相对于服务 器而言：i代表进，o代表出） #j.访问模式（a：匿名，g：输入口令，r：真实用户） #k.用户名 #l.服务名（通常是ftp） #m.认证方法（l：RFC931，或 0） #n.认证用户的ID或&quot;*&quot;]]></content>
     </entry>
 
     
