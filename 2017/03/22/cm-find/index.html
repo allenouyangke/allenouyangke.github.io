@@ -1,0 +1,1055 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="AllenKe, Linux, 运维," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="本篇概括">
+<meta property="og:type" content="article">
+<meta property="og:title" content="find命令">
+<meta property="og:url" content="http://yoursite.com/2017/03/22/cm-find/index.html">
+<meta property="og:site_name" content="AllenKe Blog">
+<meta property="og:description" content="本篇概括">
+<meta property="og:image" content="http://i1.piimg.com/567571/5a2c480505e01680.png">
+<meta property="og:image" content="http://i1.piimg.com/567571/da7ac7ff66d56cab.png">
+<meta property="og:updated_time" content="2017-03-29T10:26:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="find命令">
+<meta name="twitter:description" content="本篇概括">
+<meta name="twitter:image" content="http://i1.piimg.com/567571/5a2c480505e01680.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/03/22/cm-find/"/>
+
+
+
+
+
+  <title> find命令 | AllenKe Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">AllenKe Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Nothing is impossible.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/22/cm-find/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="AllenKe">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="AllenKe Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="AllenKe Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                find命令
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-22T17:54:34+08:00">
+                2017-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Command/" itemprop="url" rel="index">
+                    <span itemprop="name">Command</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2017/03/22/cm-find/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/22/cm-find/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>本篇概括</strong><br><a id="more"></a></p>
+<h3 id="1-find基础"><a href="#1-find基础" class="headerlink" title="1 find基础"></a>1 find基础</h3><h4 id="1-1-命令格式"><a href="#1-1-命令格式" class="headerlink" title="1.1 命令格式"></a>1.1 命令格式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">find   path   -option   [   -print ]   [ -exec   -ok   command ]   &#123;&#125; \;</div><div class="line"></div><div class="line">    #pathname: find命令所查找的目录路径。例如用.来表示当前目录，用/来表示系统根目录。</div><div class="line">    </div><div class="line">    #-print： find命令将匹配的文件输出到标准输出。</div><div class="line">    </div><div class="line">    #-exec： find命令对匹配的文件执行该参数所给出的shell命令。相应命令的形式为&apos;command&apos; &#123; &#125; \;，注意&#123; &#125;和\；之间的空格。</div><div class="line">    </div><div class="line">    #-ok： 和-exec的作用相同，只不过以一种更为安全的模式来执行该参数所给出的shell命令，在执行每一个命令之前，都会给出提示，让用户来确定是否执行。</div><div class="line">    </div><div class="line">    #-print 将查找到的文件输出到标准输出</div><div class="line">    </div><div class="line">    #-exec   command   &#123;&#125; \;—–将查到的文件执行command操作,&#123;&#125; 和 \;之间有空格</div><div class="line">    #-ok 和-exec相同，只不过在操作前要询用户</div></pre></td></tr></table></figure>
+<h4 id="1-2-选项参数"><a href="#1-2-选项参数" class="headerlink" title="1.2 选项参数"></a>1.2 选项参数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">-name   filename             #查找名为filename的文件</div><div class="line">-perm                        #按执行权限来查找</div><div class="line">-user    username             #按文件属主来查找</div><div class="line">-group groupname            #按组来查找</div><div class="line">-mtime   -n +n                #按文件更改时间来查找文件，-n指n天以内，+n指n天以前</div><div class="line">-atime    -n +n               #按文件访问时间来查GIN: 0px&quot;&gt;</div><div class="line"></div><div class="line">-ctime    -n +n              #按文件创建时间来查找文件，-n指n天以内，+n指n天以前</div><div class="line"></div><div class="line">-nogroup                     #查无有效属组的文件，即文件的属组在/etc/groups中不存在</div><div class="line">-nouser                     #查无有效属主的文件，即文件的属主在/etc/passwd中不存</div><div class="line">-newer   f1 !f2               #找文件，-n指n天以内，+n指n天以前 </div><div class="line">-ctime    -n +n               #按文件创建时间来查找文件，-n指n天以内，+n指n天以前 </div><div class="line">-nogroup                     #查无有效属组的文件，即文件的属组在/etc/groups中不存在</div><div class="line">-nouser                      #查无有效属主的文件，即文件的属主在/etc/passwd中不存</div><div class="line">-newer   f1 !f2               #查更改时间比f1新但比f2旧的文件</div><div class="line">-type    b/d/c/p/l/f         #查是块设备、目录、字符设备、管道、符号链接、普通文件</div><div class="line">-size      n[c]               #查长度为n块[或n字节]的文件</div><div class="line">-depth                       #使查找在进入子目录前先行查找完本目录</div><div class="line">-fstype                     #查更改时间比f1新但比f2旧的文件</div><div class="line">-type    b/d/c/p/l/f         #查是块设备、目录、字符设备、管道、符号链接、普通文件</div><div class="line">-size      n[c]               #查长度为n块[或n字节]的文件</div><div class="line">-depth                       #使查找在进入子目录前先行查找完本目录</div><div class="line">-fstype                      #查位于某一类型文件系统中的文件，这些文件系统类型通常可 在/etc/fstab中找到</div><div class="line">-mount                       #查文件时不跨越文件系统mount点</div><div class="line">-follow                      #如果遇到符号链接文件，就跟踪链接所指的文件</div><div class="line">-cpio                %;      #查位于某一类型文件系统中的文件，这些文件系统类型通常可 在/etc/fstab中找到</div><div class="line">-mount                       #查文件时不跨越文件系统mount点</div><div class="line">-follow                      #如果遇到符号链接文件，就跟踪链接所指的文件</div><div class="line">-cpio                        #对匹配的文件使用cpio命令，将他们备份到磁带设备中</div><div class="line">-prune                       #忽略某个目录</div></pre></td></tr></table></figure>
+<h3 id="2-查找条件"><a href="#2-查找条件" class="headerlink" title="2 查找条件"></a>2 查找条件</h3><h4 id="2-1-根据名称查找"><a href="#2-1-根据名称查找" class="headerlink" title="2.1 根据名称查找"></a>2.1 根据名称查找</h4><h4 id="2-2-根据文件从属关系"><a href="#2-2-根据文件从属关系" class="headerlink" title="2.2 根据文件从属关系"></a>2.2 根据文件从属关系</h4><h4 id="2-3-根据文件的类型"><a href="#2-3-根据文件的类型" class="headerlink" title="2.3 根据文件的类型"></a>2.3 根据文件的类型</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-type option : 根据不同的文件类型筛选</div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>f</td>
+<td>普通文件</td>
+</tr>
+<tr>
+<td>d</td>
+<td>目录文件</td>
+</tr>
+<tr>
+<td>l</td>
+<td>符号链接文件</td>
+</tr>
+<tr>
+<td>b</td>
+<td>块设备文件</td>
+</tr>
+<tr>
+<td>c</td>
+<td>字符设备文件</td>
+</tr>
+<tr>
+<td>p</td>
+<td>管道文件</td>
+</tr>
+<tr>
+<td>s</td>
+<td>套接字文件</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-4-根据文件的大小"><a href="#2-4-根据文件的大小" class="headerlink" title="2.4 根据文件的大小"></a>2.4 根据文件的大小</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-size [+|-] #UNIT</div><div class="line"></div><div class="line">#常用单位 ： k,M,G</div><div class="line">    #UNIT：(#-1, #]</div><div class="line">    -#UNIT：[0,#-1]</div><div class="line">    +#UNIT：(#, oo)</div></pre></td></tr></table></figure>
+<h4 id="2-5-根据时间戳"><a href="#2-5-根据时间戳" class="headerlink" title="2.5 根据时间戳"></a>2.5 根据时间戳</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">atime : #文件最后访问时间；</div><div class="line">mtime : #文件的最后修改时间；</div><div class="line">ctime : #文件最后改变的时间；</div></pre></td></tr></table></figure>
+<h5 id="2-5-1-以天为单位"><a href="#2-5-1-以天为单位" class="headerlink" title="2.5.1 以天为单位"></a>2.5.1 以天为单位</h5><ul>
+<li>-atime [+|-]#</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># : [#, #-1) </div><div class="line">    最后访问时间在#天前（大于等于#天，小于#-1天前）；等价于最后访问时间与当前的时间差大于（#-1）*24小时，小于等于#*24小时。</div><div class="line">    </div><div class="line">-# : (#, 0]</div><div class="line">    最后访问时间在#天以内，不包括24小时前的那一刻；等价于最后访问时间与当前的时间差小于#*24小时。</div><div class="line">    </div><div class="line">+# : (oo, #-1)</div><div class="line">    最后访问时间在#-1天以前，包括#-1天前；等价于最后访问时间与当前的时间差大于等于#*24小时。</div></pre></td></tr></table></figure>
+<ul>
+<li>-mtime</li>
+<li>-ctime</li>
+</ul>
+<h5 id="2-5-2-以小时为单位"><a href="#2-5-2-以小时为单位" class="headerlink" title="2.5.2 以小时为单位"></a>2.5.2 以小时为单位</h5><p><img src="http://i1.piimg.com/567571/5a2c480505e01680.png" alt=""></p>
+<h5 id="2-5-3-以分钟为单位"><a href="#2-5-3-以分钟为单位" class="headerlink" title="2.5.3 以分钟为单位"></a>2.5.3 以分钟为单位</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-daystart : 时间条件的开始先决条件。如果没有的时候，比较的开始时间为当前时间。如果有此参数，则比较的开始时间为当天的23:59:59。</div></pre></td></tr></table></figure>
+<p><img src="http://i1.piimg.com/567571/da7ac7ff66d56cab.png" alt=""></p>
+<h4 id="2-6-根据权限查找"><a href="#2-6-根据权限查找" class="headerlink" title="2.6 根据权限查找"></a>2.6 根据权限查找</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">-perm [/|-]mode</div><div class="line">    </div><div class="line">    mode : 精确权限匹配；</div><div class="line">    /mode : 任何一类用户（u，g，o）的权限中的任何一位（r，w，x）符合条件即满足；9位权限之间存在“或”关系；</div><div class="line">    -mode : 每一类用户（u，g，o）的权限中的每一位（r，w，x）同时符合条件即满足；9位权限之间存在“与”关系；</div></pre></td></tr></table></figure>
+<h5 id="2-6-1-精确查找"><a href="#2-6-1-精确查找" class="headerlink" title="2.6.1 精确查找"></a>2.6.1 精确查找</h5><p>&emsp;&emsp;就是匹配权限值完全相等。</p>
+<h5 id="2-6-2-model"><a href="#2-6-2-model" class="headerlink" title="2.6.2 /model"></a>2.6.2 /model</h5><p>&emsp;&emsp;只要有一组用户匹配到一个权限即可。<br>&emsp;&emsp;通俗说：就是属主拥有给定属主权限的某一个，或者数组拥有给定权限的某一个，或者其他用户拥有给定权限的某一个即可。</p>
+<h5 id="2-6-3-mode"><a href="#2-6-3-mode" class="headerlink" title="2.6.3 -mode"></a>2.6.3 -mode</h5><p>&emsp;&emsp;存在并且的关系。<br>&emsp;&emsp;通俗说：就是给定的属主权限必须拥有。并且给定的数组权限必须拥有。并且给定的其他用户权限必须拥有。</p>
+<h5 id="2-6-4-处理动作"><a href="#2-6-4-处理动作" class="headerlink" title="2.6.4 处理动作"></a>2.6.4 处理动作</h5><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>操作内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-print</td>
+<td>输出至标准输出；默认的动作；</td>
+</tr>
+<tr>
+<td>-ls</td>
+<td>类似与对查找到的文件执行“ls -l”命令，输出文件的详细信息；</td>
+</tr>
+<tr>
+<td>-delete</td>
+<td>删除查找到的文件；</td>
+</tr>
+<tr>
+<td>-fls /PATH/TO/SOMEFILE</td>
+<td>把查找到的所有文件的长格式信息保存到指定文件中；</td>
+</tr>
+<tr>
+<td>-ok COMMAND {} \</td>
+<td>对查找到的每个文件执行由COMMAND表示的命令；每次操作都由用户进行确认；</td>
+</tr>
+<tr>
+<td>-exec COMMAND {} \</td>
+<td>对查找到的每个文件执行由COMMAND表示的命令；</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>注意</strong><br>&emsp;&emsp;find传递查找到的文件路径至后面的命令时，是先查找出所有符合条件的文件路径，并一次性传递给后面的命令；有些命令不能接受过长的参数，此时命令执行会失败。</li>
+</ul>
+<p>&emsp;&emsp;<strong>处理办法</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find | xargs COMMAND</div></pre></td></tr></table></figure></p>
+<h4 id="3-常用实例"><a href="#3-常用实例" class="headerlink" title="3 常用实例"></a>3 常用实例</h4><ul>
+<li>空目录/空文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find /dir -depth -type d/f -empty</div></pre></td></tr></table></figure>
+<ul>
+<li>根据名字查找</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find /dir -name file_name</div></pre></td></tr></table></figure>
+<ul>
+<li>根据扩展名查找</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find /dir -name &quot;*.txt&quot;</div></pre></td></tr></table></figure>
+<ul>
+<li>具有特殊权限且特定扩展名的文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find /dir -name &quot;.txt&quot; -perm 644</div></pre></td></tr></table></figure>
+<ul>
+<li>根据文件具有的权限属性查找</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find /dir -perm -permision_bits</div></pre></td></tr></table></figure>
+<ul>
+<li>未知拓展名，使用文件名查找</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find /dir -name &quot;test.*&quot;</div></pre></td></tr></table></figure>
+<ul>
+<li>在24小时内修改过的文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">find /dir -mtime n</div><div class="line"></div><div class="line"># n的值：</div><div class="line"># 0表示24小时</div><div class="line"># 1表示48小时</div><div class="line"># 2表示72小时</div></pre></td></tr></table></figure>
+<ul>
+<li>最近24小时内存取过的文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find /dir -atime n</div></pre></td></tr></table></figure>
+<ul>
+<li>根据所有者查找文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find /dir -user root</div></pre></td></tr></table></figure>
+<ul>
+<li>查重并删除文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find /dir -name my_test_file | xargs rm</div></pre></td></tr></table></figure>
+<ul>
+<li>查找2017-03-03到2017-03-28之间的文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find /dir -name test_file -newermt &apos;2017-03-03&apos; ! -newermt &apos;2013-03-28&apos;</div></pre></td></tr></table></figure>
+<ul>
+<li>3天”以前”被改动过的文件 (前第三天以前 → 2011/09/05 12:00 以前的文件) (&gt; 72 小时)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find /var/log/ -mtime +3 -type f -print</div></pre></td></tr></table></figure>
+<ul>
+<li>3天內被改动过的文件 (2011/09/05 12:00 ~ 2011/09/08 12:00 內的文件) (0 ~ 72 小时內)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find /var/log/ -mtime -3 -type f -print</div></pre></td></tr></table></figure>
+<ul>
+<li>前第 3 天被改动过的文件 (2011/09/04 12:00 ~ 2011/09/05 12:00 內的文件) (72 ~ 96 小时)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">find /var/log/ -mtime 3 -type f -print</div><div class="line"></div><div class="line">find /var/log/ -mtime +2 -mtime -4 -type f -print</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/03/Python/easy-install/" rel="next" title="easy_install命令">
+                <i class="fa fa-chevron-left"></i> easy_install命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/27/Python/python-update/" rel="prev" title="CentOS下的python更新">
+                CentOS下的python更新 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/22/cm-find/"
+           data-title="find命令" data-url="http://yoursite.com/2017/03/22/cm-find/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="AllenKe" />
+          <p class="site-author-name" itemprop="name">AllenKe</p>
+          <p class="site-description motion-element" itemprop="description">不忘初心，方能终始</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/allenouyangke/" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="/websitelog" target="_blank" title="建站日志">
+                  
+                    <i class="fa fa-fw fa-list"></i>
+                  
+                  建站日志
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="/booklist" target="_blank" title="我的书单">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  我的书单
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-find基础"><span class="nav-number">1.</span> <span class="nav-text">1 find基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-命令格式"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 命令格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-选项参数"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 选项参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-查找条件"><span class="nav-number">2.</span> <span class="nav-text">2 查找条件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-根据名称查找"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 根据名称查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-根据文件从属关系"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 根据文件从属关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-根据文件的类型"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 根据文件的类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-根据文件的大小"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 根据文件的大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-根据时间戳"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 根据时间戳</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-1-以天为单位"><span class="nav-number">2.5.1.</span> <span class="nav-text">2.5.1 以天为单位</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-2-以小时为单位"><span class="nav-number">2.5.2.</span> <span class="nav-text">2.5.2 以小时为单位</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-5-3-以分钟为单位"><span class="nav-number">2.5.3.</span> <span class="nav-text">2.5.3 以分钟为单位</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-根据权限查找"><span class="nav-number">2.6.</span> <span class="nav-text">2.6 根据权限查找</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-6-1-精确查找"><span class="nav-number">2.6.1.</span> <span class="nav-text">2.6.1 精确查找</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-6-2-model"><span class="nav-number">2.6.2.</span> <span class="nav-text">2.6.2 /model</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-6-3-mode"><span class="nav-number">2.6.3.</span> <span class="nav-text">2.6.3 -mode</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-6-4-处理动作"><span class="nav-number">2.6.4.</span> <span class="nav-text">2.6.4 处理动作</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-常用实例"><span class="nav-number">2.7.</span> <span class="nav-text">3 常用实例</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  Fri Nov 25 2016 08:00:00 GMT+0800 (CST) - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">AllenKe</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv">本站总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"allenouyangke"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
