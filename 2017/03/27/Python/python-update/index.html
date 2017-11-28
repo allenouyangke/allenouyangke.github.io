@@ -90,16 +90,16 @@
 
 
 
-<meta name="description" content="本篇概括">
+<meta name="description" content="本篇概括最近准备学习Python，直接拿CentOS系统安装2.7版本的。本身系统上自带的是Python2.6.6，需要将其替换。之前踩了次坑，安装了Python更高级的版本后，yum命令无法正常使用，那一次还是在共用的测试机上弄的。害得我那一群同事找问题找了半天……哈哈哈！！！不过现在好多了，踩了几次坑也有了自己的一套安装、更新的方法。同时，也搭建了一套属于自己的开发环境。通过PyCharm连接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS下的python更新">
 <meta property="og:url" content="http://yoursite.com/2017/03/27/Python/python-update/index.html">
 <meta property="og:site_name" content="Ke爺 Blog">
-<meta property="og:description" content="本篇概括">
-<meta property="og:updated_time" content="2017-03-28T02:09:30.000Z">
+<meta property="og:description" content="本篇概括最近准备学习Python，直接拿CentOS系统安装2.7版本的。本身系统上自带的是Python2.6.6，需要将其替换。之前踩了次坑，安装了Python更高级的版本后，yum命令无法正常使用，那一次还是在共用的测试机上弄的。害得我那一群同事找问题找了半天……哈哈哈！！！不过现在好多了，踩了几次坑也有了自己的一套安装、更新的方法。同时，也搭建了一套属于自己的开发环境。通过PyCharm连接">
+<meta property="og:updated_time" content="2017-11-28T03:20:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS下的python更新">
-<meta name="twitter:description" content="本篇概括">
+<meta name="twitter:description" content="本篇概括最近准备学习Python，直接拿CentOS系统安装2.7版本的。本身系统上自带的是Python2.6.6，需要将其替换。之前踩了次坑，安装了Python更高级的版本后，yum命令无法正常使用，那一次还是在共用的测试机上弄的。害得我那一群同事找问题找了半天……哈哈哈！！！不过现在好多了，踩了几次坑也有了自己的一套安装、更新的方法。同时，也搭建了一套属于自己的开发环境。通过PyCharm连接">
 
 
 
@@ -380,13 +380,13 @@
       
 
       
-        <p><strong>本篇概括</strong><br><a id="more"></a></p>
+        <p><strong>本篇概括</strong><br>最近准备学习Python，直接拿CentOS系统安装2.7版本的。本身系统上自带的是Python2.6.6，需要将其替换。之前踩了次坑，安装了Python更高级的版本后，yum命令无法正常使用，那一次还是在共用的测试机上弄的。害得我那一群同事找问题找了半天……哈哈哈！！！不过现在好多了，踩了几次坑也有了自己的一套安装、更新的方法。同时，也搭建了一套属于自己的开发环境。通过PyCharm连接到了开发环境上，也减少了本身MacBook（后悔没买pro了）的资源占用。<br><a id="more"></a></p>
 <h3 id="1-源码安装"><a href="#1-源码安装" class="headerlink" title="1 源码安装"></a>1 源码安装</h3><p>&emsp;&emsp;由于CentOS默认安装了python2.6.6，但并不适合我们的使用要求，只能下载源码包进行手动更新。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># 到python的官网能下载到相关的源码包</div><div class="line">wget https://www.python.org/ftp/python/2.7.13/Python-2.7.13.tgz -P /usr/local/src/</div><div class="line"></div><div class="line">tar zxvf /usr/local/src/Python-2.7.13.tgz -C /usr/local/src/</div><div class="line"></div><div class="line">cd Python-2.7.13</div><div class="line"></div><div class="line">./configure --prefix=/usr/local/python/</div><div class="line"></div><div class="line">make &amp;&amp; make install</div></pre></td></tr></table></figure></p>
 <h3 id="2-配置python"><a href="#2-配置python" class="headerlink" title="2 配置python"></a>2 配置python</h3><ul>
 <li>备份python2.6.6</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">python -V</div><div class="line">    python2.2.6</div><div class="line"></div><div class="line">which python</div><div class="line">    /usr/bin/python</div><div class="line">    </div><div class="line">mv /usr/bin/python /usr/bin/python2.6.6</div><div class="line"></div><div class="line">ln -s /usr/local/python/bin/python2.7 /usr/bin/python</div><div class="line"></div><div class="line">python -V</div><div class="line">    python2.7.11</div></pre></td></tr></table></figure>
-<h3 id="3-修改yum"><a href="#3-修改yum" class="headerlink" title="3 修改yum"></a>3 修改yum</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">which yum </div><div class="line">    /usr/bin/yum</div><div class="line"></div><div class="line"># 将第一行的“python”改为“python2.6.6”</div><div class="line">vim /usr/bin/yum</div><div class="line">    #!/usr/bin/python2.6.6</div><div class="line"></div><div class="line"># 如果没有修改，yum命令在运行中可能出错，还是保证使用原来的python2.6.6</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">python -V</div><div class="line">    python2.2.6</div><div class="line"></div><div class="line">which python</div><div class="line">    /usr/bin/python</div><div class="line"></div><div class="line">mv /usr/bin/python /usr/bin/python2.6.6</div><div class="line"></div><div class="line">ln -s /usr/local/python/bin/python2.7 /usr/bin/python</div><div class="line"></div><div class="line">python -V</div><div class="line">    python2.7.11</div></pre></td></tr></table></figure>
+<h3 id="3-修改yum"><a href="#3-修改yum" class="headerlink" title="3 修改yum"></a>3 修改yum</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">which yum</div><div class="line">    /usr/bin/yum</div><div class="line"></div><div class="line"># 将第一行的“python”改为“python2.6.6”</div><div class="line">vim /usr/bin/yum</div><div class="line">    #!/usr/bin/python2.6.6</div><div class="line"></div><div class="line"># 如果没有修改，yum命令在运行中可能出错，还是保证使用原来的python2.6.6</div></pre></td></tr></table></figure>
 
       
     </div>
