@@ -102,22 +102,19 @@
 
 
 
-<meta name="description" content="概述&amp;emsp;&amp;emsp;在hexo blog中使用markdown编写文档，插入的图片的方式为：1![picture_title](picture_url)
-&amp;emsp;&amp;emsp;所以需要找一个网络存储存放相关的图片，并生成一个有效的链接进行调用。这里选择七牛的对象存储，存放和调用图片（一定范围内是免费的）。">
+<meta name="description" content="这个工具对于我来说还是挺重要的，目前使用ATOM编写markdown文档是无法直接将图片贴到文档内的。有同事将图片上传到百度云后，通过分享获取图片链接，这样做对于我来说太过麻烦，而且时间成本相当的高。为了解决这个比较麻烦的操作，我借鉴之前他们使用七牛免费储存的功能，再结合我之前使用的chrome插件——极简图床，配置了一个比较便捷的图片上传和调用工具。这篇文档的图片就是使用的这种方式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo图床:七牛+Chrome+极简图床插件">
 <meta property="og:url" content="http://yoursite.com/2016/11/30/qn-jjtc/index.html">
 <meta property="og:site_name" content="KeKe Blog">
-<meta property="og:description" content="概述&amp;emsp;&amp;emsp;在hexo blog中使用markdown编写文档，插入的图片的方式为：1![picture_title](picture_url)
-&amp;emsp;&amp;emsp;所以需要找一个网络存储存放相关的图片，并生成一个有效的链接进行调用。这里选择七牛的对象存储，存放和调用图片（一定范围内是免费的）。">
+<meta property="og:description" content="这个工具对于我来说还是挺重要的，目前使用ATOM编写markdown文档是无法直接将图片贴到文档内的。有同事将图片上传到百度云后，通过分享获取图片链接，这样做对于我来说太过麻烦，而且时间成本相当的高。为了解决这个比较麻烦的操作，我借鉴之前他们使用七牛免费储存的功能，再结合我之前使用的chrome插件——极简图床，配置了一个比较便捷的图片上传和调用工具。这篇文档的图片就是使用的这种方式。">
 <meta property="og:image" content="http://ogpr96vps.bkt.clouddn.com/public/16-11-30/67154661.jpg">
 <meta property="og:image" content="http://ogpr96vps.bkt.clouddn.com/public/16-11-30/44642985.jpg">
 <meta property="og:image" content="http://ogpr96vps.bkt.clouddn.com/public/16-11-30/89636513.jpg">
-<meta property="og:updated_time" content="2016-12-29T06:09:44.000Z">
+<meta property="og:updated_time" content="2017-11-28T13:04:18.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo图床:七牛+Chrome+极简图床插件">
-<meta name="twitter:description" content="概述&amp;emsp;&amp;emsp;在hexo blog中使用markdown编写文档，插入的图片的方式为：1![picture_title](picture_url)
-&amp;emsp;&amp;emsp;所以需要找一个网络存储存放相关的图片，并生成一个有效的链接进行调用。这里选择七牛的对象存储，存放和调用图片（一定范围内是免费的）。">
+<meta name="twitter:description" content="这个工具对于我来说还是挺重要的，目前使用ATOM编写markdown文档是无法直接将图片贴到文档内的。有同事将图片上传到百度云后，通过分享获取图片链接，这样做对于我来说太过麻烦，而且时间成本相当的高。为了解决这个比较麻烦的操作，我借鉴之前他们使用七牛免费储存的功能，再结合我之前使用的chrome插件——极简图床，配置了一个比较便捷的图片上传和调用工具。这篇文档的图片就是使用的这种方式。">
 <meta name="twitter:image" content="http://ogpr96vps.bkt.clouddn.com/public/16-11-30/67154661.jpg">
 
 
@@ -401,12 +398,13 @@
       
 
       
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>&emsp;&emsp;在hexo blog中使用markdown编写文档，插入的图片的方式为：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![<span class="string">picture_title</span>](<span class="link">picture_url</span>)</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;所以需要找一个网络存储存放相关的图片，并生成一个有效的链接进行调用。这里选择七牛的对象存储，存放和调用图片（一定范围内是免费的）。<br><a id="more"></a></p>
+        <p>这个工具对于我来说还是挺重要的，目前使用ATOM编写markdown文档是无法直接将图片贴到文档内的。有同事将图片上传到百度云后，通过分享获取图片链接，这样做对于我来说太过麻烦，而且时间成本相当的高。为了解决这个比较麻烦的操作，我借鉴之前他们使用七牛免费储存的功能，再结合我之前使用的chrome插件——极简图床，配置了一个比较便捷的图片上传和调用工具。这篇文档的图片就是使用的这种方式。<br><a id="more"></a></p>
+<h1 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h1><p>&emsp;&emsp;在hexo blog中使用markdown编写文档，插入的图片的方式为：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![<span class="string">picture_title</span>](<span class="link">picture_url</span>)</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;所以需要找一个网络存储存放相关的图片，并生成一个有效的链接进行调用。这里选择七牛的对象存储，存放和调用图片（一定范围内是免费的）。<br><!--more--></p>
 <hr>
-<h3 id="七牛云存储"><a href="#七牛云存储" class="headerlink" title="七牛云存储"></a>七牛云存储</h3><p>&emsp;&emsp;在<a href="http://www.qiniu.com/" target="_blank" rel="external">七牛</a>先注册一个账号，登陆后建立对象存储。<br><img src="http://ogpr96vps.bkt.clouddn.com/public/16-11-30/67154661.jpg" alt="图1:在七牛账号内建立对象存储"><br>&emsp;&emsp;“测试域名”在极简图床插件中需要使用到。</p>
+<h1 id="2-七牛云存储"><a href="#2-七牛云存储" class="headerlink" title="2 七牛云存储"></a>2 七牛云存储</h1><p>&emsp;&emsp;在<a href="http://www.qiniu.com/" target="_blank" rel="external">七牛</a>先注册一个账号，登陆后建立对象存储。<br><img src="http://ogpr96vps.bkt.clouddn.com/public/16-11-30/67154661.jpg" alt="图1:在七牛账号内建立对象存储"><br>&emsp;&emsp;“测试域名”在极简图床插件中需要使用到。</p>
 <hr>
-<h3 id="极简图床插件"><a href="#极简图床插件" class="headerlink" title="极简图床插件"></a>极简图床插件</h3><p>&emsp;&emsp;打开Chrome浏览器，在插件商店添加“<a href="http://yotuku.cn/" target="_blank" rel="external">极简图床</a>”，打开后点击右上角的“设置”，将你的七牛对象存储配置到上面。<br><img src="http://ogpr96vps.bkt.clouddn.com/public/16-11-30/44642985.jpg" alt="图2:极简图床配置七牛对象存储的页面"><br><strong>说明：</strong></p>
+<h1 id="3-极简图床插件"><a href="#3-极简图床插件" class="headerlink" title="3 极简图床插件"></a>3 极简图床插件</h1><p>&emsp;&emsp;打开Chrome浏览器，在插件商店添加“<a href="http://yotuku.cn/" target="_blank" rel="external">极简图床</a>”，打开后点击右上角的“设置”，将你的七牛对象存储配置到上面。<br><img src="http://ogpr96vps.bkt.clouddn.com/public/16-11-30/44642985.jpg" alt="图2:极简图床配置七牛对象存储的页面"><br><strong>说明：</strong></p>
 <ul>
 <li>空间名称：可以自定义，没有特殊要求。</li>
 <li>AK和SK：在图3中，七牛账号里寻找，路径：“个人面板-&gt;个人中心-&gt;密钥管理”。</li>
@@ -414,13 +412,13 @@
 </ul>
 <p><img src="http://ogpr96vps.bkt.clouddn.com/public/16-11-30/89636513.jpg" alt="图3:在个人面板中找到“密钥管理”"></p>
 <hr>
-<h3 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h3><ul>
+<h1 id="4-使用步骤"><a href="#4-使用步骤" class="headerlink" title="4 使用步骤"></a>4 使用步骤</h1><ul>
 <li>将本地需要配置到文章中的图片，拖入Chrome的极简图床窗口；</li>
 <li>按照提示：“粘贴、拖动或点此选择图片上传”即可将图片上传到你的七牛对象存储中，并生成相应的图片链接；</li>
 <li>在“我的上传”中，找到需要插入的图片资源，复制的相应的url，根据Markdown的语法调用即可；</li>
 </ul>
 <hr>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>&emsp;&emsp;整个的操作很简单，可能Chrome的极简图床插件需要连接下VPN。个人比较喜欢使用“Hexo+七牛+Chrome+极简图床插件”，因为这全都是免费的。</p>
+<h1 id="5-总结"><a href="#5-总结" class="headerlink" title="5 总结"></a>5 总结</h1><p>&emsp;&emsp;整个的操作很简单，可能Chrome的极简图床插件需要连接下VPN。个人比较喜欢使用“Hexo+七牛+Chrome+极简图床插件”，因为这全都是免费的。</p>
 
       
     </div>
@@ -669,7 +667,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#概述"><span class="nav-text">概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#七牛云存储"><span class="nav-text">七牛云存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#极简图床插件"><span class="nav-text">极简图床插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用步骤"><span class="nav-text">使用步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-概述"><span class="nav-text">1 概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-七牛云存储"><span class="nav-text">2 七牛云存储</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-极简图床插件"><span class="nav-text">3 极简图床插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-使用步骤"><span class="nav-text">4 使用步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-总结"><span class="nav-text">5 总结</span></a></li></ol></div>
             
 
           </div>

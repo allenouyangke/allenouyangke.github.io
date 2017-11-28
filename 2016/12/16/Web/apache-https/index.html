@@ -102,19 +102,19 @@
 
 
 
-<meta name="description" content="Apache的ssl证书
+<meta name="description" content="1 Apache的ssl证书
 Apche的ssl证书一共有三个1_root_bundle.crt2domainname.com.crt3 domainname.com.key注：domainname.com是您的域名；2 domainname.com.crt为公钥；3 domainname.com.key为私钥。(文件后缀名crt和cer的性质是一样的)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Apache配置ssl证书实现https访问">
 <meta property="og:url" content="http://yoursite.com/2016/12/16/Web/apache-https/index.html">
 <meta property="og:site_name" content="KeKe Blog">
-<meta property="og:description" content="Apache的ssl证书
+<meta property="og:description" content="1 Apache的ssl证书
 Apche的ssl证书一共有三个1_root_bundle.crt2domainname.com.crt3 domainname.com.key注：domainname.com是您的域名；2 domainname.com.crt为公钥；3 domainname.com.key为私钥。(文件后缀名crt和cer的性质是一样的)">
 <meta property="og:image" content="http://ogpr96vps.bkt.clouddn.com/16-12-16/42860933-file_1481869823117_b6d4.png">
-<meta property="og:updated_time" content="2017-01-04T02:34:27.000Z">
+<meta property="og:updated_time" content="2017-11-28T12:38:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Apache配置ssl证书实现https访问">
-<meta name="twitter:description" content="Apache的ssl证书
+<meta name="twitter:description" content="1 Apache的ssl证书
 Apche的ssl证书一共有三个1_root_bundle.crt2domainname.com.crt3 domainname.com.key注：domainname.com是您的域名；2 domainname.com.crt为公钥；3 domainname.com.key为私钥。(文件后缀名crt和cer的性质是一样的)">
 <meta name="twitter:image" content="http://ogpr96vps.bkt.clouddn.com/16-12-16/42860933-file_1481869823117_b6d4.png">
 
@@ -399,11 +399,11 @@ Apche的ssl证书一共有三个1_root_bundle.crt2domainname.com.crt3 domainname
       
 
       
-        <h3 id="Apache的ssl证书"><a href="#Apache的ssl证书" class="headerlink" title="Apache的ssl证书"></a>Apache的ssl证书</h3><ul>
+        <h1 id="1-Apache的ssl证书"><a href="#1-Apache的ssl证书" class="headerlink" title="1 Apache的ssl证书"></a>1 Apache的ssl证书</h1><ul>
 <li>Apche的ssl证书一共有三个<br>1_root_bundle.crt<br>2<em>domainname.com.crt<br>3</em> domainname.com.key<br>注：domainname.com是您的域名；2<em> domainname.com.crt为公钥；3</em> domainname.com.key为私钥。(文件后缀名crt和cer的性质是一样的)<a id="more"></a>
 </li>
 </ul>
-<h3 id="安装ssl证书"><a href="#安装ssl证书" class="headerlink" title="安装ssl证书"></a>安装ssl证书</h3><ul>
+<h1 id="2-安装ssl证书"><a href="#2-安装ssl证书" class="headerlink" title="2 安装ssl证书"></a>2 安装ssl证书</h1><ul>
 <li><p>安装openssl和apache的ssl模块</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install openssl mod_ssl -y</div></pre></td></tr></table></figure>
 </li>
@@ -414,7 +414,7 @@ Apche的ssl证书一共有三个1_root_bundle.crt2domainname.com.crt3 domainname
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">#默认配置文件路径</div><div class="line">vi /etc/httpd/conf.d/ssl.conf</div><div class="line"></div><div class="line">#找到以下行，并去掉注释</div><div class="line">#如没有请自行添加</div><div class="line">SSLProtocol  all -SSLv2 -SSLv3</div><div class="line">SSLCipherSuite AESGCM:ALL:!DH:!EXPORT:!RC4:+HIGH:!MEDIUM:!LOW:!aNULL:!eNULL</div><div class="line"></div><div class="line">#添加证书的路径</div><div class="line">#注：不管是添加还是修改都需要先做备份</div><div class="line">#将服务器证书公钥(2_domainname.com.crt)配置到该路径下，同时替换localhost.crt</div><div class="line">SSLCertificateFile /etc/pki/tls/certs/localhost.crt</div><div class="line"></div><div class="line">#将服务器证书私钥(3_domainname.com.key)配置到该路径下，同时替换localhost.key</div><div class="line">SSLCertificateKeyFile /etc/pki/tls/private/localhost.key</div><div class="line"></div><div class="line">#删除行首的“#”号注释符，并将中级CA证书(1_root_bundle.crt)配置到该路径下，同时替换成server-chain.crt</div><div class="line">SSLCertificateChainFile /etc/pki/tls/certs/server-chain.crt</div><div class="line"></div><div class="line">#保存退出</div><div class="line">#重启apache</div><div class="line">service httpd restart</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="验证测试"><a href="#验证测试" class="headerlink" title="验证测试"></a>验证测试</h3><ul>
+<h1 id="3-验证测试"><a href="#3-验证测试" class="headerlink" title="3 验证测试"></a>3 验证测试</h1><ul>
 <li><p>绑定hosts</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#Linux&amp;Mac:/etc/hosts</div><div class="line"></div><div class="line">#Windows:C:\Windows\System32\drivers\etc</div><div class="line"></div><div class="line">58.229.*.*     test.example.com</div></pre></td></tr></table></figure>
 </li>
@@ -669,7 +669,7 @@ Apche的ssl证书一共有三个1_root_bundle.crt2domainname.com.crt3 domainname
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Apache的ssl证书"><span class="nav-text">Apache的ssl证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装ssl证书"><span class="nav-text">安装ssl证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证测试"><span class="nav-text">验证测试</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Apache的ssl证书"><span class="nav-text">1 Apache的ssl证书</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-安装ssl证书"><span class="nav-text">2 安装ssl证书</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-验证测试"><span class="nav-text">3 验证测试</span></a></li></ol></div>
             
 
           </div>
