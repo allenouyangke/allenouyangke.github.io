@@ -1794,7 +1794,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff66b4;
+  background: #ffd167;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2938,6 +2938,10 @@ body {
   .post-body {
     text-align: justify;
   }
+}
+body {
+  background: url("/images/background.jpg");
+  background-attachment: fixed;
 }
 .post {
   margin-top: 60px;
