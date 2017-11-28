@@ -102,16 +102,16 @@
 
 
 
-<meta name="description" content="Top命令其实十分的强大，可惜还没熟悉的使用上。">
+<meta name="description" content="平时查看文档太少使用less和more，现在要开始慢慢习惯使用这些命令工具。以前可以直接使用cat或者vi直接查看文件，但是后面查看一些大的日志文件，不选择合适的工具估计会把自己折腾死。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Top">
-<meta property="og:url" content="http://yoursite.com/2017/02/24/top-command/index.html">
+<meta property="og:title" content="less命令">
+<meta property="og:url" content="http://yoursite.com/2017/02/24/linux_command/less-command/index.html">
 <meta property="og:site_name" content="KeKe Blog">
-<meta property="og:description" content="Top命令其实十分的强大，可惜还没熟悉的使用上。">
-<meta property="og:updated_time" content="2017-11-28T13:04:06.000Z">
+<meta property="og:description" content="平时查看文档太少使用less和more，现在要开始慢慢习惯使用这些命令工具。以前可以直接使用cat或者vi直接查看文件，但是后面查看一些大的日志文件，不选择合适的工具估计会把自己折腾死。">
+<meta property="og:updated_time" content="2017-11-28T12:52:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Top">
-<meta name="twitter:description" content="Top命令其实十分的强大，可惜还没熟悉的使用上。">
+<meta name="twitter:title" content="less命令">
+<meta name="twitter:description" content="平时查看文档太少使用less和more，现在要开始慢慢习惯使用这些命令工具。以前可以直接使用cat或者vi直接查看文件，但是后面查看一些大的日志文件，不选择合适的工具估计会把自己折腾死。">
 
 
 
@@ -139,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/24/top-command/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/24/linux_command/less-command/"/>
 
 
 
 
 
-  <title> Top | KeKe Blog </title>
+  <title> less命令 | KeKe Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -291,7 +291,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/24/top-command/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/24/linux_command/less-command/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="柯爺">
@@ -315,7 +315,7 @@
             
             
               
-                Top
+                less命令
               
             
           </h1>
@@ -328,7 +328,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-24T17:49:57+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-24T17:49:47+08:00">
                 2017-02-24
               </time>
             
@@ -347,8 +347,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Tool/" itemprop="url" rel="index">
-                    <span itemprop="name">Tool</span>
+                  <a href="/categories/Command/" itemprop="url" rel="index">
+                    <span itemprop="name">Command</span>
                   </a>
                 </span>
 
@@ -362,8 +362,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2017/02/24/top-command/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/24/top-command/" itemprop="commentCount"></span>
+                <a href="/2017/02/24/linux_command/less-command/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/24/linux_command/less-command/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -394,23 +394,31 @@
       
 
       
-        <p>Top命令其实十分的强大，可惜还没熟悉的使用上。<br><a id="more"></a></p>
+        <p>平时查看文档太少使用less和more，现在要开始慢慢习惯使用这些命令工具。以前可以直接使用cat或者vi直接查看文件，但是后面查看一些大的日志文件，不选择合适的工具估计会把自己折腾死。<br><a id="more"></a></p>
 <ul>
-<li><p><strong>q：</strong>退出top</p>
+<li><p><strong>空格键：</strong>文件内容读取下一个终端屏幕的行数，相当于前进一个屏幕（页）。很常用的快捷键。与键盘上的PageDown（下一页）效果一样。</p>
 </li>
-<li><p><strong>h：</strong>显示帮助文档，也就是哪些按键可以使用。按下任意键返回。</p>
+<li><p><strong>回车键：</strong>文件内容读取下一行，也就是前进一行。与键盘上的向下键效果是一样的。</p>
 </li>
-<li><p><strong>B：</strong>大写的B，加粗某些信息。</p>
+<li><p><strong>d键：</strong>前进半页（半个屏幕）。</p>
 </li>
-<li><p><strong>f：</strong>在进程列表中添加或删除某些列。</p>
+<li><p><strong>b键：</strong>后退一页。与键盘上的PageUp（上一页）效果一样。</p>
 </li>
-<li><p><strong>F：</strong>改变进程列表排序所参照的列。默认情况下，是按照%CPU那一列来排序。</p>
+<li><p><strong>y键：</strong>后退一行。与键盘上的向上键效果是一样的。</p>
 </li>
-<li><p><strong>u：</strong>依照用户来过滤显示。可以输入用户名，按回车。</p>
+<li><p><strong>u键：</strong>后退半页（半个屏幕）。</p>
 </li>
-<li><p><strong>k：</strong>结束某个进程。会让你输入要结束的进程的PID。</p>
+<li><p><strong>q键：</strong>停止读取文件，中止less命令。</p>
 </li>
-<li><p><strong>s：</strong>改变刷新页面的时间。默认地，页面每隔3秒刷新一次。</p>
+<li><p><strong>=号：</strong>显示你在文件中的什么位置（会显示当前页面的内容是文件中第几行到第几行，整个文件所含行数，所含字符数，整个文件所含字符）。</p>
+</li>
+<li><p><strong>h键：</strong>显示帮助文档。按q键退出帮助文档。</p>
+</li>
+<li><p><strong>/（斜杠）：</strong>进入搜索模式，只要在斜杠后面输入你要搜索的文字，按下回车键，就会把所有符合的结果都标识出来。要在搜索所得结果中跳转，可以按n键（跳到下一个符合项目），N键（shift键+n。跳到上一个符合项目）。当然了，正则表达式（Regular Expression）也是可以用在搜索内容中的。这里我们就不细说什么是正则表达式了，有兴趣可以百度看看。</p>
+</li>
+<li><p><strong>n键：</strong>跳到下一个符合的搜索结果。</p>
+</li>
+<li><p><strong>N键：</strong>跳到上一个符合的搜索结果</p>
 </li>
 </ul>
 
@@ -453,8 +461,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/24/less-command/" rel="next" title="less命令">
-                <i class="fa fa-chevron-left"></i> less命令
+              <a href="/2017/02/24/screen-command/" rel="next" title="常用的终端快捷键一">
+                <i class="fa fa-chevron-left"></i> 常用的终端快捷键一
               </a>
             
           </div>
@@ -463,8 +471,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/24/path-count/" rel="prev" title="Shell中的特殊变量">
-                Shell中的特殊变量 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/24/linux_command/top-command/" rel="prev" title="Top">
+                Top <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -514,8 +522,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/24/top-command/"
-           data-title="Top" data-url="http://yoursite.com/2017/02/24/top-command/">
+      <div class="ds-thread" data-thread-key="2017/02/24/linux_command/less-command/"
+           data-title="less命令" data-url="http://yoursite.com/2017/02/24/linux_command/less-command/">
       </div>
     
   </div>
