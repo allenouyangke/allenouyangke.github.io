@@ -1,0 +1,1023 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="IDE," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Atom快捷键和常用插件">
+<meta property="og:url" content="http://yoursite.com/2017/12/02/Atom/index.html">
+<meta property="og:site_name" content="KeKe Blog">
+<meta property="og:image" content="http://ogpr96vps.bkt.clouddn.com/17-12-2/47061790.jpg">
+<meta property="og:updated_time" content="2017-12-11T17:04:49.070Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Atom快捷键和常用插件">
+<meta name="twitter:image" content="http://ogpr96vps.bkt.clouddn.com/17-12-2/47061790.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/02/Atom/"/>
+
+
+
+
+
+  <title> Atom快捷键和常用插件 | KeKe Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <a href="https://github.com/allenouyangke"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">KeKe Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">No things is possible!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-booklist">
+          <a href="/booklist" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书单
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/Atom/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="柯爺">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/mac_pic_01.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="KeKe Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="KeKe Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Atom快捷键和常用插件
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-02T01:39:03+08:00">
+                2017-12-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/IDE/" itemprop="url" rel="index">
+                    <span itemprop="name">IDE</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2017/12/02/Atom/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/02/Atom/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://ogpr96vps.bkt.clouddn.com/17-12-2/47061790.jpg" alt=""><br><a id="more"></a></p>
+<h2 id="1-文件切换"><a href="#1-文件切换" class="headerlink" title="1 文件切换"></a>1 文件切换</h2><p><code>ctrl-shift-s</code>  保存所有打开的文件<br><code>cmd-shift-o</code>  打开目录<br><code>cmd-\</code>   显示或隐藏目录树<br><code>ctrl-0</code>   焦点移到目录树<br>目录树下，使用a，m，delete来增加，修改和删除<br><code>cmd-t</code>或<code>cmd-p</code> 查找文件<br><code>cmd-b</code> 在打开的文件之间切换<br><code>cmd-shift-b</code> 只搜索从上次git commit后修改或者新增的文件  </p>
+<h2 id="2-导航"><a href="#2-导航" class="headerlink" title="2 导航"></a>2 导航</h2><p>（等价于上下左右）<br><code>ctrl-p</code> 前一行<br><code>ctrl-n</code> 后一行<br><code>ctrl-f</code> 前一个字符<br><code>ctrl-b</code> 后一个字符  </p>
+<p><code>alt-B</code>, <code>alt-left</code> 移动到单词开始<br><code>alt-F</code>, <code>alt-right</code> 移动到单词末尾  </p>
+<p><code>cmd-right</code>, <code>ctrl-E</code> 移动到一行结束<br><code>cmd-left</code>, <code>ctrl-A</code>  移动到一行开始  </p>
+<p><code>cmd-up</code> 移动到文件开始<br><code>cmd-down</code> 移动到文件结束  </p>
+<p><code>ctrl-g</code> 移动到指定行 row:column 处</p>
+<p><code>cmd-r</code> 在方法之间跳转</p>
+<h2 id="3-目录树操作"><a href="#3-目录树操作" class="headerlink" title="3 目录树操作"></a>3 目录树操作</h2><p><code>cmd-\</code> 或者 <code>cmd-k cmd-b</code> 显示(隐藏)目录树<br><code>ctrl-0</code> 焦点切换到目录树(再按一次或者<code>Esc</code>退出目录树)<br><code>a</code> 添加文件<br><code>d</code> 将当前文件另存为(duplicate)<br><code>i</code> 显示(隐藏)版本控制忽略的文件<br><code>alt-right</code> 和 <code>alt-left</code> 展开(隐藏)所有目录<br><code>ctrl-al-]</code> 和 <code>ctrl-al-[</code> 同上<br><code>ctrl-[</code> 和 <code>ctrl-]</code> 展开(隐藏)当前目录<br><code>ctrl-f</code> 和 <code>ctrl-b</code> 同上<br><code>cmd-k h</code> 或者 <code>cmd-k left</code> 在左半视图中打开文件<br><code>cmd-k j</code> 或者 <code>cmd-k down</code> 在下半视图中打开文件<br><code>cmd-k k</code> 或者 <code>cmd-k up</code> 在上半视图中打开文件<br><code>cmd-k l</code> 或者 <code>cmd-k right</code> 在右半视图中打开文件<br><code>ctrl-shift-C</code> 复制当前文件绝对路径</p>
+<h2 id="4-书签"><a href="#4-书签" class="headerlink" title="4 书签"></a>4 书签</h2><p><code>cmd-F2</code> 在本行增加书签<br><code>F2</code> 跳到当前文件的下一条书签<br><code>shift-F2</code> 跳到当前文件的上一条书签<br><code>ctrl-F2</code> 列出当前工程所有书签  </p>
+<h2 id="选取"><a href="#选取" class="headerlink" title="选取"></a>选取</h2><blockquote>
+<p>大部分和导航一致，只不过加上shift  </p>
+</blockquote>
+<p><code>ctrl-shift-P</code>  选取至上一行<br><code>ctrl-shift-N</code>  选取至下一样<br><code>ctrl-shift-B</code>  选取至前一个字符<br><code>ctrl-shift-F</code>  选取至后一个字符<br><code>alt-shift-B</code>, <code>alt-shift-left</code>  选取至字符开始<br><code>alt-shift-F</code>, <code>alt-shift-right</code>  选取至字符结束<br><code>ctrl-shift-E</code>, <code>cmd-shift-right</code>  选取至本行结束<br><code>ctrl-shift-A</code>, <code>cmd-shift-left</code>  选取至本行开始<br><code>cmd-shift-up</code>  选取至文件开始<br><code>cmd-shift-down</code>  选取至文件结尾<br><code>cmd-A</code>  全选<br><code>cmd-L</code>  选取一行，继续按回选取下一行<br><code>ctrl-shift-W</code>  选取当前单词  </p>
+<h2 id="5-编辑和删除文本"><a href="#5-编辑和删除文本" class="headerlink" title="5 编辑和删除文本"></a>5 编辑和删除文本</h2><h3 id="5-1-基本操作"><a href="#5-1-基本操作" class="headerlink" title="5.1 基本操作"></a>5.1 基本操作</h3><p><code>ctrl-T</code> 使光标前后字符交换<br><code>cmd-J</code> 将下一行与当前行合并<br><code>ctrl-cmd-up</code>, <code>ctrl-cmd-down</code> 使当前行向上或者向下移动<br><code>cmd-shift-D</code> 复制当前行到下一行<br><code>cmd-K</code>, <code>cmd-U</code> 使当前字符大写<br><code>cmd-K</code>, <code>cmd-L</code> 使当前字符小写<br><code>cmd-shift-P</code> 搜索命令  </p>
+<h3 id="5-2-删除和剪切"><a href="#5-2-删除和剪切" class="headerlink" title="5.2 删除和剪切"></a>5.2 删除和剪切</h3><p><code>ctrl-shift-K</code> 删除当前行<br><code>cmd-backspace</code> 删除到当前行开始<br><code>cmd-fn-backspace</code> 删除到当前行结束<br><code>ctrl-K</code> 剪切到当前行结束<br><code>alt-backspace</code> 或 <code>alt-H</code> 删除到当前单词开始<br><code>alt-delete</code> 或 <code>alt-D</code> 删除到当前单词结束  </p>
+<h3 id="5-3-多光标和多处选取"><a href="#5-3-多光标和多处选取" class="headerlink" title="5.3 多光标和多处选取"></a>5.3 多光标和多处选取</h3><p><code>cmd-click</code> 增加新光标<br><code>cmd-shift-L</code> 将多行选取改为多行光标<br><code>ctrl-shift-up</code>, <code>ctrl-shift-down</code> 增加上（下）一行光标<br><code>cmd-D</code> 选取文档中和当前单词相同的下一处<br><code>ctrl-cmd-G</code> 选取文档中所有和当前光标单词相同的位置  </p>
+<h3 id="5-4-括号跳转"><a href="#5-4-括号跳转" class="headerlink" title="5.4 括号跳转"></a>5.4 括号跳转</h3><p><code>ctrl-m</code> 相应括号之间，html tag之间等跳转<br><code>ctrl-cmd-m</code> 括号(tag)之间文本选取<br><code>alt-cmd-.</code> 关闭当前XML/HTML tag  </p>
+<h3 id="5-5-编码方式"><a href="#5-5-编码方式" class="headerlink" title="5.5 编码方式"></a>5.5 编码方式</h3><p><code>ctrl-shift-U</code> 调出切换编码选项  </p>
+<h2 id="6-查找和替换"><a href="#6-查找和替换" class="headerlink" title="6 查找和替换"></a>6 查找和替换</h2><p><code>cmd-F</code> 在buffer中查找<br><code>cmd-shift-f</code> 在整个工程中查找  </p>
+<h2 id="7-代码片段"><a href="#7-代码片段" class="headerlink" title="7 代码片段"></a>7 代码片段</h2><p><code>alt-shift-S</code> 查看当前可用代码片段  </p>
+<blockquote>
+<p>在<code>~/.atom</code>目录下<code>snippets.cson</code>文件中存放了你定制的snippets  </p>
+</blockquote>
+<p><a href="https://atom.io/docs/v1.0.0/using-atom-snippets" target="_blank" rel="external">定制说明</a>  </p>
+<h2 id="8-自动补全"><a href="#8-自动补全" class="headerlink" title="8 自动补全"></a>8 自动补全</h2><p><code>ctrl-space</code> 提示补全信息  </p>
+<h2 id="9-折叠"><a href="#9-折叠" class="headerlink" title="9 折叠"></a>9 折叠</h2><p><code>alt-cmd-[</code> 折叠<br><code>alt-cmd-]</code> 展开<br><code>alt-cmd-shift-{</code> 折叠全部<br><code>alt-cmd-shift-}</code> 展开全部<br><code>cmd-k cmd-N</code> 指定折叠层级 N为层级数  </p>
+<h2 id="10-文件语法高亮"><a href="#10-文件语法高亮" class="headerlink" title="10 文件语法高亮"></a>10 文件语法高亮</h2><p><code>ctrl-shift-L</code> 选择文本类型  </p>
+<h2 id="11-使用Atom进行写作"><a href="#11-使用Atom进行写作" class="headerlink" title="11 使用Atom进行写作"></a>11 使用Atom进行写作</h2><p><code>ctrl-shift-M</code> Markdown预览<br>可用代码片段</p>
+<blockquote>
+<p>b, legal, img, l, i, code, t, table</p>
+</blockquote>
+<h2 id="12-git操作"><a href="#12-git操作" class="headerlink" title="12 git操作"></a>12 git操作</h2><p><code>cmd-alt-Z</code> checkout HEAD 版本<br><code>cmd-shift-B</code> 弹出untracked 和 modified文件列表<br><code>alt-g down</code> <code>alt-g up</code> 在修改处跳转<br><code>alt-G D</code> 弹出diff列表<br><code>alt-G O</code> 在github上打开文件<br><code>alt-G G</code> 在github上打开项目地址<br><code>alt-G B</code> 在github上打开文件blame<br><code>alt-G H</code> 在github上打开文件history<br><code>alt-G I</code> 在github上打开issues<br><code>alt-G R</code> 在github打开分支比较<br><code>alt-G C</code> 拷贝当前文件在gihub上的网址  </p>
+<h2 id="13-推荐一些好用的插件"><a href="#13-推荐一些好用的插件" class="headerlink" title="13 推荐一些好用的插件"></a>13 推荐一些好用的插件</h2><ul>
+<li>主题<br><a href="https://atom.io/themes/atom-material-ui" target="_blank" rel="external">atom-material-ui</a> 好看到爆<br><a href="https://atom.io/themes/atom-material-syntax" target="_blank" rel="external">atom-material-syntax</a></li>
+<li>美化<br><a href="https://atom.io/packages/atom-beautify" target="_blank" rel="external">atom-beautify</a> 一键代码美化<br><a href="https://atom.io/packages/file-icons" target="_blank" rel="external">file-icons</a> 给文件加上好看的图标<br><a href="https://atom.io/users/atom-minimap" target="_blank" rel="external">atom-minimap</a> 方便美观的缩略滚动图<br><a href="https://atom.io/packages/pretty-json" target="_blank" rel="external">pretty-json</a> json格式化工具<br><a href="https://atom.io/packages/activate-power-mode" target="_blank" rel="external">activate-power-mode</a> 炫酷的打字特效</li>
+<li>git<br><a href="https://atom.io/packages/atomatigit" target="_blank" rel="external">atomatigit</a> 可视化git操作<br><a href="https://atom.io/packages/git-time-machine" target="_blank" rel="external">git-time-machine</a> git版本对比工具，可视化选择每一个commit<br><a href="https://atom.io/packages/merge-conflicts" target="_blank" rel="external">merge-conflicts</a> 合并冲突可视化工具</li>
+<li>代码提示<br><a href="https://atom.io/packages/emmet" target="_blank" rel="external">emmet</a> 这个不用介绍了吧<br><a href="https://atom.io/packages/atom-ternjs" target="_blank" rel="external">atom-ternjs</a> js代码提示很强大，高度定制化<br><a href="https://atom.io/packages/docblockr" target="_blank" rel="external">docblockr</a> jsdoc 给js添加注释<br><a href="https://atom.io/packages/autoclose-html" target="_blank" rel="external">autoclose-html</a> 闭合html标签<br><a href="https://atom.io/packages/color-picker" target="_blank" rel="external">color-picker</a> 取色器 必备插件<br><a href="https://atom.io/packages/pigments" target="_blank" rel="external">pigments</a> 颜色显示插件 必装<br><a href="https://atom.io/packages/terminal-panel" target="_blank" rel="external">terminal-panel</a> 直接在atom里面写命令了<br><a href="https://atom.io/packages/svg-preview" target="_blank" rel="external">svg-preview</a> svg预览</li>
+<li>便捷操作<br><a href="https://atom.io/packages/advanced-open-file" target="_blank" rel="external">advanced-open-file</a> 快速打开、切换文件<br><a href="https://atom.io/packages/project-folder" target="_blank" rel="external">project-folder</a> 快速打开、切换项目<br><a href="https://atom.io/packages/script" target="_blank" rel="external">script</a> 立即执行当前js文件</li>
+<li>高亮<br><a href="https://atom.io/packages/language-vue" target="_blank" rel="external">language-vue</a> vue框架代码高亮</li>
+<li>终端<br><a href="https://atom.io/packages/platformio-ide-terminal" target="_blank" rel="external">platformio-atom-ide-terminal</a> 终端插件，支持显示、隐藏及多窗口</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">
+            -------------本文结束
+            <i class="fa fa-paw"></i>
+            感谢您的阅读-------------
+        </div>
+    
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/IDE/" rel="tag"><i class="fa fa-tag"></i> IDE</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/30/HTML/" rel="next" title="《HTML5、CSS和JavaScript开发》笔记之HTML">
+                <i class="fa fa-chevron-left"></i> 《HTML5、CSS和JavaScript开发》笔记之HTML
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/21/execl-share/" rel="prev" title="Execl常用操作分享">
+                Execl常用操作分享 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/12/02/Atom/"
+           data-title="Atom快捷键和常用插件" data-url="http://yoursite.com/2017/12/02/Atom/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/mac_pic_01.jpg"
+               alt="柯爺" />
+          <p class="site-author-name" itemprop="name">柯爺</p>
+          <p class="site-description motion-element" itemprop="description">不忘初心，方能终始</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="/websitelog" target="_blank" title="建站日志">
+                  
+                    <i class="fa fa-fw fa-list"></i>
+                  
+                  建站日志
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="/hexo-ops" target="_blank" title="博客维护">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  博客维护
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/allenouyangke/" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/8b9c7c0087b6" target="_blank" title="我的简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  我的简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="/skill-list" target="_blank" title="技能图谱">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  技能图谱
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-文件切换"><span class="nav-text">1 文件切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-导航"><span class="nav-text">2 导航</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-目录树操作"><span class="nav-text">3 目录树操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-书签"><span class="nav-text">4 书签</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选取"><span class="nav-text">选取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-编辑和删除文本"><span class="nav-text">5 编辑和删除文本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-基本操作"><span class="nav-text">5.1 基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-删除和剪切"><span class="nav-text">5.2 删除和剪切</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-多光标和多处选取"><span class="nav-text">5.3 多光标和多处选取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-括号跳转"><span class="nav-text">5.4 括号跳转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-编码方式"><span class="nav-text">5.5 编码方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-查找和替换"><span class="nav-text">6 查找和替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-代码片段"><span class="nav-text">7 代码片段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-自动补全"><span class="nav-text">8 自动补全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-折叠"><span class="nav-text">9 折叠</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-文件语法高亮"><span class="nav-text">10 文件语法高亮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-使用Atom进行写作"><span class="nav-text">11 使用Atom进行写作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-git操作"><span class="nav-text">12 git操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-推荐一些好用的插件"><span class="nav-text">13 推荐一些好用的插件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  Fri Nov 25 2016 08:00:00 GMT+0800 (CST) - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">柯爺</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv">本站总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"allenouyangke"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+  </script>
+  
+</body>
+</html>
