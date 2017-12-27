@@ -102,16 +102,16 @@
 
 
 
-<meta name="description" content="Fabric是基于Python实现的SSH命令行工具，简化了SSH的应用程序部署及系统管理任务，它提供了系统基础的操作组件，可以实现本地或远程shell命令，包括：命令执行、文件上传、下载及完整执行日志输出等功能。Fabric在Paramiko的基础上做了更高一层的封装，操作起来会更加简单。目前作为游戏运维人员，在没有完全做好自动化运维的情况下，使用fabcir能有效的提高工作效率。">
+<meta name="description" content="&amp;emsp;&amp;emsp;Fabric是基于Python实现的SSH命令行工具，简化了SSH的应用程序部署及系统管理任务，它提供了系统基础的操作组件，可以实现本地或远程shell命令，包括：命令执行、文件上传、下载及完整执行日志输出等功能。Fabric在Paramiko的基础上做了更高一层的封装，操作起来会更加简单。&amp;emsp;&amp;emsp;目前作为游戏运维人员，在没有完全做好自动化运维的情况下，使用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python之Fabcir模块">
 <meta property="og:url" content="http://yoursite.com/2017/12/27/fabcir/index.html">
 <meta property="og:site_name" content="KeKe Blog">
-<meta property="og:description" content="Fabric是基于Python实现的SSH命令行工具，简化了SSH的应用程序部署及系统管理任务，它提供了系统基础的操作组件，可以实现本地或远程shell命令，包括：命令执行、文件上传、下载及完整执行日志输出等功能。Fabric在Paramiko的基础上做了更高一层的封装，操作起来会更加简单。目前作为游戏运维人员，在没有完全做好自动化运维的情况下，使用fabcir能有效的提高工作效率。">
-<meta property="og:updated_time" content="2017-12-27T16:35:24.938Z">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;Fabric是基于Python实现的SSH命令行工具，简化了SSH的应用程序部署及系统管理任务，它提供了系统基础的操作组件，可以实现本地或远程shell命令，包括：命令执行、文件上传、下载及完整执行日志输出等功能。Fabric在Paramiko的基础上做了更高一层的封装，操作起来会更加简单。&amp;emsp;&amp;emsp;目前作为游戏运维人员，在没有完全做好自动化运维的情况下，使用">
+<meta property="og:updated_time" content="2017-12-27T16:39:55.515Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python之Fabcir模块">
-<meta name="twitter:description" content="Fabric是基于Python实现的SSH命令行工具，简化了SSH的应用程序部署及系统管理任务，它提供了系统基础的操作组件，可以实现本地或远程shell命令，包括：命令执行、文件上传、下载及完整执行日志输出等功能。Fabric在Paramiko的基础上做了更高一层的封装，操作起来会更加简单。目前作为游戏运维人员，在没有完全做好自动化运维的情况下，使用fabcir能有效的提高工作效率。">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;Fabric是基于Python实现的SSH命令行工具，简化了SSH的应用程序部署及系统管理任务，它提供了系统基础的操作组件，可以实现本地或远程shell命令，包括：命令执行、文件上传、下载及完整执行日志输出等功能。Fabric在Paramiko的基础上做了更高一层的封装，操作起来会更加简单。&amp;emsp;&amp;emsp;目前作为游戏运维人员，在没有完全做好自动化运维的情况下，使用">
 
 
 
@@ -414,7 +414,7 @@
       
 
       
-        <p>Fabric是基于Python实现的SSH命令行工具，简化了SSH的应用程序部署及系统管理任务，它提供了系统基础的操作组件，可以实现本地或远程shell命令，包括：命令执行、文件上传、下载及完整执行日志输出等功能。Fabric在Paramiko的基础上做了更高一层的封装，操作起来会更加简单。<br>目前作为游戏运维人员，在没有完全做好自动化运维的情况下，使用fabcir能有效的提高工作效率。<br><a id="more"></a></p>
+        <p>&emsp;&emsp;Fabric是基于Python实现的SSH命令行工具，简化了SSH的应用程序部署及系统管理任务，它提供了系统基础的操作组件，可以实现本地或远程shell命令，包括：命令执行、文件上传、下载及完整执行日志输出等功能。Fabric在Paramiko的基础上做了更高一层的封装，操作起来会更加简单。<br>&emsp;&emsp;目前作为游戏运维人员，在没有完全做好自动化运维的情况下，使用fabcir能有效的提高工作效率。<br><a id="more"></a></p>
 <h1 id="1-命令说明"><a href="#1-命令说明" class="headerlink" title="1 命令说明"></a>1 命令说明</h1><h2 id="1-1-命令格式"><a href="#1-1-命令格式" class="headerlink" title="1.1 命令格式"></a>1.1 命令格式</h2><p><code>fab [options] &lt;command&gt;[:arg1,arg2=val2,host=foo,hosts=&#39;h1;h2&#39;,...] ...</code></p>
 <h2 id="1-2-常用参数"><a href="#1-2-常用参数" class="headerlink" title="1.2 常用参数"></a>1.2 常用参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">-l     #显示定义好的任务函数名</div><div class="line">-f     #指定fab入口文件，默认入口文件名为fabfile.py</div><div class="line">-f     #指定网关（中转）设备，比如堡垒机环境，填写堡垒机IP即可</div><div class="line">-H     #指定目标主机，多台主机用‘,’号分隔</div><div class="line">-p     #远程账号的密码，fab执行时默认使用root账户</div><div class="line">-P     #以异步并行方式运行多主机任务，默认为串行运行</div><div class="line">-R     #指定role（角色），以角色名区分不同业务组设备</div><div class="line">-t     #设置设备连接超时时间（秒）</div><div class="line">-T     #设置远程主机命令执行超时时间（秒）</div><div class="line">-w     #当命令执行失败，发出警告，而非默认中止任务。</div></pre></td></tr></table></figure>
 <hr>
