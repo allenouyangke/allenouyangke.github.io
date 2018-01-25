@@ -1,0 +1,1045 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="linux,svn," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="&amp;emsp;&amp;emsp;互联网小型公司刚开始启动项目的时候，一般只有一个项目，这个时候，只需要在服务器上部署单库的SVN提供服务即可满足需求，运维人员刚开始只需要在命令行手动配置仓库，新人入职改改passwd和authz配置文件添加账号和权限就能搞定，但随着公司的日益发展壮大，研发队伍越来越壮大，人数越来越多，项目模块化，分布式，SOA服务化，多项目同时研发、测试、发布上线等等，运维人员忙的不可开">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过Web高效管理多个项目的SVN仓库(适用于中小型研发团队)">
+<meta property="og:url" content="http://yoursite.com/2018/01/24/subversion/index.html">
+<meta property="og:site_name" content="KeKe Blog">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;互联网小型公司刚开始启动项目的时候，一般只有一个项目，这个时候，只需要在服务器上部署单库的SVN提供服务即可满足需求，运维人员刚开始只需要在命令行手动配置仓库，新人入职改改passwd和authz配置文件添加账号和权限就能搞定，但随着公司的日益发展壮大，研发队伍越来越壮大，人数越来越多，项目模块化，分布式，SOA服务化，多项目同时研发、测试、发布上线等等，运维人员忙的不可开">
+<meta property="og:image" content="http://yoursite.com/media/15167840753271.jpg">
+<meta property="og:updated_time" content="2018-01-25T06:02:33.449Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="通过Web高效管理多个项目的SVN仓库(适用于中小型研发团队)">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;互联网小型公司刚开始启动项目的时候，一般只有一个项目，这个时候，只需要在服务器上部署单库的SVN提供服务即可满足需求，运维人员刚开始只需要在命令行手动配置仓库，新人入职改改passwd和authz配置文件添加账号和权限就能搞定，但随着公司的日益发展壮大，研发队伍越来越壮大，人数越来越多，项目模块化，分布式，SOA服务化，多项目同时研发、测试、发布上线等等，运维人员忙的不可开">
+<meta name="twitter:image" content="http://yoursite.com/media/15167840753271.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/24/subversion/"/>
+
+
+
+
+
+  <title> 通过Web高效管理多个项目的SVN仓库(适用于中小型研发团队) | KeKe Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <a href="https://github.com/allenouyangke"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">KeKe Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">No things is possible!</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-booklist">
+          <a href="/booklist" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            书单
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/24/subversion/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="柯爺">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/mac_pic_01.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="KeKe Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="KeKe Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                通过Web高效管理多个项目的SVN仓库(适用于中小型研发团队)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-24T15:33:06+08:00">
+                2018-01-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/Svn/" itemprop="url" rel="index">
+                    <span itemprop="name">Svn</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2018/01/24/subversion/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/01/24/subversion/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&emsp;&emsp;互联网小型公司刚开始启动项目的时候，一般只有一个项目，这个时候，只需要在服务器上部署单库的SVN提供服务即可满足需求，运维人员刚开始只需要在命令行手动配置仓库，新人入职改改passwd和authz配置文件添加账号和权限就能搞定，但随着公司的日益发展壮大，研发队伍越来越壮大，人数越来越多，项目模块化，分布式，SOA服务化，多项目同时研发、测试、发布上线等等，运维人员忙的不可开交，旧法子已经完全不能满足需求了，怎么办呢？本着高效率工作，多玩耍的思想，运维人员要寻求更快更便捷的方法来解决问题，那么一定是服务化的方法了，通过WEB UI的方式管理，点点鼠标可以轻松搞定。<br>&emsp;&emsp;Jsvnadmin的出现，就改变了以往纯命令行或脚本的原始化方法，它是一个 Java 开发的管理 Svn 服务器的项目用户的 web 应用。安装好 Svn 服务器端好，把 Svn Admin 部署好，就可以通过 web 浏览器管理 Svn 的项目，管理项目的用户，管理项目的权限。使得管理配置 Svn 简便，再也不需要每次都到服务器手工修改配置文件。<br><a id="more"></a></p>
+<h1 id="1-jsvnadmin简介"><a href="#1-jsvnadmin简介" class="headerlink" title="1 jsvnadmin简介"></a>1 jsvnadmin简介</h1><h2 id="1-1-软件优点"><a href="#1-1-软件优点" class="headerlink" title="1.1 软件优点"></a>1.1 软件优点</h2><ul>
+<li><strong>多数据库</strong>：SVN项目配置数据保存在数据库，支持所有数据库（默认MySQL/Oracle/SQL Server）</li>
+<li><strong>多操作系统</strong>：支持Windows，Linux等操作系统给</li>
+<li><strong>权限控制</strong>：管理员可以随意分配权限、项目管理员可以管理项目成员、成员只能查看和修改自己的密码</li>
+<li><strong>支持多项目、多用户、多用户组Group</strong>：默认带有“项目管理组”、“项目开发组”、“项目测试组”</li>
+<li><strong>安全</strong>：密码加密保存</li>
+<li><strong>多协议</strong>：支持svn协议和httpd协议（从2.0开始支持Apache服务器——单库方式，从3.0开始支持Apache多库方式）</li>
+<li><strong>仓库浏览</strong>：从3.0.2开始</li>
+<li><strong>多语言</strong>：从3.0.2开始</li>
+</ul>
+<h2 id="1-2-部署方案"><a href="#1-2-部署方案" class="headerlink" title="1.2 部署方案"></a>1.2 部署方案</h2><ul>
+<li><p><strong>方案1</strong><br>  Linux+Apache+Subversion+MySQL+Tomcat+Svnadmin</p>
+</li>
+<li><p><strong>方案2</strong><br>  Windows+Apache+Subversion+MySQL+Tomcat+Svnadmin</p>
+</li>
+<li><p><strong>支持SVN协议</strong><br>  Svn 的配置信息都在仓库目录的 conf 下的 authz,passwd,svnserve.conf 三个文件中，配置用户和权限都是通过修改 passwd 和 authz，立刻就生效。 Svn Admin 的本质是对这 3个文件进行管理，所有成员、权限的数据都保存在数据库中， 一旦在Svn Admin 的页面上修改，就会把配置信息输出到 conf 下的那 3 个配置文件中。</p>
+</li>
+<li><p><strong>支持Http协议</strong><br>  Apache+SVN 配置成功后可以有两种方式</p>
+<ul>
+<li><strong>多库方式</strong>： SVNParentPath 指定一个父目录，所有仓库在这个父目录下，使用一个密码文件和一个权限配置文件。优点是增加删除仓库不需要改 apache的 httpd.conf，不需要重启 Apache。缺点是项目多会很混乱。</li>
+<li><strong>单库方式</strong>： SVNPath 每个仓库单独配置各自的密码和权限文件。优点是各自分开，互相不影响，维护方便。缺点是增加或删除仓库需要修改 apache 的httpd.conf 后重启。</li>
+</ul>
+</li>
+</ul>
+<h1 id="2-初始化系统"><a href="#2-初始化系统" class="headerlink" title="2 初始化系统"></a>2 初始化系统</h1><h2 id="2-1-升级系统软件包"><a href="#2-1-升级系统软件包" class="headerlink" title="2.1 升级系统软件包"></a>2.1 升级系统软件包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y update</div></pre></td></tr></table></figure>
+<h2 id="2-2-关闭SELinux"><a href="#2-2-关闭SELinux" class="headerlink" title="2.2 关闭SELinux"></a>2.2 关闭SELinux</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/selinux</div><div class="line"></div><div class="line"># 修改为</div><div class="line">SELINUX=disabled</div></pre></td></tr></table></figure>
+<h2 id="2-3-安装基础依赖包"><a href="#2-3-安装基础依赖包" class="headerlink" title="2.3 安装基础依赖包"></a>2.3 安装基础依赖包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">yum install gcc gcc-c++ ntpdate wget -y</div><div class="line"></div><div class="line"># 重启服务器</div><div class="line">reboot</div></pre></td></tr></table></figure>
+<h1 id="3-部署Apache"><a href="#3-部署Apache" class="headerlink" title="3 部署Apache"></a>3 部署Apache</h1><h2 id="3-1-安装Apache"><a href="#3-1-安装Apache" class="headerlink" title="3.1 安装Apache"></a>3.1 安装Apache</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install httpd httpd-devel -y</div></pre></td></tr></table></figure>
+<h2 id="3-2-调整配置文件"><a href="#3-2-调整配置文件" class="headerlink" title="3.2 调整配置文件"></a>3.2 调整配置文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">vim /etc/httpd/conf/httpd.conf</div><div class="line"></div><div class="line"># 大概在276行</div><div class="line">276 ServerName localhost:80</div></pre></td></tr></table></figure>
+<h2 id="3-3-设置Apache服务"><a href="#3-3-设置Apache服务" class="headerlink" title="3.3 设置Apache服务"></a>3.3 设置Apache服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 设置开机自动启动</div><div class="line">chkconfig httpd on</div><div class="line"></div><div class="line"># 启动httpd</div><div class="line">servide httpd start</div></pre></td></tr></table></figure>
+<h2 id="3-4-调整防火墙规则"><a href="#3-4-调整防火墙规则" class="headerlink" title="3.4 调整防火墙规则"></a>3.4 调整防火墙规则</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">vim /etc/sysconfig/iptables</div><div class="line"></div><div class="line"># 允许80端口访问</div><div class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT</div><div class="line"></div><div class="line">service iptables restart</div></pre></td></tr></table></figure>
+<h2 id="3-5-访问测试"><a href="#3-5-访问测试" class="headerlink" title="3.5 访问测试"></a>3.5 访问测试</h2><p><img src="media/15167840753271.jpg" alt=""></p>
+<h1 id="4-部署Subversion"><a href="#4-部署Subversion" class="headerlink" title="4 部署Subversion"></a>4 部署Subversion</h1><h2 id="4-1-安装SVN"><a href="#4-1-安装SVN" class="headerlink" title="4.1 安装SVN"></a>4.1 安装SVN</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># mod_dav_svn是与httpd相关的svn模块，必须安装</div><div class="line">yum install subversion mod_dav_svn -y</div><div class="line"></div><div class="line"># 重启apache，让模块重新加载</div><div class="line">service httpd restart</div></pre></td></tr></table></figure>
+<h2 id="4-2-检查Apache的svn模块"><a href="#4-2-检查Apache的svn模块" class="headerlink" title="4.2 检查Apache的svn模块"></a>4.2 检查Apache的svn模块</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ls /etc/httpd/modules/ | grep svn</div><div class="line"></div><div class="line">mod_authz_svn.so</div><div class="line">mod_dav_svn.so</div></pre></td></tr></table></figure>
+<h2 id="4-3-查看SVN版本"><a href="#4-3-查看SVN版本" class="headerlink" title="4.3 查看SVN版本"></a>4.3 查看SVN版本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# svn --version</div><div class="line">svn，版本 1.6.11 (r934486)</div><div class="line">   编译于 Aug 17 2015，08:37:43</div></pre></td></tr></table></figure>
+<h2 id="4-4-配置SVN仓库"><a href="#4-4-配置SVN仓库" class="headerlink" title="4.4 配置SVN仓库"></a>4.4 配置SVN仓库</h2><h3 id="4-4-1-创建SVN主库目录"><a href="#4-4-1-创建SVN主库目录" class="headerlink" title="4.4.1 创建SVN主库目录"></a>4.4.1 创建SVN主库目录</h3><p>多库模式，一份配置文件管理多个库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir -p /data/svn</div></pre></td></tr></table></figure>
+<h3 id="4-4-2-编辑配置文件subversion-conf"><a href="#4-4-2-编辑配置文件subversion-conf" class="headerlink" title="4.4.2 编辑配置文件subversion.conf"></a>4.4.2 编辑配置文件subversion.conf</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">[root@localhost conf.d]# cd /etc/httpd/conf.d/ &amp;&amp; ls</div><div class="line">php.conf  README  subversion.conf  welcome.conf</div><div class="line"></div><div class="line">[root@localhost conf.d]# tail -12 subversion.conf</div><div class="line">  &lt;Location /svn/&gt;</div><div class="line">          DAV svn</div><div class="line">          SVNListParentPath on</div><div class="line">          SVNParentPath /data/svn</div><div class="line">          AuthType Basic</div><div class="line">          AuthName &quot;Subversion repositories&quot;</div><div class="line">          AuthUserFile /data/svn/passwd.http</div><div class="line">          AuthzSVNAccessFile /data/svn/authz</div><div class="line">          Require valid-user</div><div class="line">  &lt;/Location&gt;</div><div class="line">  RedirectMatch ^(/svn)$ $1/</div></pre></td></tr></table></figure>
+<h3 id="4-4-3-创建主库文件"><a href="#4-4-3-创建主库文件" class="headerlink" title="4.4.3 创建主库文件"></a>4.4.3 创建主库文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 登录验证及权限管理</div><div class="line">touch /data/svn/authz</div><div class="line"></div><div class="line"># 用户和密码管理</div><div class="line">touch /data/svn/passwd.http</div><div class="line"></div><div class="line"># 重启Apache，加载相关模块和文件</div><div class="line">service httpd restart</div></pre></td></tr></table></figure>
+<h1 id="5-部署MySQL"><a href="#5-部署MySQL" class="headerlink" title="5 部署MySQL"></a>5 部署MySQL</h1><h2 id="5-1-安装MySQL"><a href="#5-1-安装MySQL" class="headerlink" title="5.1 安装MySQL"></a>5.1 安装MySQL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"># 直接使用yum安装服务端、客户端和依赖包</div><div class="line">yum -y install mysql-server mysql mysql-devel</div><div class="line"></div><div class="line"># 设置开机自动启动</div><div class="line">chkconfig mysqld on</div><div class="line"></div><div class="line"># 添加防火墙规则</div><div class="line">vim /etc/sysconfig/iptables</div><div class="line"></div><div class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT</div><div class="line"></div><div class="line">service iptables restart</div></pre></td></tr></table></figure>
+<h2 id="5-2-设置MySQL权限"><a href="#5-2-设置MySQL权限" class="headerlink" title="5.2 设置MySQL权限"></a>5.2 设置MySQL权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># 修改mysql的root密码</div><div class="line">mysqladmin -u root password &apos;mypassword&apos;</div><div class="line"></div><div class="line"># 授权root账户远程访问mysql</div><div class="line">mysql -u root -pmypassword</div><div class="line"></div><div class="line">mysql&gt; GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;mypassword&apos; WITH GRANT OPTION;</div><div class="line">Query OK, 0 rows affected (0.00 sec)</div><div class="line"></div><div class="line">mysql&gt; FLUSH PRIVILEGES;</div><div class="line">Query OK, 0 rows affected (0.00 sec)</div><div class="line"></div><div class="line">mysql&gt; exit</div></pre></td></tr></table></figure>
+<h1 id="6-部署Tomcat"><a href="#6-部署Tomcat" class="headerlink" title="6 部署Tomcat"></a>6 部署Tomcat</h1><h2 id="6-1-安装JDK"><a href="#6-1-安装JDK" class="headerlink" title="6.1 安装JDK"></a>6.1 安装JDK</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 下载jdk源码包</div><div class="line">wget --no-check-certificate --no-cookies --header &quot;Cookie: oraclelicense=accept-securebackup-cookie&quot; http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-x64.tar.gz -P /usr/local/src/</div><div class="line"></div><div class="line"># 解压安装包</div><div class="line">cd /usr/local/src/</div><div class="line">tar zxvf jdk-8u161-linux-x64.tar.gz -C /usr/local/</div></pre></td></tr></table></figure>
+<h2 id="6-2-配置环境变量"><a href="#6-2-配置环境变量" class="headerlink" title="6.2 配置环境变量"></a>6.2 配置环境变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">vim /etc/profile</div><div class="line"></div><div class="line"># Java_Home</div><div class="line">JAVA_HOME=/usr/local/jdk1.8.0_161</div><div class="line">JRE_HOME=/usr/local/jdk1.8.0_161/jre</div><div class="line">PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</div><div class="line">CLASSPATH=:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib</div><div class="line">export JAVA_HOME JRE_HOME PATH CLASSPATH</div><div class="line"></div><div class="line"># 立即生效</div><div class="line">source /etc/profile</div><div class="line"></div><div class="line"># 检验是否生效</div><div class="line">java -version</div><div class="line">java version &quot;1.8.0_161&quot;</div><div class="line">Java(TM) SE Runtime Environment (build 1.8.0_161-b12)</div><div class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.161-b12, mixed mode)</div></pre></td></tr></table></figure>
+<h2 id="6-3-安装Tomcat"><a href="#6-3-安装Tomcat" class="headerlink" title="6.3 安装Tomcat"></a>6.3 安装Tomcat</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># 下载Tomcat源码包</div><div class="line">wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-7/v7.0.82/bin/apache-tomcat-7.0.82.tar.gz</div><div class="line"></div><div class="line"># 解压安装包</div><div class="line">tar -zxvf apache-tomcat-7.0.82.tar.gz -C /usr/local/</div><div class="line">cd /usr/local/</div><div class="line">mv apache-tomcat-7.0.82 svnadmin-tomcat</div></pre></td></tr></table></figure>
+<h2 id="6-4-调整Tomcat配置"><a href="#6-4-调整Tomcat配置" class="headerlink" title="6.4 调整Tomcat配置"></a>6.4 调整Tomcat配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"># 末尾增加URIEncoding参数为UTF-8</div><div class="line">vim /usr/local/src/svnadmin-tomcat/conf/server.xml </div><div class="line"></div><div class="line">22 &lt;Server port=&quot;8005&quot; shutdown=&quot;SHUTDOWN&quot;&gt;</div><div class="line">71     &lt;Connector port=&quot;8080&quot; protocol=&quot;HTTP/1.1&quot;</div><div class="line">72                connectionTimeout=&quot;20000&quot;</div><div class="line">73                redirectPort=&quot;8443&quot; URIEncoding=&quot;UTF-8&quot;/&gt;</div><div class="line"></div><div class="line"># 添加防火墙规则</div><div class="line">vim /etc/sysconfig/iptables</div><div class="line"></div><div class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT</div><div class="line"></div><div class="line">service iptables restart</div></pre></td></tr></table></figure>
+<h1 id="7-部署jsvnadmin"><a href="#7-部署jsvnadmin" class="headerlink" title="7 部署jsvnadmin"></a>7 部署jsvnadmin</h1><h2 id="7-1-安装jsvnadmin"><a href="#7-1-安装jsvnadmin" class="headerlink" title="7.1 安装jsvnadmin"></a>7.1 安装jsvnadmin</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">wget https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/jsvnadmin/svnadmin-3.0.5.zip -P /usr/local/src</div><div class="line"></div><div class="line">cd /usr/local/src/</div><div class="line"></div><div class="line">unzip svnadmin-3.0.5.zip -d svnadmin</div><div class="line"></div><div class="line">cd svnadmin</div></pre></td></tr></table></figure>
+<h2 id="7-2-部署svnadmin项目文件"><a href="#7-2-部署svnadmin项目文件" class="headerlink" title="7.2 部署svnadmin项目文件"></a>7.2 部署svnadmin项目文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">rm -rf /usr/local/svnadmin-tomcat/webapps/*</div><div class="line"></div><div class="line">unzip svnadmin.war -d /usr/local/svnadmin-tomcat/webapps/svnadmin</div><div class="line"></div><div class="line"># 修改相关配置文件</div><div class="line">vim /usr/local/svn-tomcat/webapps/svnadmin/WEB-INF/jdbc.properties </div><div class="line"></div><div class="line">db=MySQL</div><div class="line"></div><div class="line">#MySQL</div><div class="line">MySQL.jdbc.driver=com.mysql.jdbc.Driver</div><div class="line">MySQL.jdbc.url=jdbc:mysql://127.0.0.1:3306/svnadmin?characterEncoding=utf-8</div><div class="line">MySQL.jdbc.username=root</div><div class="line">MySQL.jdbc.password=mypassword</div></pre></td></tr></table></figure>
+<h2 id="7-3-初始化svnadmin数据库"><a href="#7-3-初始化svnadmin数据库" class="headerlink" title="7.3 初始化svnadmin数据库"></a>7.3 初始化svnadmin数据库</h2><h3 id="7-3-1-创建svnadmin数据库"><a href="#7-3-1-创建svnadmin数据库" class="headerlink" title="7.3.1 创建svnadmin数据库"></a>7.3.1 创建svnadmin数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">mysql -u root -p</div><div class="line">mysql&gt; CREATE DATABASE svnadmin CHARACTER SET utf8;</div><div class="line">Query OK, 1 row affected (0.00 sec)</div><div class="line"></div><div class="line">mysql&gt; show databases;</div><div class="line">+--------------------+</div><div class="line">| Database           |</div><div class="line">+--------------------+</div><div class="line">| information_schema |</div><div class="line">| mysql              |</div><div class="line">| svnadmin           |</div><div class="line">| test               |</div><div class="line">+--------------------+</div><div class="line">4 rows in set (0.00 sec)</div><div class="line"></div><div class="line">mysql&gt; exit</div><div class="line">Bye</div></pre></td></tr></table></figure>
+<h3 id="7-3-2-导入sql文件"><a href="#7-3-2-导入sql文件" class="headerlink" title="7.3.2 导入sql文件"></a>7.3.2 导入sql文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql -u root -p svnadmin &lt; /usr/local/src/svnadmin/db/mysql5.sql </div><div class="line">mysql -u root -p svnadmin &lt; /usr/local/src/svnadmin/db/lang/en.sql</div></pre></td></tr></table></figure>
+<h3 id="7-3-3-启动tomcat服务"><a href="#7-3-3-启动tomcat服务" class="headerlink" title="7.3.3 启动tomcat服务"></a>7.3.3 启动tomcat服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">cd /usr/local/tomcat/</div><div class="line">sh bin/startup.sh</div><div class="line"></div><div class="line">Using CATALINA_BASE:   /usr/local/tomcat</div><div class="line">Using CATALINA_HOME:   /usr/local/tomcat</div><div class="line">Using CATALINA_TMPDIR: /usr/local/tomcat/temp</div><div class="line">Using JRE_HOME:        /usr/local/jdk1.8.0_121/jre</div><div class="line">Using CLASSPATH:       /usr/local/tomcat/bin/bootstrap.jar:/usr/local/tomcat/bin/tomcat-juli.jar</div></pre></td></tr></table></figure>
+<p><a href="https://www.jianshu.com/p/a0af00642585" target="_blank" rel="external">阅读原文</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">
+            -------------本文结束
+            <i class="fa fa-paw"></i>
+            感谢您的阅读-------------
+        </div>
+    
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          
+            <a href="/tags/svn/" rel="tag"><i class="fa fa-tag"></i> svn</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/27/fabcir/" rel="next" title="Python之Fabric模块">
+                <i class="fa fa-chevron-left"></i> Python之Fabric模块
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2018/01/24/subversion/"
+           data-title="通过Web高效管理多个项目的SVN仓库(适用于中小型研发团队)" data-url="http://yoursite.com/2018/01/24/subversion/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/mac_pic_01.jpg"
+               alt="柯爺" />
+          <p class="site-author-name" itemprop="name">柯爺</p>
+          <p class="site-description motion-element" itemprop="description">不忘初心，方能终始</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="/websitelog" target="_blank" title="建站日志">
+                  
+                    <i class="fa fa-fw fa-list"></i>
+                  
+                  建站日志
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="/hexo-ops" target="_blank" title="博客维护">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  博客维护
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/allenouyangke/" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/8b9c7c0087b6" target="_blank" title="我的简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  我的简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="/skill-list" target="_blank" title="技能图谱">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  技能图谱
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-jsvnadmin简介"><span class="nav-text">1 jsvnadmin简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-软件优点"><span class="nav-text">1.1 软件优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-部署方案"><span class="nav-text">1.2 部署方案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-初始化系统"><span class="nav-text">2 初始化系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-升级系统软件包"><span class="nav-text">2.1 升级系统软件包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-关闭SELinux"><span class="nav-text">2.2 关闭SELinux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-安装基础依赖包"><span class="nav-text">2.3 安装基础依赖包</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-部署Apache"><span class="nav-text">3 部署Apache</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-安装Apache"><span class="nav-text">3.1 安装Apache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-调整配置文件"><span class="nav-text">3.2 调整配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-设置Apache服务"><span class="nav-text">3.3 设置Apache服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-调整防火墙规则"><span class="nav-text">3.4 调整防火墙规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-访问测试"><span class="nav-text">3.5 访问测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-部署Subversion"><span class="nav-text">4 部署Subversion</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-安装SVN"><span class="nav-text">4.1 安装SVN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-检查Apache的svn模块"><span class="nav-text">4.2 检查Apache的svn模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-查看SVN版本"><span class="nav-text">4.3 查看SVN版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-配置SVN仓库"><span class="nav-text">4.4 配置SVN仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-1-创建SVN主库目录"><span class="nav-text">4.4.1 创建SVN主库目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-2-编辑配置文件subversion-conf"><span class="nav-text">4.4.2 编辑配置文件subversion.conf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-3-创建主库文件"><span class="nav-text">4.4.3 创建主库文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-部署MySQL"><span class="nav-text">5 部署MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-安装MySQL"><span class="nav-text">5.1 安装MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-设置MySQL权限"><span class="nav-text">5.2 设置MySQL权限</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-部署Tomcat"><span class="nav-text">6 部署Tomcat</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-安装JDK"><span class="nav-text">6.1 安装JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-配置环境变量"><span class="nav-text">6.2 配置环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-安装Tomcat"><span class="nav-text">6.3 安装Tomcat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-4-调整Tomcat配置"><span class="nav-text">6.4 调整Tomcat配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-部署jsvnadmin"><span class="nav-text">7 部署jsvnadmin</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1-安装jsvnadmin"><span class="nav-text">7.1 安装jsvnadmin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-2-部署svnadmin项目文件"><span class="nav-text">7.2 部署svnadmin项目文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-3-初始化svnadmin数据库"><span class="nav-text">7.3 初始化svnadmin数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-1-创建svnadmin数据库"><span class="nav-text">7.3.1 创建svnadmin数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-2-导入sql文件"><span class="nav-text">7.3.2 导入sql文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-3-启动tomcat服务"><span class="nav-text">7.3.3 启动tomcat服务</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  Fri Nov 25 2016 08:00:00 GMT+0800 (CST) - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">柯爺</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">本站访客数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span></span>
+  
+
+  
+    <span class="site-pv">本站总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"allenouyangke"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+  </script>
+  
+</body>
+</html>
