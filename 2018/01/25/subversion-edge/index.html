@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="AllenKe, Linux, 运维, KeKe," />
+  <meta name="keywords" content="linux,svn," />
 
 
 
@@ -102,16 +102,25 @@
 
 
 
-<meta name="description" content="这是文档一的延伸，可能有些地方重复了，但也无伤大雅！">
+<meta name="description" content="&amp;emsp;&amp;emsp;对互联网公司而言，SVN的重要性不言而喻。本文选用CollabNet Subversion Edge作为SVN服务端和控制台，以TortoiseSVN作为客户端部署SVN系统。CollabNet Subversion Edge控制台功能十分强大，便于维护管理，且能采用LDAP认证方式，适合部署了内部域控的组织。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="常用的终端快捷键二">
-<meta property="og:url" content="http://yoursite.com/2016/12/26/terminal-control/index.html">
+<meta property="og:title" content="CollabNet Subversion Edge安装部署">
+<meta property="og:url" content="http://yoursite.com/2018/01/25/subversion-edge/index.html">
 <meta property="og:site_name" content="KeKe Blog">
-<meta property="og:description" content="这是文档一的延伸，可能有些地方重复了，但也无伤大雅！">
-<meta property="og:updated_time" content="2017-11-28T13:04:09.000Z">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;对互联网公司而言，SVN的重要性不言而喻。本文选用CollabNet Subversion Edge作为SVN服务端和控制台，以TortoiseSVN作为客户端部署SVN系统。CollabNet Subversion Edge控制台功能十分强大，便于维护管理，且能采用LDAP认证方式，适合部署了内部域控的组织。">
+<meta property="og:image" content="https://lh3.googleusercontent.com/-dqMO5azdWtA/WmrUUnffYmI/AAAAAAAAACc/8dW-BLaEbQgppU5wdezmnoSQsVd3kpIoQCHMYCw/I/15169504536165.jpg">
+<meta property="og:image" content="https://lh3.googleusercontent.com/-tqtoDk1Sw7o/WmrUXKtABbI/AAAAAAAAACg/qh3EU4KuR8EpEGzzrZ232vIHpxlsfKGzQCHMYCw/I/15169505357645.jpg">
+<meta property="og:image" content="https://lh3.googleusercontent.com/-gNfhrXJNHNc/WmsA9NE70JI/AAAAAAAAAC0/Sih7QrnML5UzhGRDY-pUwd7qz2EMucgmACHMYCw/I/15169506693480.jpg">
+<meta property="og:image" content="https://lh3.googleusercontent.com/-PYnRoAlMdI0/WmsA9y9IX7I/AAAAAAAAAC4/monxd5pFD0cal5JkGykk70XK7XFt9JLKgCHMYCw/I/15169507782634.jpg">
+<meta property="og:image" content="https://lh3.googleusercontent.com/-Ddk0VDdsj6U/WmsA-1uNy3I/AAAAAAAAAC8/ueXfyoaby1QwAPkJYn62I3bjn-twPZ1DACHMYCw/I/15169508464886.jpg">
+<meta property="og:image" content="https://lh3.googleusercontent.com/-9jeCZsQovQA/WmsA_lRAATI/AAAAAAAAADA/XyyK-5PcOUcfvj_QZs0CZ5OdRM8oq9U2ACHMYCw/I/15169509433633.jpg">
+<meta property="og:image" content="https://lh3.googleusercontent.com/-NXWDEddnu8c/WmsBAAm0l6I/AAAAAAAAADE/qNaoU95i0uoIAkHs9gl6MZ5P1d0sUrKXgCHMYCw/I/15169510852098.jpg">
+<meta property="og:image" content="https://lh3.googleusercontent.com/-ZrobI9x1Mg8/WmsBAcNyKWI/AAAAAAAAADI/1hoPN6XJstE-d2-xHizVhzLjIKeZwnUAQCHMYCw/I/15169517286128.jpg">
+<meta property="og:updated_time" content="2018-01-26T10:22:10.080Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="常用的终端快捷键二">
-<meta name="twitter:description" content="这是文档一的延伸，可能有些地方重复了，但也无伤大雅！">
+<meta name="twitter:title" content="CollabNet Subversion Edge安装部署">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;对互联网公司而言，SVN的重要性不言而喻。本文选用CollabNet Subversion Edge作为SVN服务端和控制台，以TortoiseSVN作为客户端部署SVN系统。CollabNet Subversion Edge控制台功能十分强大，便于维护管理，且能采用LDAP认证方式，适合部署了内部域控的组织。">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/-dqMO5azdWtA/WmrUUnffYmI/AAAAAAAAACc/8dW-BLaEbQgppU5wdezmnoSQsVd3kpIoQCHMYCw/I/15169504536165.jpg">
 
 
 
@@ -139,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/12/26/terminal-control/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/25/subversion-edge/"/>
 
 
 
 
 
-  <title> 常用的终端快捷键二 | KeKe Blog </title>
+  <title> CollabNet Subversion Edge安装部署 | KeKe Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -311,7 +320,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/26/terminal-control/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/25/subversion-edge/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="柯爺">
@@ -335,7 +344,7 @@
             
             
               
-                常用的终端快捷键二
+                CollabNet Subversion Edge安装部署
               
             
           </h1>
@@ -348,8 +357,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-26T23:37:42+08:00">
-                2016-12-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T16:19:19+08:00">
+                2018-01-25
               </time>
             
 
@@ -367,8 +376,19 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Shell/" itemprop="url" rel="index">
-                    <span itemprop="name">Shell</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/Svn/" itemprop="url" rel="index">
+                    <span itemprop="name">Svn</span>
                   </a>
                 </span>
 
@@ -382,8 +402,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/26/terminal-control/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/26/terminal-control/" itemprop="commentCount"></span>
+                <a href="/2018/01/25/subversion-edge/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/01/25/subversion-edge/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -414,29 +434,42 @@
       
 
       
-        <p>这是文档一的延伸，可能有些地方重复了，但也无伤大雅！<br><a id="more"></a></p>
-<h1 id="1-常用操作"><a href="#1-常用操作" class="headerlink" title="1 常用操作"></a>1 常用操作</h1><ul>
-<li><p>Ctrl + L<br>用于清理终端的内容，就是清屏的作用。其实clear命令也有同样效果，但是你不觉得Ctrl + L 的按键是比输入clear这五个字母更快速吗？</p>
+        <p>&emsp;&emsp;对互联网公司而言，SVN的重要性不言而喻。本文选用CollabNet Subversion Edge作为SVN服务端和控制台，以TortoiseSVN作为客户端部署SVN系统。CollabNet Subversion Edge控制台功能十分强大，便于维护管理，且能采用LDAP认证方式，适合部署了内部域控的组织。<br><a id="more"></a></p>
+<h1 id="1-部署环境"><a href="#1-部署环境" class="headerlink" title="1 部署环境"></a>1 部署环境</h1><h2 id="1-1-硬件环境"><a href="#1-1-硬件环境" class="headerlink" title="1.1 硬件环境"></a>1.1 硬件环境</h2><ul>
+<li><strong>虚拟机配置</strong>：2核-2G-20G</li>
+<li><strong>IP地址</strong>：172.60.7.184</li>
+</ul>
+<h2 id="1-2-软件环境"><a href="#1-2-软件环境" class="headerlink" title="1.2 软件环境"></a>1.2 软件环境</h2><ul>
+<li><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="external">JDK</a></li>
+<li><a href="https://www.collab.net/downloads/subversion" target="_blank" rel="external">CollabNet Subversion Edg</a></li>
+<li><a href="https://tortoisesvn.net/" target="_blank" rel="external">TortoiseSVN Client</a></li>
+</ul>
+<h1 id="2-部署SVN服务器"><a href="#2-部署SVN服务器" class="headerlink" title="2 部署SVN服务器"></a>2 部署SVN服务器</h1><h2 id="2-1-安装JDK"><a href="#2-1-安装JDK" class="headerlink" title="2.1 安装JDK"></a>2.1 安装JDK</h2><p>在虚拟机中安装从官网下载的最新版本JDK，完成后配置环境变量JAVA_HOME、PATH、CLASSPATH；配置完成后，测试查看JDK版本。成功显示JDK版本，即安装成功。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">[root@localhost ~]# tar -xf jdk-8u131-linux-x64.tar.gz</div><div class="line">[root@localhost ~]# mv jdk1.8.0_131 /usr/local/</div><div class="line">[root@localhost ~]# cd  /usr/local/</div><div class="line">[root@localhost ~]# ln -s jdk1.8.0_131 jdk</div><div class="line">[root@localhost ~]# vim /etc/profile</div><div class="line">&gt;&gt;&gt;&gt;</div><div class="line">#Java_Home</div><div class="line">export JAVA_HOME=/usr/local/jdk</div><div class="line">export CLASSPATH=$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib</div><div class="line">export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH</div><div class="line">&lt;&lt;&lt;&lt;</div><div class="line"></div><div class="line">[root@localhost ~]# source  /etc/profile</div><div class="line">[root@localhost ~]# java -version</div><div class="line">java version &quot;1.8.0_161&quot;</div><div class="line">Java(TM) SE Runtime Environment (build 1.8.0_161-b12)</div><div class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.161-b12, mixed mode)</div></pre></td></tr></table></figure>
+<h2 id="2-2-安装CollabNet-Subversion-Edge"><a href="#2-2-安装CollabNet-Subversion-Edge" class="headerlink" title="2.2 安装CollabNet Subversion Edge"></a>2.2 安装CollabNet Subversion Edge</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"># 安装包位置</div><div class="line">/usr/local/src/CollabNetSubversionEdge-5.2.2_linux-x86_64.tar.gz</div><div class="line"></div><div class="line">cd /usr/local/src/</div><div class="line">tar xvf CollabNetSubversionEdge-5.2.2_linux-x86_64.tar.gz -C /usr/local/</div><div class="line"></div><div class="line"># 创建admin用户，csvn不能使用root用户启动</div><div class="line">[root@localhost ~]# useradd admin</div><div class="line">[root@localhost ~]# passwd admin</div><div class="line">[root@localhost ~]# vim /etc/sudoers</div><div class="line">&gt;&gt;&gt;&gt;</div><div class="line">admin   ALL=(ALL)       NOPASSWD:ALL</div><div class="line">&lt;&lt;&lt;&lt;</div><div class="line"></div><div class="line"># 调整csvn项目的权限和属主/组</div><div class="line">[root@localhost ~]# mkdir opt &amp;&amp; cd opt</div><div class="line">[root@localhost ~]# tar -xvf CollabNetSubversionEdge-5.2.0_linux-x86_64.tar.gz </div><div class="line">[root@localhost ~]# cd  csvn</div><div class="line">[admin@localhost ~]$ sudo chown root:admin /home/admin/opt/csvn/lib/httpd_bind/httpd_bind</div><div class="line">[admin@localhost ~]$ sudo chmod u+s /home/admin/opt/csvn/lib/httpd_bind/httpd_bind</div><div class="line">[admin@localhost ~]$ sudo bin/csvn-httpd install</div><div class="line">Detected RHEL or Fedora:</div><div class="line"> Installing the Subversion Edge Apache Server daemon..</div><div class="line">[admin@localhost ~]$ sudo -E bin/csvn install</div><div class="line">Detected RHEL or Fedora:</div><div class="line">Installing the CSVN Console daemon..</div><div class="line">Setting RUN_AS_USER to: &apos;admin&apos;. Please edit &apos;../data/conf/csvn.conf&apos; if this needs to be adjusted</div><div class="line">Setting JAVA_HOME to: &apos;/usr/local/jdk&apos;. Please edit &apos;../data/conf/csvn.conf&apos; if this needs to be adjusted</div></pre></td></tr></table></figure>
+<h2 id="2-3-启动CSVN服务"><a href="#2-3-启动CSVN服务" class="headerlink" title="2.3 启动CSVN服务"></a>2.3 启动CSVN服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">[admin@localhost csvn]$ cd  ./bin</div><div class="line"></div><div class="line">#启动CSVN</div><div class="line">[admin@localhost bin]$ ./csvn start</div><div class="line">Starting CSVN Console...</div><div class="line">...</div><div class="line">CSVN Console started</div><div class="line">Waiting for application to initialize (this may take a minute)............................</div><div class="line"></div><div class="line"># 查看CSVN状态</div><div class="line">[admin@localhost bin]$ ./csvn status</div><div class="line">CSVN Console is running: PID:16818, Wrapper:STARTED, Java:STARTED</div></pre></td></tr></table></figure>
+<h1 id="3-配置管理"><a href="#3-配置管理" class="headerlink" title="3 配置管理"></a>3 配置管理</h1><ul>
+<li><p>默认账号/密码：admin/admin<br><img src="https://lh3.googleusercontent.com/-dqMO5azdWtA/WmrUUnffYmI/AAAAAAAAACc/8dW-BLaEbQgppU5wdezmnoSQsVd3kpIoQCHMYCw/I/15169504536165.jpg" alt=""></p>
 </li>
-<li><p>Ctrl + D<br>给终端传递EOF （End Of File，文件结束符），在运行程序时很有用，有些程序我们需要在接收到EOF输入时结束，那么这个快捷键就可以派上用场了。如果你在命令行提示符后什么也不输入的情况下直接按下这组快捷键，那么就会关闭当前的终端。</p>
+<li><p>服务器基础配置<br><img src="https://lh3.googleusercontent.com/-tqtoDk1Sw7o/WmrUXKtABbI/AAAAAAAAACg/qh3EU4KuR8EpEGzzrZ232vIHpxlsfKGzQCHMYCw/I/15169505357645.jpg" alt=""></p>
 </li>
-<li><p>Shift + PgUp<br>用于向上滚屏，与鼠标的滚轮向上滚屏是一个效果，但岂不是很方便吗？</p>
+<li><p>创建项目<br><img src="https://lh3.googleusercontent.com/-gNfhrXJNHNc/WmsA9NE70JI/AAAAAAAAAC0/Sih7QrnML5UzhGRDY-pUwd7qz2EMucgmACHMYCw/I/15169506693480.jpg" alt=""></p>
 </li>
-<li><p>Shift + PgDn<br>用于向下滚屏，与鼠标的滚轮向下滚屏是一个效果。</p>
+<li><p>创建名test的仓库<br><img src="https://lh3.googleusercontent.com/-PYnRoAlMdI0/WmsA9y9IX7I/AAAAAAAAAC4/monxd5pFD0cal5JkGykk70XK7XFt9JLKgCHMYCw/I/15169507782634.jpg" alt=""></p>
+</li>
+<li><p>创建成功，并列出相关信息和日志等<br><img src="https://lh3.googleusercontent.com/-Ddk0VDdsj6U/WmsA-1uNy3I/AAAAAAAAAC8/ueXfyoaby1QwAPkJYn62I3bjn-twPZ1DACHMYCw/I/15169508464886.jpg" alt=""></p>
+</li>
+<li><p>test仓库权限管理<br><img src="https://lh3.googleusercontent.com/-9jeCZsQovQA/WmsA_lRAATI/AAAAAAAAADA/XyyK-5PcOUcfvj_QZs0CZ5OdRM8oq9U2ACHMYCw/I/15169509433633.jpg" alt=""></p>
+</li>
+<li><p>基础权限设置<br><img src="https://lh3.googleusercontent.com/-NXWDEddnu8c/WmsBAAm0l6I/AAAAAAAAADE/qNaoU95i0uoIAkHs9gl6MZ5P1d0sUrKXgCHMYCw/I/15169510852098.jpg" alt=""></p>
+</li>
+<li><p>访问test仓库测试：<a href="http://172.16.7.184/svn/test/" target="_blank" rel="external">http://172.16.7.184/svn/test/</a><br><img src="https://lh3.googleusercontent.com/-ZrobI9x1Mg8/WmsBAcNyKWI/AAAAAAAAADI/1hoPN6XJstE-d2-xHizVhzLjIKeZwnUAQCHMYCw/I/15169517286128.jpg" alt=""></p>
 </li>
 </ul>
-<h1 id="2-长命令操作"><a href="#2-长命令操作" class="headerlink" title="2 长命令操作"></a>2 长命令操作</h1><ul>
-<li><p>Ctrl + A<br>光标跳到一行命令的开头。一般来说，Home键有相同的效果。</p>
+<h1 id="4-参考资料"><a href="#4-参考资料" class="headerlink" title="4 参考资料"></a>4 参考资料</h1><ul>
+<li><p><a href="https://www.cnblogs.com/zzlain/p/7146546.html" target="_blank" rel="external">Linux系统运维之subversionEdge部署</a></p>
 </li>
-<li><p>Ctrl + E<br>光标跳到一行命令的结尾。一般来说，End键有相同的效果。</p>
-</li>
-<li><p>Ctrl + U<br>删除所有在光标左侧的命令字符。</p>
-</li>
-<li><p>Ctrl + K<br>删除所有在光标右侧的命令字符。</p>
-</li>
-<li><p>Ctrl + W<br>删除光标左侧的一个“单词”，这里的“单词”指的是用空格隔开的一个字符串。例如 -a 就是一个“单词”。</p>
-</li>
-<li><p>Ctrl + Y<br>粘贴用Ctrl + U， Ctrl + K或Ctrl + W“删除”的字符串，有点像“剪切-粘贴”。</p>
+<li><p><a href="http://help.collab.net/index.jsp?topic=/csvn/action/controlrepositoryaccess.html" target="_blank" rel="external">官方指导文档</a></p>
 </li>
 </ul>
 
@@ -474,13 +507,21 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          
+            <a href="/tags/svn/" rel="tag"><i class="fa fa-tag"></i> svn</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/23/vsftpd-reallogin/" rel="next" title="vsftpd本地用户登录">
-                <i class="fa fa-chevron-left"></i> vsftpd本地用户登录
+              <a href="/2018/01/24/subversion/" rel="next" title="通过Web高效管理多个项目的SVN仓库(适用于中小型研发团队)">
+                <i class="fa fa-chevron-left"></i> 通过Web高效管理多个项目的SVN仓库(适用于中小型研发团队)
               </a>
             
           </div>
@@ -488,10 +529,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/29/Web/apache-tomcat/" rel="prev" title="tomcat多实例安装和配置">
-                tomcat多实例安装和配置 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -540,8 +577,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/26/terminal-control/"
-           data-title="常用的终端快捷键二" data-url="http://yoursite.com/2016/12/26/terminal-control/">
+      <div class="ds-thread" data-thread-key="2018/01/25/subversion-edge/"
+           data-title="CollabNet Subversion Edge安装部署" data-url="http://yoursite.com/2018/01/25/subversion-edge/">
       </div>
     
   </div>
@@ -685,7 +722,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-常用操作"><span class="nav-text">1 常用操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-长命令操作"><span class="nav-text">2 长命令操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-部署环境"><span class="nav-text">1 部署环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-硬件环境"><span class="nav-text">1.1 硬件环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-软件环境"><span class="nav-text">1.2 软件环境</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-部署SVN服务器"><span class="nav-text">2 部署SVN服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-安装JDK"><span class="nav-text">2.1 安装JDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-安装CollabNet-Subversion-Edge"><span class="nav-text">2.2 安装CollabNet Subversion Edge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-启动CSVN服务"><span class="nav-text">2.3 启动CSVN服务</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-配置管理"><span class="nav-text">3 配置管理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-参考资料"><span class="nav-text">4 参考资料</span></a></li></ol></div>
             
 
           </div>
