@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="AllenKe, Linux, 运维, KeKe," />
+  <meta name="keywords" content="linux,禅道," />
 
 
 
@@ -102,20 +102,20 @@
 
 
 
-<meta name="description" content="这个工具对于我来说还是挺重要的，目前使用ATOM编写markdown文档是无法直接将图片贴到文档内的。有同事将图片上传到百度云后，通过分享获取图片链接，这样做对于我来说太过麻烦，而且时间成本相当的高。为了解决这个比较麻烦的操作，我借鉴之前他们使用七牛免费储存的功能，再结合我之前使用的chrome插件——极简图床，配置了一个比较便捷的图片上传和调用工具。这篇文档的图片就是使用的这种方式。">
+<meta name="description" content="&amp;emsp;&amp;emsp;最初技术中心的禅道系统是部署在windows系统上，由于运维的部门调整，现在要将禅道重新归属于运维部去管理。为了方便统一管理和操作，需要将禅道系统迁移到运维熟悉的CentOS服务器上。通过相关资料和视频的知道，基本确定了“windows to linux”的迁移方式和事项。&amp;emsp;&amp;emsp;根据上一篇在虚拟机中多加载了一块磁盘分区后，现在需要将禅道的系统迁移到该服务器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo图床:七牛+Chrome+极简图床插件">
-<meta property="og:url" content="http://yoursite.com/2016/11/30/qn-jjtc/index.html">
+<meta property="og:title" content="禅道迁移/升级/备份">
+<meta property="og:url" content="http://yoursite.com/2018/01/29/zentao/index.html">
 <meta property="og:site_name" content="KeKe Blog">
-<meta property="og:description" content="这个工具对于我来说还是挺重要的，目前使用ATOM编写markdown文档是无法直接将图片贴到文档内的。有同事将图片上传到百度云后，通过分享获取图片链接，这样做对于我来说太过麻烦，而且时间成本相当的高。为了解决这个比较麻烦的操作，我借鉴之前他们使用七牛免费储存的功能，再结合我之前使用的chrome插件——极简图床，配置了一个比较便捷的图片上传和调用工具。这篇文档的图片就是使用的这种方式。">
-<meta property="og:image" content="http://ogpr96vps.bkt.clouddn.com/public/16-11-30/67154661.jpg">
-<meta property="og:image" content="http://ogpr96vps.bkt.clouddn.com/public/16-11-30/44642985.jpg">
-<meta property="og:image" content="http://ogpr96vps.bkt.clouddn.com/public/16-11-30/89636513.jpg">
-<meta property="og:updated_time" content="2017-11-28T13:04:18.000Z">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;最初技术中心的禅道系统是部署在windows系统上，由于运维的部门调整，现在要将禅道重新归属于运维部去管理。为了方便统一管理和操作，需要将禅道系统迁移到运维熟悉的CentOS服务器上。通过相关资料和视频的知道，基本确定了“windows to linux”的迁移方式和事项。&amp;emsp;&amp;emsp;根据上一篇在虚拟机中多加载了一块磁盘分区后，现在需要将禅道的系统迁移到该服务器">
+<meta property="og:image" content="http://yoursite.com/media/15173954044354.jpg">
+<meta property="og:image" content="http://yoursite.com/media/15174760116511.jpg">
+<meta property="og:image" content="http://yoursite.com/media/15174760907954.jpg">
+<meta property="og:updated_time" content="2018-02-01T09:14:45.515Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo图床:七牛+Chrome+极简图床插件">
-<meta name="twitter:description" content="这个工具对于我来说还是挺重要的，目前使用ATOM编写markdown文档是无法直接将图片贴到文档内的。有同事将图片上传到百度云后，通过分享获取图片链接，这样做对于我来说太过麻烦，而且时间成本相当的高。为了解决这个比较麻烦的操作，我借鉴之前他们使用七牛免费储存的功能，再结合我之前使用的chrome插件——极简图床，配置了一个比较便捷的图片上传和调用工具。这篇文档的图片就是使用的这种方式。">
-<meta name="twitter:image" content="http://ogpr96vps.bkt.clouddn.com/public/16-11-30/67154661.jpg">
+<meta name="twitter:title" content="禅道迁移/升级/备份">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;最初技术中心的禅道系统是部署在windows系统上，由于运维的部门调整，现在要将禅道重新归属于运维部去管理。为了方便统一管理和操作，需要将禅道系统迁移到运维熟悉的CentOS服务器上。通过相关资料和视频的知道，基本确定了“windows to linux”的迁移方式和事项。&amp;emsp;&amp;emsp;根据上一篇在虚拟机中多加载了一块磁盘分区后，现在需要将禅道的系统迁移到该服务器">
+<meta name="twitter:image" content="http://yoursite.com/media/15173954044354.jpg">
 
 
 
@@ -143,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/30/qn-jjtc/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/29/zentao/"/>
 
 
 
 
 
-  <title> Hexo图床:七牛+Chrome+极简图床插件 | KeKe Blog </title>
+  <title> 禅道迁移/升级/备份 | KeKe Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -315,7 +315,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/30/qn-jjtc/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/29/zentao/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="柯爺">
@@ -339,7 +339,7 @@
             
             
               
-                Hexo图床:七牛+Chrome+极简图床插件
+                禅道迁移/升级/备份
               
             
           </h1>
@@ -352,8 +352,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-30T17:14:01+08:00">
-                2016-11-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-29T17:57:25+08:00">
+                2018-01-29
               </time>
             
 
@@ -371,8 +371,19 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/禅道/" itemprop="url" rel="index">
+                    <span itemprop="name">禅道</span>
                   </a>
                 </span>
 
@@ -386,8 +397,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/11/30/qn-jjtc/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/30/qn-jjtc/" itemprop="commentCount"></span>
+                <a href="/2018/01/29/zentao/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/01/29/zentao/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -418,27 +429,88 @@
       
 
       
-        <p>这个工具对于我来说还是挺重要的，目前使用ATOM编写markdown文档是无法直接将图片贴到文档内的。有同事将图片上传到百度云后，通过分享获取图片链接，这样做对于我来说太过麻烦，而且时间成本相当的高。为了解决这个比较麻烦的操作，我借鉴之前他们使用七牛免费储存的功能，再结合我之前使用的chrome插件——极简图床，配置了一个比较便捷的图片上传和调用工具。这篇文档的图片就是使用的这种方式。<br><a id="more"></a></p>
-<h1 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h1><p>&emsp;&emsp;在hexo blog中使用markdown编写文档，插入的图片的方式为：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![<span class="string">picture_title</span>](<span class="link">picture_url</span>)</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;所以需要找一个网络存储存放相关的图片，并生成一个有效的链接进行调用。这里选择七牛的对象存储，存放和调用图片（一定范围内是免费的）。<br><!--more--></p>
-<hr>
-<h1 id="2-七牛云存储"><a href="#2-七牛云存储" class="headerlink" title="2 七牛云存储"></a>2 七牛云存储</h1><p>&emsp;&emsp;在<a href="http://www.qiniu.com/" target="_blank" rel="external">七牛</a>先注册一个账号，登陆后建立对象存储。<br><img src="http://ogpr96vps.bkt.clouddn.com/public/16-11-30/67154661.jpg" alt="图1:在七牛账号内建立对象存储"><br>&emsp;&emsp;“测试域名”在极简图床插件中需要使用到。</p>
-<hr>
-<h1 id="3-极简图床插件"><a href="#3-极简图床插件" class="headerlink" title="3 极简图床插件"></a>3 极简图床插件</h1><p>&emsp;&emsp;打开Chrome浏览器，在插件商店添加“<a href="http://yotuku.cn/" target="_blank" rel="external">极简图床</a>”，打开后点击右上角的“设置”，将你的七牛对象存储配置到上面。<br><img src="http://ogpr96vps.bkt.clouddn.com/public/16-11-30/44642985.jpg" alt="图2:极简图床配置七牛对象存储的页面"><br><strong>说明：</strong></p>
+        <p>&emsp;&emsp;最初技术中心的禅道系统是部署在windows系统上，由于运维的部门调整，现在要将禅道重新归属于运维部去管理。为了方便统一管理和操作，需要将禅道系统迁移到运维熟悉的CentOS服务器上。通过相关资料和视频的知道，基本确定了“windows to linux”的迁移方式和事项。<br>&emsp;&emsp;根据上一篇在虚拟机中多加载了一块磁盘分区后，现在需要将禅道的系统迁移到该服务器上。<br>&emsp;&emsp;<a href="">官方迁移指导视频</a><br><a id="more"></a></p>
+<h1 id="1-迁移的条件"><a href="#1-迁移的条件" class="headerlink" title="1 迁移的条件"></a>1 迁移的条件</h1><ul>
+<li>禅道版本：8.1.3</li>
+<li>迁移所需的数据文件：<ul>
+<li>数据库文件：<code>../xampp/mysql/data/zentao</code></li>
+<li>数据文件：<code>../xampp/zentao/www/data/upliad/1</code></li>
+</ul>
+</li>
+</ul>
+<h1 id="2-禅道迁移"><a href="#2-禅道迁移" class="headerlink" title="2 禅道迁移"></a>2 禅道迁移</h1><h2 id="2-1-部署8-1-3"><a href="#2-1-部署8-1-3" class="headerlink" title="2.1 部署8.1.3"></a>2.1 部署8.1.3</h2><ul>
+<li>在CentOS系统上部署与windows系统一样的8.1.3版本的禅道软件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">[root@KE_03 opt]# cd /opt</div><div class="line">[root@KE_03 opt]# wget http://dl.cnezsoft.com/zentao/8.1.3/ZenTaoPMS.8.1.3.zbox_64.tar.gz</div><div class="line">[root@KE_03 opt]# ll</div><div class="line">总用量 31124</div><div class="line">drwx------ 2 root root    16384 1月  18 22:39 lost+found</div><div class="line">-rw-r--r-- 1 root root 31851357 3月  23 2016 ZenTaoPMS.8.1.3.zbox_64.tar.gz</div><div class="line"></div><div class="line">[root@KE_03 opt]# tar zxvf ZenTaoPMS.8.1.3.zbox_64.tar.gz</div><div class="line"></div><div class="line">[root@KE_03 opt]# cd zbox/</div><div class="line"></div><div class="line">[root@KE_03 zbox]# ./zbox start</div><div class="line">Start Apache success</div><div class="line">Start Mysql success</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;安装完成后，在浏览器里直接输入IP地址访问，选择“开源版”，默认账号/密码：”admin/123456”，登录成功后，说明部署已完成。</p>
+<p><img src="media/15173954044354.jpg" alt=""></p>
+<h2 id="2-2-数据迁移"><a href="#2-2-数据迁移" class="headerlink" title="2.2 数据迁移"></a>2.2 数据迁移</h2><ul>
+<li>在windows对相关数据进行备份</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">..\xampp\mysql\data\zentao</div><div class="line"></div><div class="line">..\xampp\zentao\www\data\upload\1</div></pre></td></tr></table></figure>
 <ul>
-<li>空间名称：可以自定义，没有特殊要求。</li>
-<li>AK和SK：在图3中，七牛账号里寻找，路径：“个人面板-&gt;个人中心-&gt;密钥管理”。</li>
-<li>域名：如果没有个人域名就填写图1中的“测试域名”，有个人域名建议使用个人域名。</li>
+<li>将备份的数据上传到linux中已部署好禅道目录下</li>
 </ul>
-<p><img src="http://ogpr96vps.bkt.clouddn.com/public/16-11-30/89636513.jpg" alt="图3:在个人面板中找到“密钥管理”"></p>
-<hr>
-<h1 id="4-使用步骤"><a href="#4-使用步骤" class="headerlink" title="4 使用步骤"></a>4 使用步骤</h1><ul>
-<li>将本地需要配置到文章中的图片，拖入Chrome的极简图床窗口；</li>
-<li>按照提示：“粘贴、拖动或点此选择图片上传”即可将图片上传到你的七牛对象存储中，并生成相应的图片链接；</li>
-<li>在“我的上传”中，找到需要插入的图片资源，复制的相应的url，根据Markdown的语法调用即可；</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">/opt/zbox/data/mysql/zentao</div><div class="line"></div><div class="line">/opt/zbox/app/zentao/www/data/upload/1</div><div class="line"></div><div class="line"># 重启zentao</div><div class="line">cd /opt/</div><div class="line">./zbox restart</div><div class="line"></div><div class="line"># 至此，迁移就完成了。</div></pre></td></tr></table></figure>
+<ul>
+<li>禅道常用命令</li>
 </ul>
-<hr>
-<h1 id="5-总结"><a href="#5-总结" class="headerlink" title="5 总结"></a>5 总结</h1><p>&emsp;&emsp;整个的操作很简单，可能Chrome的极简图床插件需要连接下VPN。个人比较喜欢使用“Hexo+七牛+Chrome+极简图床插件”，因为这全都是免费的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">cd /opt/</div><div class="line"># 启动</div><div class="line">./zbox start</div><div class="line"></div><div class="line"># 关闭</div><div class="line">./zbox stop</div><div class="line"></div><div class="line"># 重启</div><div class="line">./zbox restart</div><div class="line"></div><div class="line"># 状态</div><div class="line">./zbox status</div></pre></td></tr></table></figure>
+<h1 id="3-禅道升级（官方）"><a href="#3-禅道升级（官方）" class="headerlink" title="3 禅道升级（官方）"></a>3 禅道升级（官方）</h1><p>&emsp;&emsp;目前，技术中心使用的禅道为开源版8.1.3，为了跟上新版本的步伐。在迁移后，上头上我研究研究如何对禅道进行升级。对于这一块，我在官网上找到了两种方式，过程十分简单粗暴。</p>
+<h2 id="3-1-升级步骤"><a href="#3-1-升级步骤" class="headerlink" title="3.1 升级步骤"></a>3.1 升级步骤</h2><ul>
+<li><p>下载所需升级版本的源码包（zip格式）。（注意，不是.tar.gz 的集成运行环境，如果下载这个，会造成数据被覆盖）</p>
+</li>
+<li><p>解压缩后得到zentaopms文件夹，将zentaopms/下面的所有文件复制到/opt/zbox/app/zentao/下面，覆盖同名文件。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">\cp -rf /opt/zentaoms/* /opt/zbox/app/zentao/</div></pre></td></tr></table></figure>
+<ul>
+<li><p>然后访问http:/ip地址/zentao/upgrade.php，按照页面提示进行升级即可。</p>
+</li>
+<li><p>不要解压缩成/opt/zbox/app/zentao/zentao。不要将原来的程序移走，再解压缩新的版本，注意是覆盖！</p>
+</li>
+</ul>
+<h2 id="3-2-注意事项"><a href="#3-2-注意事项" class="headerlink" title="3.2 注意事项"></a>3.2 注意事项</h2><ul>
+<li>如果使用的一键安装包版本比较久，升级之后还需要修改下apache的配置文件。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd /opt/zbox/etc/apache</div><div class="line">修改 httpd.conf文件。</div><div class="line"></div><div class="line">AccessFileName .htaccess</div><div class="line">将.htaccess改为.ztaccess 然后重启apache。</div></pre></td></tr></table></figure>
+<h1 id="4-禅道备份-官方"><a href="#4-禅道备份-官方" class="headerlink" title="4 禅道备份(官方)"></a>4 禅道备份(官方)</h1><h2 id="4-1-一键安装包备份"><a href="#4-1-一键安装包备份" class="headerlink" title="4.1 一键安装包备份"></a>4.1 一键安装包备份</h2><p>&emsp;&emsp;如果是一键安装包程序，简单的方法就是直接将整个一键安装包的目录进行备份。玩了完整备份，在备份钱需要将Apache和MySQL服务器停止。</p>
+<ul>
+<li><p>windows一键安装包是备份整个xampp目录</p>
+</li>
+<li><p>linux一键安装包备份 /opt/zbox/data/mysql/zentao(pro) 和 /opt/zbox/app/zentao(pro) 目录</p>
+</li>
+<li><p>linux下lampp搭建备份 /opt/lampp/var/mysql/xxxxx (xxxx表示禅道数据库名称，一般默认是zentao) 和 /opt/lampp/htdocs/zentaopms</p>
+</li>
+</ul>
+<h2 id="4-2-手工备份"><a href="#4-2-手工备份" class="headerlink" title="4.2 手工备份"></a>4.2 手工备份</h2><h3 id="4-2-1-配置文件、代码和附件的备份"><a href="#4-2-1-配置文件、代码和附件的备份" class="headerlink" title="4.2.1 配置文件、代码和附件的备份"></a>4.2.1 配置文件、代码和附件的备份</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">配置文件存放在zentao/config/my.php</div><div class="line">附件存放在zentao/www/data/目录下面。</div><div class="line">修改的代码也都放在zentao目录下面。</div><div class="line">因此备份配置文件、代码和附件的方法就是将整个zentao目录备份即可。</div></pre></td></tr></table></figure>
+<h3 id="4-2-2-数据库备份"><a href="#4-2-2-数据库备份" class="headerlink" title="4.2.2 数据库备份"></a>4.2.2 数据库备份</h3><ul>
+<li>直接备份数据库原始文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">找到mysql的data目录，windows一般是在mysql安装目录下面。linux则一般是在/var/mysql或者/var/db类似的目录下面。在data目录下面，会有一个zentao的目录，这个zentao目录就是原始的数据库文件，直接复制这个也是可以的。linux下面可能需要注意权限的问题。</div></pre></td></tr></table></figure>
+<ul>
+<li>通过导出备份文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">可以使用mysql提供的管理工具，将数据库导出： mysqldump -u xxx -p zentao &gt; zentao.sql，其中的user换成实际的用户。</div></pre></td></tr></table></figure>
+<h3 id="4-2-3-禅道系统备份"><a href="#4-2-3-禅道系统备份" class="headerlink" title="4.2.3 禅道系统备份"></a>4.2.3 禅道系统备份</h3><ul>
+<li><p>管理员权限登录禅道<br><img src="media/15174760116511.jpg" alt=""></p>
+</li>
+<li><p>在计划任务中添加备份计划<br><img src="media/15174760907954.jpg" alt=""></p>
+</li>
+</ul>
+<h3 id="4-2-4-使用禅道自带脚本"><a href="#4-2-4-使用禅道自带脚本" class="headerlink" title="4.2.4 使用禅道自带脚本"></a>4.2.4 使用禅道自带脚本</h3><p>&emsp;&emsp;从4.0版本开始，官方提供了init.bat和init.sh脚本来初始化各个命令行的维护脚本，其中有一个就是用来备份数据库和附件，名字叫做backup.bat(windows)或者backup.sh(linux)。</p>
+<p>&emsp;&emsp;<a href="http://www.zentao.net/book/zentaopmshelp/35.html" target="_blank" rel="external">初始化管理脚本</a>先对各个脚本进行初始化操作。然后切换到zentao/bin/目录下面，执行backup.bat或者backup.sh。</p>
+<ul>
+<li>windows下面执行backup.bat</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">I:\xampp\zentao\bin&gt;backup.bat</div><div class="line"></div><div class="line">I:\xampp\zentao\bin&gt;i:\xampp\php\php.exe I:\xampp\zentao\bin\php\backup.php</div><div class="line">Backuping database, successfully saved to I:\xampp\zentao/backup/201304/db.20130402.zip</div><div class="line">Backuping files, successfully saved to I:\xampp\zentao/backup/201304/file.20130402.zip</div></pre></td></tr></table></figure>
+<ul>
+<li>linux下面执行backup.sh</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./backup.sh</div><div class="line">Backuping database, successfully saved to /mnt/data/z/pms/backup/201304/db.20130402.zip</div><div class="line">Backuping files, successfully saved to /mnt/data/z/pms/backup/201304/file.20130402.zip</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;备份成功之后，数据库文件和附件分别以日期为名，保存到zentao/backup目录下面。</p>
+<p><strong>注意事项：</strong>如果mysql服务停止的话，mysql数据是无法备份的。该方式相当于热备。</p>
+<h1 id="5-参考资料"><a href="#5-参考资料" class="headerlink" title="5 参考资料"></a>5 参考资料</h1><p><a href="http://www.zentao.net/book/zentaopmshelp/38.html" target="_blank" rel="external">禅道官方说明</a></p>
 
       
     </div>
@@ -474,13 +546,21 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          
+            <a href="/tags/禅道/" rel="tag"><i class="fa fa-tag"></i> 禅道</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/29/hexo-bases/" rel="next" title="Hexo基础">
-                <i class="fa fa-chevron-left"></i> Hexo基础
+              <a href="/2018/01/26/linux-disk/" rel="next" title="Linux挂载新磁盘并进行分区">
+                <i class="fa fa-chevron-left"></i> Linux挂载新磁盘并进行分区
               </a>
             
           </div>
@@ -489,8 +569,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/01/next-config/" rel="prev" title="Next主题配置文件详解">
-                Next主题配置文件详解 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/31/php-uprage/" rel="prev" title="PHP版本升级">
+                PHP版本升级 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -540,8 +620,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/30/qn-jjtc/"
-           data-title="Hexo图床:七牛+Chrome+极简图床插件" data-url="http://yoursite.com/2016/11/30/qn-jjtc/">
+      <div class="ds-thread" data-thread-key="2018/01/29/zentao/"
+           data-title="禅道迁移/升级/备份" data-url="http://yoursite.com/2018/01/29/zentao/">
       </div>
     
   </div>
@@ -685,7 +765,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-概述"><span class="nav-text">1 概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-七牛云存储"><span class="nav-text">2 七牛云存储</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-极简图床插件"><span class="nav-text">3 极简图床插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-使用步骤"><span class="nav-text">4 使用步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-总结"><span class="nav-text">5 总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-迁移的条件"><span class="nav-text">1 迁移的条件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-禅道迁移"><span class="nav-text">2 禅道迁移</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-部署8-1-3"><span class="nav-text">2.1 部署8.1.3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-数据迁移"><span class="nav-text">2.2 数据迁移</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-禅道升级（官方）"><span class="nav-text">3 禅道升级（官方）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-升级步骤"><span class="nav-text">3.1 升级步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-注意事项"><span class="nav-text">3.2 注意事项</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-禅道备份-官方"><span class="nav-text">4 禅道备份(官方)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-一键安装包备份"><span class="nav-text">4.1 一键安装包备份</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-手工备份"><span class="nav-text">4.2 手工备份</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-1-配置文件、代码和附件的备份"><span class="nav-text">4.2.1 配置文件、代码和附件的备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-2-数据库备份"><span class="nav-text">4.2.2 数据库备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-3-禅道系统备份"><span class="nav-text">4.2.3 禅道系统备份</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-4-使用禅道自带脚本"><span class="nav-text">4.2.4 使用禅道自带脚本</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-参考资料"><span class="nav-text">5 参考资料</span></a></li></ol></div>
             
 
           </div>
