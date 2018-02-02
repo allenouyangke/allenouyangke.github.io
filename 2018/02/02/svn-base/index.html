@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="AllenKe, Linux, 运维, KeKe," />
+  <meta name="keywords" content="linux,svn," />
 
 
 
@@ -102,16 +102,22 @@
 
 
 
-<meta name="description" content="根据我的学习需求在自己的macbook上安装各种python的模版进行学习、开发，后续会不断进行更新……目前安装了Python2.7.10和Python3.2两个版本，但后面觉得本身基础知识不扎实，还是在远端的虚拟主机上摸索部署，目前通过PyCharm连接到远端的开发环境上进行相关开发操作，也方便了项目的同步。">
+<meta name="description" content="&amp;emsp;&amp;emsp;SVN是Subversion的简称，是一种集中式的版本控制系统。集中式代码管理的核心是服务器，所有开发者在开始新一天的工作之前必须从服务器获取代码，然后开发，最后解决冲突，提交。所有的版本信息都放在服务器上。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac下Python模版安装">
-<meta property="og:url" content="http://yoursite.com/2017/01/04/Python/Python-easygui/index.html">
+<meta property="og:title" content="SVN基础配置和使用">
+<meta property="og:url" content="http://yoursite.com/2018/02/02/svn-base/index.html">
 <meta property="og:site_name" content="KeKe Blog">
-<meta property="og:description" content="根据我的学习需求在自己的macbook上安装各种python的模版进行学习、开发，后续会不断进行更新……目前安装了Python2.7.10和Python3.2两个版本，但后面觉得本身基础知识不扎实，还是在远端的虚拟主机上摸索部署，目前通过PyCharm连接到远端的开发环境上进行相关开发操作，也方便了项目的同步。">
-<meta property="og:updated_time" content="2017-11-28T12:28:17.000Z">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;SVN是Subversion的简称，是一种集中式的版本控制系统。集中式代码管理的核心是服务器，所有开发者在开始新一天的工作之前必须从服务器获取代码，然后开发，最后解决冲突，提交。所有的版本信息都放在服务器上。">
+<meta property="og:image" content="http://yoursite.com/media/15175409332095.jpg">
+<meta property="og:image" content="http://yoursite.com/media/15175419796827.jpg">
+<meta property="og:image" content="http://yoursite.com/media/15175420717774.jpg">
+<meta property="og:image" content="http://yoursite.com/media/15175560856247.jpg">
+<meta property="og:image" content="http://yoursite.com/media/15175561783650.jpg">
+<meta property="og:updated_time" content="2018-02-02T07:27:58.545Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac下Python模版安装">
-<meta name="twitter:description" content="根据我的学习需求在自己的macbook上安装各种python的模版进行学习、开发，后续会不断进行更新……目前安装了Python2.7.10和Python3.2两个版本，但后面觉得本身基础知识不扎实，还是在远端的虚拟主机上摸索部署，目前通过PyCharm连接到远端的开发环境上进行相关开发操作，也方便了项目的同步。">
+<meta name="twitter:title" content="SVN基础配置和使用">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;SVN是Subversion的简称，是一种集中式的版本控制系统。集中式代码管理的核心是服务器，所有开发者在开始新一天的工作之前必须从服务器获取代码，然后开发，最后解决冲突，提交。所有的版本信息都放在服务器上。">
+<meta name="twitter:image" content="http://yoursite.com/media/15175409332095.jpg">
 
 
 
@@ -139,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/04/Python/Python-easygui/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/02/svn-base/"/>
 
 
 
 
 
-  <title> Mac下Python模版安装 | KeKe Blog </title>
+  <title> SVN基础配置和使用 | KeKe Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -311,7 +317,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/04/Python/Python-easygui/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/02/svn-base/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="柯爺">
@@ -335,7 +341,7 @@
             
             
               
-                Mac下Python模版安装
+                SVN基础配置和使用
               
             
           </h1>
@@ -348,8 +354,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-04T10:20:35+08:00">
-                2017-01-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-02T11:04:49+08:00">
+                2018-02-02
               </time>
             
 
@@ -367,8 +373,19 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/Svn/" itemprop="url" rel="index">
+                    <span itemprop="name">Svn</span>
                   </a>
                 </span>
 
@@ -382,8 +399,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2017/01/04/Python/Python-easygui/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/04/Python/Python-easygui/" itemprop="commentCount"></span>
+                <a href="/2018/02/02/svn-base/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/02/02/svn-base/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -414,9 +431,71 @@
       
 
       
-        <p>根据我的学习需求在自己的macbook上安装各种python的模版进行学习、开发，后续会不断进行更新……<br>目前安装了Python2.7.10和Python3.2两个版本，但后面觉得本身基础知识不扎实，还是在远端的虚拟主机上摸索部署，目前通过PyCharm连接到远端的开发环境上进行相关开发操作，也方便了项目的同步。<br><a id="more"></a></p>
-<h1 id="1-使用easy-install在线安装"><a href="#1-使用easy-install在线安装" class="headerlink" title="1 使用easy_install在线安装"></a>1 使用easy_install在线安装</h1><p>&emsp;&emsp;mac下默认的python环境集成了这个工具可以非常方便的安装各种python包。<br>&emsp;&emsp;easy_install是由PEAK(Python Enterprise Application Kit)开发的setuptools包里带的一个命令，所以使用easy_install实际上是在调用setuptools来完成安装模块的工作。通过模块名称来安装。setuptools会自动搜索PyPI 以查找最新版本的模块。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#格式</div><div class="line">easy_install parameter</div></pre></td></tr></table></figure></p>
-<h1 id="2-安装Python-easygui"><a href="#2-安装Python-easygui" class="headerlink" title="2 安装Python-easygui"></a>2 安装Python-easygui</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#在线下载easygui，并会自动解压</div><div class="line">sudo easy_install easygui</div><div class="line"></div><div class="line">#下载好后进入到解压的目录</div><div class="line">python setup.py</div><div class="line">install</div><div class="line"></div><div class="line">easy_install</div></pre></td></tr></table></figure>
+        <p>&emsp;&emsp;SVN是Subversion的简称，是一种集中式的版本控制系统。<br>集中式代码管理的核心是服务器，所有开发者在开始新一天的工作之前必须从服务器获取代码，然后开发，最后解决冲突，提交。所有的版本信息都放在服务器上。<br><a id="more"></a></p>
+<h1 id="1-SVN工作流程"><a href="#1-SVN工作流程" class="headerlink" title="1 SVN工作流程"></a>1 SVN工作流程</h1><p><img src="media/15175409332095.jpg" alt=""></p>
+<ul>
+<li><p><strong>开始上班：</strong>客户端连接到SVN服务器 → 从SVN服务器上下载项目组最新代码，并进入到自己的分支</p>
+</li>
+<li><p><strong>进行工作：</strong>编写代码，每天隔一个小时向服务器自己的分支提交一次代码</p>
+</li>
+<li><p><strong>快下班了：</strong>把自己的分支合并到SVN服务器的主分支上，一天的工作就完成了，并反映给SVN服务器</p>
+</li>
+</ul>
+<h1 id="2-服务器配置"><a href="#2-服务器配置" class="headerlink" title="2 服务器配置"></a>2 服务器配置</h1><p>&emsp;&emsp;&amp;MAC默认安装了SVN环境，只需要进行配置即可使用了。</p>
+<ul>
+<li>创建代码库</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 建立SVN目录，进入SVN主目录</div><div class="line">$ mkdir ./SVN </div><div class="line">$ cd ./SVN  </div><div class="line"># 创建一个myCode仓库</div><div class="line">$ svnadmin create mycode</div></pre></td></tr></table></figure>
+<ul>
+<li><p>创建完成后，会自动生成相关的配置文件和数据库文件等。<br><img src="media/15175419796827.jpg" alt=""></p>
+</li>
+<li><p>配置用户权限<br><strong>主要修改conf目录下的三个配置文件</strong><br><img src="media/15175420717774.jpg" alt=""></p>
+</li>
+</ul>
+<ul>
+<li>svnserve.conf</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#将下列配置项前面的#和空格都去掉</div><div class="line"># anon-access = read // 匿名访问的时候为只读，若改为 none 代表禁止匿名访问</div><div class="line"># auth-access = write</div><div class="line"># password-db = passwd</div><div class="line"># authz-db = authz</div></pre></td></tr></table></figure>
+<ul>
+<li>passwd</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">在 [users] 下面添加账号和密码，如：</div><div class="line">[users]</div><div class="line">henry = 725</div><div class="line">cathy = 111</div><div class="line">roger = 121</div></pre></td></tr></table></figure>
+<ul>
+<li>authz</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">将不同的用户进行分组，对组中用户进行统一管理</div><div class="line">[groups]</div><div class="line">topgroup = henry,cathy</div><div class="line">说明 henry 和 cathy 都是数据 topgroup 这个组的</div><div class="line">接下来再进行权限配置，使用 [/] 代表 svn 服务器中的所有资源库</div><div class="line">[/]</div><div class="line">@topgroup = rw</div><div class="line">上面的配置说明 topgroup 这个组中的所有用户对所有资源都有读写 (rw) 权限，组名前面要用 @</div><div class="line">如果是用户名，不用加 @，比如 roger 这个用户只有读取权限</div><div class="line">[/]</div><div class="line">roger = r</div><div class="line">至于其他的权限设置，可以参考 authz 文件中的其他内容</div></pre></td></tr></table></figure>
+<ul>
+<li>启动/关闭SVN服务器</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 启动</div><div class="line"># 启动有两种方式，其中一种都可以</div><div class="line">svnserve -d -r ./SVN</div><div class="line"># 或</div><div class="line">svnserve -d -r ./SVN/myCode</div><div class="line"></div><div class="line"># 关闭</div><div class="line"># 最简单粗暴的办法就是在监控管理器里直接关闭svn进程。</div></pre></td></tr></table></figure>
+<h1 id="3-客户端配置"><a href="#3-客户端配置" class="headerlink" title="3 客户端配置"></a>3 客户端配置</h1><p>&emsp;&emsp;人物角色: 项目经理 henry、程序员 cathy、新员工 roger</p>
+<h2 id="3-1-初始化导入"><a href="#3-1-初始化导入" class="headerlink" title="3.1 初始化导入"></a>3.1 初始化导入</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 命令格式</div><div class="line">import 源文件路径 服务器URL --username=用户名 --password=密码 -m“注释内容”</div><div class="line"></div><div class="line"># 创建henry</div><div class="line">svn import /Users/Henry/Desktop/henry svn://localhost/mycode/prj --username=henry --password=725 -m&quot;初始化导入&quot;</div></pre></td></tr></table></figure>
+<h2 id="3-2-同步远端代码到本地"><a href="#3-2-同步远端代码到本地" class="headerlink" title="3.2 同步远端代码到本地"></a>3.2 同步远端代码到本地</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 命令格式</div><div class="line">svn checkout 服务器URL 本地目</div><div class="line"></div><div class="line"># 从SVN服务器上现在代码</div><div class="line">svn checkout svn://localhost/myCode/prj /Users/Henry/Desktop/cathy --username=cathy --password=111</div><div class="line">svn checkout svn://localhost/myCode/prj /Users/Henry/Desktop/roger --username=roger --password=121</div></pre></td></tr></table></figure>
+<h2 id="3-3-提交更新"><a href="#3-3-提交更新" class="headerlink" title="3.3 提交更新"></a>3.3 提交更新</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 进入本地目录</div><div class="line">cd /Users/Henry/Desktop/cathy</div><div class="line"># 提交更新</div><div class="line">svn commit --username=cathy --password=111 -m&quot;cathy增加了1&quot;</div></pre></td></tr></table></figure>
+<h2 id="3-4-更新服务器代码到本地"><a href="#3-4-更新服务器代码到本地" class="headerlink" title="3.4 更新服务器代码到本地"></a>3.4 更新服务器代码到本地</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># 进入SVN目录</div><div class="line">cd /Users/Henry/Desktop/roger</div><div class="line"># 更新</div><div class="line">SVN update</div></pre></td></tr></table></figure>
+<h1 id="4-SVN目录结构"><a href="#4-SVN目录结构" class="headerlink" title="4 SVN目录结构"></a>4 SVN目录结构</h1><p>&emsp;&emsp;有一个很标准的目录结构，是这样的。比如项目是 proj，svn 地址为 svn://proj/，那么标准的 svn 布局是:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">svn://proj/</div><div class="line">|</div><div class="line">+-trunk</div><div class="line">+-branches</div><div class="line">+-tags</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;这是一个标准的布局，trunk 为主开发目录，branches 为分支开发目录，tags为tag 存档目录（不允许修改）。但是具体这几个目录应该如何使 用，svn 并没有明确的规范，更多的还是用户自己的习惯。</p>
+<p><strong>对于这几个开发目录，一般的使用方法有两种:</strong></p>
+<h2 id="4-1-trunk作为主开发目录的用法"><a href="#4-1-trunk作为主开发目录的用法" class="headerlink" title="4.1 trunk作为主开发目录的用法"></a>4.1 trunk作为主开发目录的用法</h2><p><img src="media/15175560856247.jpg" alt=""><br>&emsp;&emsp;所有的开 发都是基于 trunk 进行开发，当一个版本 / release 开发告一段落（开发、测试、文档、制作安装程序、打包等）结束后，代码 处于冻结状态（人为规定，可以通过 hook 来进行管理）。此时应该基于当前冻结的代码库，打 tag。当下一个版本 / 阶段的开发任务开始，继续在 trunk 进行开发。此时，如果发现了上一个已发行版本（Released Version）有一些 bug，或者一些很急迫的功能要求，而正在开发的版本（Developing Version）无法满足时间要求，这时候就需要在上一个版本上进行修改了。应该基于发行版对应的 tag，做相应的分支（branch）进行开发。例 如，刚刚发布 1.0，正在开发 2.0，此时要在 1.0 的基础上进行 bug 修正。</p>
+<h2 id="4-2-trunk作为发布版本目录的用法"><a href="#4-2-trunk作为发布版本目录的用法" class="headerlink" title="4.2 trunk作为发布版本目录的用法"></a>4.2 trunk作为发布版本目录的用法</h2><p><img src="media/15175561783650.jpg" alt=""><br>&emsp;&emsp;在每一个 release 的 branch 中进行 各自的开发，trunk 只做发布使用。这种开发模式当中，trunk 是不承担具体开发任务的，一个版本 / 阶段的开发任务在开始的时候，根据已经 release 的版本做新的开发分支，并且基于这个分支进行开发。</p>
+<h2 id="4-3-两种开发模式比较"><a href="#4-3-两种开发模式比较" class="headerlink" title="4.3 两种开发模式比较"></a>4.3 两种开发模式比较</h2><ul>
+<li><p><strong>第一种开发模式（trunk 进行主要开发，集中式）：</strong></p>
+<ul>
+<li><strong>优点：</strong><br>管理简单</li>
+<li><strong>缺点：</strong><br>当开发的模块比较多，开发人数 / 小团队比较多 的时候，很容易产生冲突而影响对方的开发。因为所有的改动都有可能触碰对方的改动</li>
+</ul>
+</li>
+<li><p><strong>第二重开发模式（分支进行主要开发，分散式）：</strong></p>
+<ul>
+<li><strong>优点：</strong><br>各自开发独立，不容易相互影响。</li>
+<li><strong>缺点：</strong><br>管理复杂，merge 的时候很麻烦，容易死人。</li>
+</ul>
+</li>
+</ul>
+<h1 id="5-附录"><a href="#5-附录" class="headerlink" title="5 附录"></a>5 附录</h1><h2 id="5-1-SVN常用命令"><a href="#5-1-SVN常用命令" class="headerlink" title="5.1 SVN常用命令"></a>5.1 SVN常用命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">svn import  : 将文件导入到服务器</div><div class="line">svn checkout: 下载服务器的代码到本地   (简写svn co)</div><div class="line">svn commit  : 将改动的文件提交到服务器  (简写svn ci)</div><div class="line">svn update  : 更新服务器的代码到本地   (简写svn up)</div><div class="line">svn add     : 向本地的版本控制库中添加新文件</div><div class="line">svn delete  : 从本地的版本控制库中删除文件 (简写svn del)</div><div class="line">svn remove  : 从本地的版本控制库中删除文件(简写svn rm)</div><div class="line">svn move    : 移动文件或者目录或文件更名</div><div class="line">svn mkdir   : 创建纳入版本控制下的新目录</div><div class="line">svn revert  : 撤销之前的一切修改</div><div class="line">svn merge   : 将两个版本之间的差异合并到当前文件</div><div class="line">svn info    : 查看文件的详细信息</div><div class="line">svn diff    : 查看不同版本的区别</div><div class="line">svn log     : 查看日志信息</div><div class="line">svn list    : 列出版本库下的文件和目录列表</div><div class="line">svn status  : 查看文件状态（简写svn st）</div><div class="line">svn help    : 获取帮助信息（比如svn help ci）</div><div class="line">svn lock    : 加锁</div><div class="line">svn unlock  : 解锁</div><div class="line">更多命令，使用svn help 进行查看</div><div class="line">svn help [命令] // 可以查看命令帮助</div></pre></td></tr></table></figure>
+<h2 id="5-2-SVN文件状态标识"><a href="#5-2-SVN文件状态标识" class="headerlink" title="5.2 SVN文件状态标识"></a>5.2 SVN文件状态标识</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">使用文件状态命令 svn st 查看文件状态时的标识</div><div class="line">&apos; &apos; 没有修改</div><div class="line">&apos;A&apos; 被添加到本地代码仓库</div><div class="line">&apos;C&apos; 冲突</div><div class="line">&apos;D&apos; 被删除</div><div class="line">&apos;I&apos; 被忽略</div><div class="line">&apos;M&apos; 被修改</div><div class="line">&apos;R&apos; 被替换</div><div class="line">&apos;X&apos; 外部定义创建的版本目录</div><div class="line">&apos;?&apos; 文件没有被添加到本地版本库内</div><div class="line">&apos;!&apos; 文件丢失或者不完整（不是通过svn命令删除的文件）</div><div class="line">&apos;~&apos; 受控文件被其他文件阻隔</div></pre></td></tr></table></figure>
+<p><a href="https://www.jianshu.com/p/a27849bde1d3" target="_blank" rel="external">阅读原文</a></p>
 
       
     </div>
@@ -452,13 +531,21 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          
+            <a href="/tags/svn/" rel="tag"><i class="fa fa-tag"></i> svn</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/29/Web/apache-tomcat/" rel="next" title="tomcat多实例安装和配置">
-                <i class="fa fa-chevron-left"></i> tomcat多实例安装和配置
+              <a href="/2018/01/31/php-uprage/" rel="next" title="PHP版本升级">
+                <i class="fa fa-chevron-left"></i> PHP版本升级
               </a>
             
           </div>
@@ -466,10 +553,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/24/screen-command/" rel="prev" title="常用的终端快捷键一">
-                常用的终端快捷键一 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -518,8 +601,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/01/04/Python/Python-easygui/"
-           data-title="Mac下Python模版安装" data-url="http://yoursite.com/2017/01/04/Python/Python-easygui/">
+      <div class="ds-thread" data-thread-key="2018/02/02/svn-base/"
+           data-title="SVN基础配置和使用" data-url="http://yoursite.com/2018/02/02/svn-base/">
       </div>
     
   </div>
@@ -663,7 +746,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-使用easy-install在线安装"><span class="nav-text">1 使用easy_install在线安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-安装Python-easygui"><span class="nav-text">2 安装Python-easygui</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-SVN工作流程"><span class="nav-text">1 SVN工作流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-服务器配置"><span class="nav-text">2 服务器配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-客户端配置"><span class="nav-text">3 客户端配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-初始化导入"><span class="nav-text">3.1 初始化导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-同步远端代码到本地"><span class="nav-text">3.2 同步远端代码到本地</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-提交更新"><span class="nav-text">3.3 提交更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-更新服务器代码到本地"><span class="nav-text">3.4 更新服务器代码到本地</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-SVN目录结构"><span class="nav-text">4 SVN目录结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-trunk作为主开发目录的用法"><span class="nav-text">4.1 trunk作为主开发目录的用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-trunk作为发布版本目录的用法"><span class="nav-text">4.2 trunk作为发布版本目录的用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-两种开发模式比较"><span class="nav-text">4.3 两种开发模式比较</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-附录"><span class="nav-text">5 附录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-SVN常用命令"><span class="nav-text">5.1 SVN常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-SVN文件状态标识"><span class="nav-text">5.2 SVN文件状态标识</span></a></li></ol></li></ol></div>
             
 
           </div>
