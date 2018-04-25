@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="AllenKe, Linux, 运维, KeKe," />
+  <meta name="keywords" content="linux,smokeping," />
 
 
 
@@ -102,16 +102,19 @@
 
 
 
-<meta name="description" content="不忘初心，方能终始">
+<meta name="description" content="&amp;emsp;&amp;emsp; SmokePing是一款完全免费的可以用来监控IDC网络质量的工具，并且它有一个基于RRDTool绘图的前端展示界面，用户可以直观的通过浏览器查看各类监控信息。虽然这东西年代久远，但是还是可以做为一个参考的工具使用。根据相关的教程，还是推荐使用zabbix较好。
+&amp;emsp;&amp;emsp; 由于新公司的业务涉及到海外的市场，有较多的海外服务器，为了提升对关地区的业务服务器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="smokeping_install">
+<meta property="og:title" content="Smokeping安装部署">
 <meta property="og:url" content="http://yoursite.com/2018/04/25/smokeping-install/index.html">
 <meta property="og:site_name" content="KeKe Blog">
-<meta property="og:description" content="不忘初心，方能终始">
-<meta property="og:updated_time" content="2018-04-25T02:14:23.087Z">
+<meta property="og:description" content="&amp;emsp;&amp;emsp; SmokePing是一款完全免费的可以用来监控IDC网络质量的工具，并且它有一个基于RRDTool绘图的前端展示界面，用户可以直观的通过浏览器查看各类监控信息。虽然这东西年代久远，但是还是可以做为一个参考的工具使用。根据相关的教程，还是推荐使用zabbix较好。
+&amp;emsp;&amp;emsp; 由于新公司的业务涉及到海外的市场，有较多的海外服务器，为了提升对关地区的业务服务器">
+<meta property="og:updated_time" content="2018-04-25T08:22:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="smokeping_install">
-<meta name="twitter:description" content="不忘初心，方能终始">
+<meta name="twitter:title" content="Smokeping安装部署">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp; SmokePing是一款完全免费的可以用来监控IDC网络质量的工具，并且它有一个基于RRDTool绘图的前端展示界面，用户可以直观的通过浏览器查看各类监控信息。虽然这东西年代久远，但是还是可以做为一个参考的工具使用。根据相关的教程，还是推荐使用zabbix较好。
+&amp;emsp;&amp;emsp; 由于新公司的业务涉及到海外的市场，有较多的海外服务器，为了提升对关地区的业务服务器">
 
 
 
@@ -145,7 +148,7 @@
 
 
 
-  <title> smokeping_install | KeKe Blog </title>
+  <title> Smokeping安装部署 | KeKe Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -335,7 +338,7 @@
             
             
               
-                smokeping_install
+                Smokeping安装部署
               
             
           </h1>
@@ -358,6 +361,35 @@
             
           </span>
 
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Smokeping/" itemprop="url" rel="index">
+                    <span itemprop="name">Smokeping</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Smokeping/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -396,7 +428,70 @@
       
 
       
-        
+        <p> &emsp;&emsp; SmokePing是一款完全免费的可以用来监控IDC网络质量的工具，并且它有一个基于RRDTool绘图的前端展示界面，用户可以直观的通过浏览器查看各类监控信息。虽然这东西年代久远，但是还是可以做为一个参考的工具使用。根据相关的教程，还是推荐使用zabbix较好。</p>
+<p>&emsp;&emsp; 由于新公司的业务涉及到海外的市场，有较多的海外服务器，为了提升对关地区的业务服务器的网络状态进行把控，先部署了一套smokeping做为短期的网络状态监控工具，来判断相关的网络情况。</p>
+<p>&emsp;&emsp; 由于目前没有本地的服务器资源和相关虚拟机资源，只能暂时在个人的香港服务器上进行部署，获取的数据是香港到各个的地区的网络状态。</p>
+<a id="more"></a>
+<h1 id="1-系统环境"><a href="#1-系统环境" class="headerlink" title="1 系统环境"></a>1 系统环境</h1><ul>
+<li>CentOS Linux release 7.4.1708 (Core)</li>
+<li>nginx version: nginx/1.12.2</li>
+<li>spawn-fcgi-1.6.3</li>
+<li>smokeping-2.6.11</li>
+</ul>
+<p><strong>总结：</strong>CentOS7.x + Nginx + Fast_cgi + SmokePing</p>
+<h1 id="2-安装部署"><a href="#2-安装部署" class="headerlink" title="2 安装部署"></a>2 安装部署</h1><h2 id="2-1-安装依赖包"><a href="#2-1-安装依赖包" class="headerlink" title="2.1 安装依赖包"></a>2.1 安装依赖包</h2><p>安装EPEL源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install epel-release</div></pre></td></tr></table></figure>
+<p>安装绘图工具</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install rrdtool perl-rrdtool</div></pre></td></tr></table></figure>
+<p>安装smokeping的相关扩展</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install perl-core openssl-devel fping curl gcc-c++</div></pre></td></tr></table></figure>
+<p><strong>注：</strong>目前可先安装这些部分依赖包，后面编译过程中如果出错，smokeping本身提供了相关的依赖包安装脚本。</p>
+<h2 id="2-2-安装smokeping"><a href="#2-2-安装smokeping" class="headerlink" title="2.2 安装smokeping"></a>2.2 安装smokeping</h2><p>下载源码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://oss.oetiker.ch/smokeping/pub/smokeping-2.6.11.tar.gz -P /usr/local/src/</div></pre></td></tr></table></figure>
+<p>解压源码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /usr/local/src/</div><div class="line">tar zxvf smokeping-2.6.11.tar.gz</div></pre></td></tr></table></figure>
+<p>尝试配置，会出现错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">cd smokeping-2.6.11</div><div class="line">./configure --prefix=/opt/smokeping</div><div class="line"></div><div class="line"># 报错信息（部分）</div><div class="line"></div><div class="line"># 在目录下执行依赖包安装</div><div class="line">./setup/build-perl-modules.sh /opt/smokeping/thirdparty</div><div class="line"></div><div class="line"># 再次进行配置</div><div class="line">./configure --prefix=/opt/smokeping</div><div class="line"></div><div class="line"># 编译安装</div><div class="line">make install</div></pre></td></tr></table></figure>
+<h2 id="2-3-配置SmokePing"><a href="#2-3-配置SmokePing" class="headerlink" title="2.3 配置SmokePing"></a>2.3 配置SmokePing</h2><p>创建三个必要的目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /opt/smokeping/htdocs</div><div class="line">mkdir cache data var</div></pre></td></tr></table></figure>
+<p>重命名fcgi</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv smokeping.fcgi.dist smokeping.fcgi</div></pre></td></tr></table></figure>
+<p>修改权限，防止出错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod 600 /opt/smokeping/etc/smokeping_secrets.dist</div></pre></td></tr></table></figure>
+<p>编辑配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">cd /opt/smokeping/etc</div><div class="line">cp config.dist config</div><div class="line">vi config</div><div class="line"></div><div class="line"># 需要将imgcache,datadir,piddir的路径改为 /opt/smokeping/htdocs/*</div><div class="line"></div><div class="line">imgcache = /opt/smokeping/htdocs/cache</div><div class="line">datadir  = /opt/smokeping/htdocs/data</div><div class="line">piddir  = /opt/smokeping/htdocs/var</div></pre></td></tr></table></figure>
+<h2 id="2-4-启动运行"><a href="#2-4-启动运行" class="headerlink" title="2.4 启动运行"></a>2.4 启动运行</h2><p>使用debug模式尝试运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd /opt/smokeping/bin</div><div class="line">./smokeping --config=/opt/smokeping/etc/config --debug</div><div class="line"># 测试通过后则可以正常启动</div></pre></td></tr></table></figure>
+<p>启动运行smokeping，并开启日志记录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./smokeping --config=/opt/smokeping/etc/config --logfile=smoke.log</div></pre></td></tr></table></figure>
+<h1 id="3-nginx反向代理"><a href="#3-nginx反向代理" class="headerlink" title="3 nginx反向代理"></a>3 nginx反向代理</h1><h2 id="3-1-安装部署"><a href="#3-1-安装部署" class="headerlink" title="3.1 安装部署"></a>3.1 安装部署</h2><p>安装Nginx和Fast_fcgi</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">yum -y install nginx</div><div class="line"># 由于nginx本身不支持直接访问fcgi，所以需要装一个spawn-fcgi</div><div class="line">yum -y install spawn-fcgi</div></pre></td></tr></table></figure>
+<p>调整WEB目录所有者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chown -R nginx:nginx /opt/smokeping/htdocs</div></pre></td></tr></table></figure>
+<p><strong>使用spawn-fcgi以nginx用户来启动Smokeping的FCGI程序</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">spawn-fcgi -a 127.0.0.1 -p 9007 -P /var/run/smokeping-fastcgi.pid -u nginx -f /opt/smokeping/htdocs/smokeping.fcgi</div></pre></td></tr></table></figure>
+<h2 id="3-2-配置访问主机"><a href="#3-2-配置访问主机" class="headerlink" title="3.2 配置访问主机"></a>3.2 配置访问主机</h2><p>创建主机配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">vi /etc/nginx/conf.d/somkeping.conf</div><div class="line"># 主机内容如下</div><div class="line">server &#123;</div><div class="line">        listen       8080;</div><div class="line">        server_name  localhost;</div><div class="line">        location / &#123;</div><div class="line">            root   /opt/smokeping/htdocs/;</div><div class="line">            index  index.html index.htm smokeping.fcgi;</div><div class="line">        &#125;</div><div class="line">        location ~ .*\.fcgi$ &#123;</div><div class="line">            root  /opt/smokeping/htdocs/;</div><div class="line">            fastcgi_pass   127.0.0.1:9007;</div><div class="line">            include /etc/nginx/fastcgi_params;</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>配置nginx主配置文件 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"># 清空主配置文件</div><div class="line">:.,$d</div><div class="line"></div><div class="line"># 输入新的内容</div><div class="line">user  nginx;</div><div class="line">worker_processes  4;</div><div class="line"></div><div class="line">error_log  /var/log/nginx/error.log warn;</div><div class="line">pid        /var/run/nginx.pid;</div><div class="line"></div><div class="line"></div><div class="line">events &#123;</div><div class="line">    worker_connections  1024;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">http &#123;</div><div class="line">    include       /etc/nginx/mime.types;</div><div class="line">    default_type  application/octet-stream;</div><div class="line"></div><div class="line">    log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;</div><div class="line">                      &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;</div><div class="line">                      &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;</div><div class="line"></div><div class="line">    access_log  /var/log/nginx/access.log  main;</div><div class="line"></div><div class="line">    sendfile        on;</div><div class="line">    #tcp_nopush     on;</div><div class="line"></div><div class="line">    keepalive_timeout  65;</div><div class="line"></div><div class="line">    #gzip  on;</div><div class="line"></div><div class="line">    include /etc/nginx/conf.d/*.conf;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>启动nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">systemctl start nginx</div></pre></td></tr></table></figure>
+<p>关闭防火墙</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">systemctl stop firewalld.service</div><div class="line">systemctl disable firewalld.service</div></pre></td></tr></table></figure>
+<p>通过WEB浏览器输入<code>http://ip:8080</code></p>
+<h1 id="4-中文支持"><a href="#4-中文支持" class="headerlink" title="4 中文支持"></a>4 中文支持</h1><p><strong>Smokeping的页面和图表都不支持中文，但可以稍作修改让它支持。</strong></p>
+<p>安装中文字体</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install wqy-zenhei-fonts.noarch</div></pre></td></tr></table></figure>
+<p>配置文件插入相关编码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># 修改smokeping主配置文件</div><div class="line">vi /opt/smokeping/etc/config</div><div class="line"></div><div class="line"># 在*** Presentation ***下面插入</div><div class="line">charset = utf-8</div><div class="line"></div><div class="line"># 修改分组的配置文件</div><div class="line">vi /opt/smokeping/lib/Smokeping/Graphs.pm</div><div class="line"></div><div class="line"># 在 &apos;--end&apos;, $stasks[0][2],下面插入</div><div class="line">&apos;--font TITLE:20:&quot;WenQuanYi Zen Hei Mono&quot;&apos;,</div><div class="line"></div><div class="line"># 最后在主配置文件里修改相关部分为中文</div></pre></td></tr></table></figure>
+<p>重启smokeping和fcgi即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ps -ef | grep smokeping</div><div class="line">kill -9 进程PID</div><div class="line"></div><div class="line">cd /opt/smokeping/bin</div><div class="line">./smokeping --config=/opt/smokeping/etc/config --logfile=smoke.log</div><div class="line">spawn-fcgi -a 127.0.0.1 -p 9007 -P /var/run/smokeping-fastcgi.pid -u nginx -f /opt/smokeping/htdocs/smokeping.fcgi</div></pre></td></tr></table></figure>
+<h1 id="5-参考资料"><a href="#5-参考资料" class="headerlink" title="5 参考资料"></a>5 参考资料</h1><p><a href="http://ip.yqie.com/search.aspx?searchword=%E5%B9%BF%E5%B7%9E" target="_blank" rel="external">IP地址分部查询</a></p>
+<p><a href="https://lala.im/2821.html" target="_blank" rel="external">CentOS7详细安装配置Smokeing</a></p>
+<p><a href="https://www.cnblogs.com/icecrystal/p/5851631.html" target="_blank" rel="external">smokeping安装配置使用</a></p>
+<p><a href="https://www.cnblogs.com/xuliangwei/p/6344220.html" target="_blank" rel="external">smokeping安装部署最佳实践</a></p>
+<p><a href="https://www.cnblogs.com/binleelinux/p/5872067.html" target="_blank" rel="external">CentOS6安装smokeping</a></p>
+
       
     </div>
 
@@ -430,6 +525,14 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
+          
+            <a href="/tags/smokeping/" rel="tag"><i class="fa fa-tag"></i> smokeping</a>
+          
+        </div>
       
 
       
@@ -498,7 +601,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2018/04/25/smokeping-install/"
-           data-title="smokeping_install" data-url="http://yoursite.com/2018/04/25/smokeping-install/">
+           data-title="Smokeping安装部署" data-url="http://yoursite.com/2018/04/25/smokeping-install/">
       </div>
     
   </div>
@@ -522,8 +625,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/mac_pic_01.jpg"
@@ -542,7 +654,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -551,7 +663,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -623,6 +735,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-系统环境"><span class="nav-text">1 系统环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-安装部署"><span class="nav-text">2 安装部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-安装依赖包"><span class="nav-text">2.1 安装依赖包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-安装smokeping"><span class="nav-text">2.2 安装smokeping</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-配置SmokePing"><span class="nav-text">2.3 配置SmokePing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-启动运行"><span class="nav-text">2.4 启动运行</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-nginx反向代理"><span class="nav-text">3 nginx反向代理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-安装部署"><span class="nav-text">3.1 安装部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-配置访问主机"><span class="nav-text">3.2 配置访问主机</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-中文支持"><span class="nav-text">4 中文支持</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-参考资料"><span class="nav-text">5 参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
